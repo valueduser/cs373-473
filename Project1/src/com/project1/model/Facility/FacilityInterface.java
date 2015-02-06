@@ -1,4 +1,4 @@
-package com.project1.model.Facility
+package com.project1.model.Facility;
 
 public interface Facility {
 
