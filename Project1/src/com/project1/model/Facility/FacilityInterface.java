@@ -1,6 +1,6 @@
 package com.project1.model.Facility;
 
-public interface Facility {
+public interface FacilityInterface {
 
 	/*
 	 * Functions will need to be set up to return proper datatypes.

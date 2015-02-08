@@ -3,8 +3,9 @@ package com.project1.model.Facility;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.project1.model.Maintenence.*;
 
-public class Room implements Facility {
+public class Room implements FacilityInterface {
 
 	public static final int MAX_ROOM_CAPACITY = 3;
 
@@ -13,7 +14,6 @@ public class Room implements Facility {
 	private boolean isUsed = false;
 	private boolean isVacant = false;
 	private String usage;
-	private List<Facility> rooms = new ArrayList<Facility>();
 	private String inspectionInfo; //will probably change this to a list of inspection objects or, to keep it simple, structs
 	private String startDate; //yyyymmdd
 	private String endDate; //yyyymmdd
