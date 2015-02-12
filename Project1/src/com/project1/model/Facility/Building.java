@@ -10,6 +10,7 @@ public class Building implements FacilityInterface {
 	public static final int MAX_BUILDING_CAPACITY = 15;
 
 	private int serialNumber;
+	private int parentId;
 	private int capacity; //number of rooms being used multiplied by the capacity of each room
 	private boolean isUsed = false;
 	private boolean isVacant = false;
@@ -18,7 +19,11 @@ public class Building implements FacilityInterface {
 	private String inspectionInfo; //will probably change this to a list of inspection objects or, to keep it simple, structs
 	private String startDate; //yyyymmdd
 	private String endDate; //yyyymmdd
+	/*in minutes*/
 	private float downTime;
+	private int scheduledDownTime;
+	private int unscheduledDownTime;
+
 	public void listFacilities() {
 		// TODO Auto-generated method stub
 		

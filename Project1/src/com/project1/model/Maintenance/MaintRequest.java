@@ -10,8 +10,10 @@ public class MaintRequest implements MaintenanceInterface {
 	private int timeToComplete;
 	private boolean isOpen;
 	private boolean isScheduled;
-	private int startDate;
-	private int endDate;
+
+	private List<MaintenanceInterface> maintenanceList;
+	private List<MaintenanceInterface> pendingMaintenance;
+	private List<MaintenanceInterface> completedMaintenance;
 
 
 	/*Mutators*/
@@ -30,11 +32,14 @@ public class MaintRequest implements MaintenanceInterface {
 	public void setIsScheduled(boolean isScheduled){
 		this.isScheduled = isScheduled;
 	}
-	public void setStartDate(int startDate){
-		this.startDate = startDate;
+	public void setMaintenanceList(List<MaintenanceInterface> maintenanceList){
+		this.maintenanceList = maintenanceList;
 	}
-	public void setEndDate(int endDate){
-		this.endDate = endDate;
+	public void setPendingInspections (List<MaintenanceInterface> pendingMaintenance){
+		this.pendingMaintenance = pendingMaintenance;
+	}
+	public void setPassedInspections (List<MaintenanceInterface> completedMaintenance) {
+		this.completedMaintenance = completedMaintenance;
 	}
 	
 	/*Accessors*/
@@ -53,15 +58,17 @@ public class MaintRequest implements MaintenanceInterface {
 	public boolean getIsScheduled(){
 		return this.isScheduled;
 	}
-	public int getStartDate(){
-		return this.startDate;
+	public List<MaintenanceInterface> getMaintenanceList () {
+		return this.maintenanceList;
 	}
-	public int getEndDate(){
-		return this.endDate;
+	public List<MaintenanceInterface> getPendingMaintenance () {
+		return this.pendingMaintenance;
 	}
-
+	public List<MaintenanceInterface> getCompletedMaintenance (){
+		return this.completedMaintenance;
+	}
 	
-	public void ScheduleMaintenance(int severity, String maintType) {
+	public void ScheduleMaintenance(int facilitySerialNumber, String maintType) {
 		// TODO Auto-generated method stub
 		
 	}

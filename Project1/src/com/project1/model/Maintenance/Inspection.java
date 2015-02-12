@@ -7,10 +7,9 @@ import java.util.List;
 public class Inspection implements MaintenanceInterface {
 
 	private List<Inspection> inspectionList = new ArrayList<Inspection>();
-	private int scheduledDownTime;
-	private int unscheduledDownTime;
 	private List<Inspection> pendingInspections = new ArrayList<Inspection>();
 	private List<Inspection> passedInspections = new ArrayList<Inspection>();
+	private int timeToComplete;
 
 	
 

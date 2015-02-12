@@ -10,6 +10,7 @@ public class Room implements FacilityInterface {
 	public static final int MAX_ROOM_CAPACITY = 3;
 
 	private int serialNumber;
+	private int parentId;
 	private int capacity; //number of people in using the room
 	private boolean isUsed = false;
 	private boolean isVacant = false;
@@ -17,7 +18,12 @@ public class Room implements FacilityInterface {
 	private String inspectionInfo; //will probably change this to a list of inspection objects or, to keep it simple, structs
 	private String startDate; //yyyymmdd
 	private String endDate; //yyyymmdd
-	private float downTime;
+
+	/*in minutes*/
+	private float downTime; 
+	private int scheduledDownTime;
+	private int unscheduledDownTime;
+
 	public void listFacilities() {
 		// TODO Auto-generated method stub
 		
