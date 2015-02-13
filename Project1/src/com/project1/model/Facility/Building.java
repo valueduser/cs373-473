@@ -2,6 +2,8 @@ package com.project1.model.Facility;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.project1.dal.ManagmentDB;
 import com.project1.model.Maintenance.*;
 import com.project1.model.Facility.Room;
 
@@ -23,11 +25,14 @@ public class Building implements FacilityInterface {
 	private float downTime;
 	private int scheduledDownTime;
 	private int unscheduledDownTime;
+	
+	private String facilityTableName = "facilities";
 
 	public void listFacilities() {
-		// TODO Auto-generated method stub
-		
+		String call = "SELECT id, capacity, isUsed, hasVacancy, usage, startDate, endDate, downTime " + "FROM " + facilityTableName + ";";
+		ManagmentDB.executeDBCall(call);
 	}
+	
 	public void addNewFacility() {
 		// TODO Auto-generated method stub
 		

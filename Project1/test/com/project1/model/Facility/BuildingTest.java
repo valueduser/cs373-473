@@ -128,6 +128,8 @@ public class BuildingTest {
 
 	@Test
 	public void testVacateFacility() {
+		//TODO vacate facility
+		assert.equals("Vacating Facility: ", true, bldg.getVacancy());
 		fail("Not yet implemented");
 	}
 
