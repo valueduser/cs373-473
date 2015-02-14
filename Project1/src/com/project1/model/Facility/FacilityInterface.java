@@ -1,5 +1,7 @@
 package com.project1.model.Facility;
 
+import java.util.List;
+
 public interface FacilityInterface {
 
 	/*
@@ -7,7 +9,7 @@ public interface FacilityInterface {
 	 */
 	
 	//these are all db calls
-	public void listFacilities ();
+	public List<Building> listFacilities ();
 	public void addNewFacility(); //new serial number will be generated here
 	public void addFacilityDetails(int facilitySerialNumber);
 	public void removeFacility(int facilitySerialNumber); 

@@ -9,9 +9,11 @@ public class ManagmentDB extends Db{
 
 	String sUrlString = "jdbc:sqlite:FacMgmt.db";
 	
-	ManagmentDB mydb = new ManagmentDB("org.sqlite.JDBC",sUrlString);
+	
 	
 	String call = null;
+	
+	public ManagmentDB()throws Exception{} 
 	
 	public ManagmentDB(String sDriverKey, String sUrlKey) throws Exception{
 		init(sDriverKey, sUrlKey);
@@ -22,7 +24,7 @@ public class ManagmentDB extends Db{
 			System.out.println("Failed to make connection!");
 		}
 	}
-	
+	ManagmentDB mydb = new ManagmentDB("org.sqlite.JDBC",sUrlString);
 	public ResultSet executeDBCall(String call)
 	{
 		ResultSet response = null;

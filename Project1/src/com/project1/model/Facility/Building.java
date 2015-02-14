@@ -28,9 +28,9 @@ public class Building implements FacilityInterface {
 	
 	private String facilityTableName = "facilities";
 
-	public void listFacilities() {
+	public List<Building> listFacilities() {
 		String call = "SELECT id, capacity, isUsed, hasVacancy, usage, startDate, endDate, downTime " + "FROM " + facilityTableName + ";";
-		ManagmentDB.executeDBCall(call);
+		return Building; //todo
 	}
 	
 	public void addNewFacility() {
