@@ -21,7 +21,7 @@ public class BuildingDAO {
 			Statement statement = DBHelper.getConnection().createStatement();
 			String listFacilityQuery = "SELECT facility FROM " + facilityTableName + ";";
 			ResultSet rs = statement.executeQuery(listFacilityQuery);
-			System.out.println("");
+			
 			List<Building> facilityList = new ArrayList<Building>();
 			
 			while(rs.next()){
@@ -52,7 +52,7 @@ public class BuildingDAO {
 		{
 			Statement statement = DBHelper.getConnection().createStatement();
 			ArrayList<String> detailList = new ArrayList<String>(); //TODO build list of column names
-			ArrayList detailUpdate = new ArrayList<String>(); //TODO build list of column details to update with 			
+			ArrayList<String> detailUpdate = new ArrayList<String>(); //TODO build list of column details to update with 			
 			
 			for (int i = 0; i < detailList.size(); i++){
 				String addFacilityDetsQuery = "UPDATE " + facilityTableName + "SET " + detailList.get(i) + " = " + detailUpdate.get(i) + " WHERE id = " + facilitySerialNumber + ";"; //TODO add facility details (default capacity etc)
@@ -88,7 +88,7 @@ public class BuildingDAO {
 
 			while(rs.next()){
 				Building bldg = new Building();
-				bldg = rs.getString("facility"); //TODO cast to building -- probably just parse?
+				bldg = (Building) rs.getString("facility"); //TODO cast to building -- probably just parse?
 				facilityList.add(bldg);
 			}
 			return facilityList;
@@ -337,5 +337,4 @@ public class BuildingDAO {
 			System.err.println("Error: " + sqlExcep.getMessage());
 		}
 	}
-
 }
