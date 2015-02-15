@@ -10,6 +10,7 @@ public class MaintRequest implements MaintenanceInterface {
 	private int timeToComplete;
 	private boolean isOpen;
 	private boolean isScheduled;
+	int startDate;
 
 	private List<MaintenanceInterface> maintenanceList;
 	private List<MaintenanceInterface> pendingMaintenance;
@@ -67,43 +68,50 @@ public class MaintRequest implements MaintenanceInterface {
 	public List<MaintenanceInterface> getCompletedMaintenance (){
 		return this.completedMaintenance;
 	}
-	
-	public void ScheduleMaintenance(int facilitySerialNumber, String maintType) {
+	@Override
+	public void ScheduleMaintenance(int facilitySerialNumber, String maintType,
+			int startDate) {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
 	public void makeFacilityMaintRequest(int facilitySerialNumber,
-			int sevarity, String maintType) {
+			String maintType) {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
 	public float calcMaintCostForFacility(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
 	public float calcProblemRateForFacility(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
 	public float calcDownTimeForFaciliity(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
 	public ArrayList<MaintenanceInterface> listMaintRequestsForFacility(
 			int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
 	public ArrayList<MaintenanceInterface> listMaint(int facilitySerialNumber,
 			String maintType) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
 	public ArrayList<MaintenanceInterface> listFacilityProblems(
 			int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }
-

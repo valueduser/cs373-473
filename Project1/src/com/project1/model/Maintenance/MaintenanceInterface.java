@@ -6,8 +6,8 @@ public interface MaintenanceInterface {
 
 	public final String[] maintTypes = {"SEV1", "SEV2", "SEV3", "INSPECTION", "ALL"};
 
-	public void ScheduleMaintenance(int facilitySerialNumber, String maintType);
-	public void makeFacilityMaintRequest(int facilitySerialNumber, int sevarity, String maintType);
+	public void ScheduleMaintenance(int facilitySerialNumber, String maintType, int startDate);
+	public void makeFacilityMaintRequest(int facilitySerialNumber, String maintType);
 	public float calcMaintCostForFacility(int facilitySerialNumber);
 	public float calcProblemRateForFacility(int facilitySerialNumber);
 	public float calcDownTimeForFaciliity(int facilitySerialNumber);

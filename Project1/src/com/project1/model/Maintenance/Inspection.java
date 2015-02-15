@@ -5,96 +5,114 @@ import java.util.List;
 
 
 public class Inspection implements MaintenanceInterface {
-
-	private List<Inspection> inspectionList = new ArrayList<Inspection>();
-	private List<Inspection> pendingInspections = new ArrayList<Inspection>();
-	private List<Inspection> passedInspections = new ArrayList<Inspection>();
+	
+	private int requestID;
+	private String maintType;
+	private boolean isOpen;
+	private boolean isScheduled;
 	private int timeToComplete;
+	int startDate;
 
+	private List<MaintenanceInterface> inspectionList;
+	private List<MaintenanceInterface> pendingInspections;
+	private List<MaintenanceInterface> passedInspections;
 	
 
-	public void ScheduleMaintenance() {
+	/*Mutators*/
+	public void setRequestID(int id){
+		this.requestID = id;
+	}
+	public void setMaintType (String type){
+		this.maintType = type;
+	}
+	public void setTimeToComplete(int timeToComplete){
+		this.timeToComplete = timeToComplete;
+	}
+	public void setIsOpen(boolean isOpen){
+		this.isOpen = isOpen;
+	}
+	public void setIsScheduled(boolean isScheduled){
+		this.isScheduled = isScheduled;
+	}
+	public void setInspectionList(List<MaintenanceInterface> inspectionList){
+		this.inspectionList = inspectionList;
+	}
+	public void setPendingInspections (List<MaintenanceInterface> pendingInspections){
+		this.pendingInspections = pendingInspections;
+	}
+	public void setPassedInspections (List<MaintenanceInterface> passedInspections) {
+		this.passedInspections = passedInspections;
+	}
+	
+	/*Accessors*/
+	public int getRequestID(){
+		return this.requestID;
+	}
+	public String getMaintType (){
+		return this.maintType;
+	}
+	public int getTimeToComplete(){
+		return this.timeToComplete;
+	}
+	public boolean getIsOpen(){
+		return this.isOpen;
+	}
+	public boolean getIsScheduled(){
+		return this.isScheduled;
+	}
+	public List<MaintenanceInterface> getInspectionList () {
+		return this.inspectionList;
+	}
+	public List<MaintenanceInterface> getPendingInspections () {
+		return this.pendingInspections;
+	}
+	public List<MaintenanceInterface> getPassedInspections (){
+		return this.passedInspections;
+	}
+	
+	@Override
+	public void ScheduleMaintenance(int facilitySerialNumber, String maintType,
+			int startDate) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public void makeFacilityMaintRequest() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public float calcMaintCostForFacility() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public float calcProblemRateForFacility() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public float calcDownTimeForFaciliity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public ArrayList listMaintRequestsForFacility() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList listMaint() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList listFacilityProblems() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void ScheduleMaintenance(int severity, String maintType) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	@Override
 	public void makeFacilityMaintRequest(int facilitySerialNumber,
-			int sevarity, String maintType) {
+			String maintType) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
 	public float calcMaintCostForFacility(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	@Override
 	public float calcProblemRateForFacility(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	@Override
 	public float calcDownTimeForFaciliity(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	@Override
 	public ArrayList<MaintenanceInterface> listMaintRequestsForFacility(
 			int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	@Override
 	public ArrayList<MaintenanceInterface> listMaint(int facilitySerialNumber,
 			String maintType) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	@Override
 	public ArrayList<MaintenanceInterface> listFacilityProblems(
 			int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 }
