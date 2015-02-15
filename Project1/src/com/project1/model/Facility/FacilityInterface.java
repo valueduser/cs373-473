@@ -30,9 +30,9 @@ public interface FacilityInterface {
 
 	public void assignFacilityToUse(int facilitySerialNumber, String useType); //setter for isUsed and useType
 	public void vacateFacility(int facilitySerialNumber); //setter for isVacant
-	public void setStartDate(int startDate); //yyyymmdd
-	public void setEndDate(int endDate); //yyyymmdd
-	public void setDownTime(int downTime);
-	public void setCapacity(int capacity);
+	public void setStartDate(int startDate, int facilitySerialNumber); //yyyymmdd
+	public void setEndDate(int endDate, int facilitySerialNumber); //yyyymmdd
+	public void setDownTime(int downTime, int facilitySerialNumber);
+	public void setCapacity(int capacity, int facilitySerialNumber);
 
 }

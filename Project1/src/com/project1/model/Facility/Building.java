@@ -61,7 +61,7 @@ public class Building implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
-	public void getFacilityInformation(int facilitySerialNumber) {
+	public String getFacilityInformation(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -89,19 +89,19 @@ public class Building implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setStartDate(int startDate) {
+	public void setStartDate(int startDate, int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setEndDate(int endDate) {
+	public void setEndDate(int endDate, int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setDownTime(int downTime) {
+	public void setDownTime(int downTime, int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setCapacity(int capacity) {
+	public void setCapacity(int capacity, int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		
 	}

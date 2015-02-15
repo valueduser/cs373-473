@@ -3,7 +3,9 @@ package com.project1.dal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.project1.model.Facility.Building;
@@ -12,6 +14,7 @@ public class BuildingDAO {
 	public BuildingDAO(){}
 	
 	private String facilityTableName = "facilities";
+	private String inspectionsTableName = "inspections";
 	
 	public List<Building> listFacilities() {
 		try{
@@ -152,31 +155,187 @@ public class BuildingDAO {
 	}
 	
 	public String getFacilityInformation(int facilitySerialNumber) {
+		String information = null; 
 		try
 		{
 			Statement statement = DBHelper.getConnection().createStatement();
 			String getInfoQuery = "SELECT * FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
-			ResultSet rs = statement.executeQuery(useQuery);
+			ResultSet rs = statement.executeQuery(getInfoQuery);
 			
+			information = rs.toString();
 			
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+		return information;
+	}
+	
+	public int requestAvailableCapacity(int facilitySerialNumber) {
+		int capacity = 0;
+		try
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String availabilityQuery = "SELECT capacity FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
+			ResultSet rs = statement.executeQuery(availabilityQuery);
+			
+			capacity = (int) rs.getString("capacity"); //TODO cast
+
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+		return capacity;
+	}
+	
+	public List<String> listFacilityInspections(int facilitySerialNumber) {
+		List<String> inspectionList = new ArrayList<String>();
+		try
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String inspectionsQuery = "SELECT capacity FROM " + inspectionsTableName + " WHERE id = " + facilitySerialNumber + ";";
+			ResultSet rs = statement.executeQuery(inspectionsQuery);			
+
+			while(rs.next()){
+				String inspection = null;
+				inspection = rs.getString("inspection"); //TODO cast to building -- probably just parse?
+				inspectionList.add(inspection);
+			}
+			
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+		return inspectionList;
+	}
+	
+	public List<Building> getVacancy() {
+		List<Building> vacancyList = new ArrayList<Building>();
+
+		try 
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String vacancyQuery = "SELECT id FROM " + facilityTableName + " WHERE hasVacancy =  true;";
+			
+			ResultSet rs = statement.executeQuery(vacancyQuery);			
+
+			while(rs.next()){
+				Building bldg = new Building();
+				String inspection = null;
+				bldg = (Building) rs.getString("id"); //TODO cast to building -- probably just parse?
+				vacancyList.add(bldg);
+			}
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+		return vacancyList;
+	}
+	
+	
+	public List<Integer> getChildren(int facilitySerialNumber) {
+		List<Integer> children = new ArrayList<Integer>();
+		try 
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String childrenQuery = "SELECT id FROM " + facilityTableName + " WHERE parentId is not 0;";
+			
+			ResultSet rs = statement.executeQuery(childrenQuery);
+			
+			while(rs.next()){
+				children.add(rs.getInt("id"));
+			}
+			
+		}catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+		return children;
+	}
+	
+	public void assignFacilityToUse(int facilitySerialNumber, String useType) {
+		try 
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String assignUseQuery = "UPDATE " + facilityTableName + " SET usage = " + useType + " WHERE id = " + facilitySerialNumber + ";";
+			
+			statement.executeQuery(assignUseQuery);
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
 		}
 	}
 	
-	/** TODO
-	 *  requestAvailableCapacity(int facilitySerialNumber)
-	 *  listFacilityInspections(int facilitySerialNumber)
-	 *  getVacancy()
-	 *  getChildren(int facilitySerialNumber)
-	 *  assignFacilityToUse(int facilitySerialNumber, String useType)
-	 *  vacateFacility(int facilitySerialNumber)
-	 *  setStartDate(int startDate)
-	 *  setEndDate(int endDate)
-	 *  setDownTime(int downTime)
-	 *  setCapacity(int capacity)
-	 */
+	public void vacateFacility(int facilitySerialNumber) {
+		try
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			
+			Date date = new Date();
+			SimpleDateFormat today = new SimpleDateFormat("yyyy/MM/dd");
+			
+			String vacateQuery = "UPDATE " + facilityTableName + " SET hasVacancy = true, SET isUsed = false, SET endDate = " + today.format(date) + " WHERE id = " + facilitySerialNumber + ";";
+			statement.executeQuery(vacateQuery);
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+	}
 	
+	public void setStartDate(int startDate, int facilitySerialNumber) {
+		try
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String setStartQuery = "UPDATE " + facilityTableName + " SET hasVacancy = false, SET isUsed = true, SET startDate = " + startDate + " WHERE id = " + facilitySerialNumber + ";";
+			statement.executeQuery(setStartQuery);
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+	}
+	
+	public void setEndDate(int endDate, int facilitySerialNumber) {
+		try
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String setEndQuery = "UPDATE " + facilityTableName + " SET hasVacancy = true, SET isUsed = false, SET endDate = " + endDate + " WHERE id = " + facilitySerialNumber + ";";
+			statement.executeQuery(setEndQuery);
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+	}
+	
+	public void setDownTime(int downTime, int facilitySerialNumber)
+	{
+		try
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String getDownTimeQuery = "SELECT downTime FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
+			ResultSet rs = statement.executeQuery(getDownTimeQuery);
+			int prevDownTime = (int) rs.getInt("downTime");
+			
+			downTime += prevDownTime;
+			
+			String setDownTimeQuery = "UPDATE " + facilityTableName + " SET downTime = " + downTime + " WHERE id = " + facilitySerialNumber + ";";
+			statement.executeQuery(setDownTimeQuery);
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+	}
+	
+	
+	public void setCapacity(int capacity, int facilitySerialNumber)
+	{
+		try
+		{
+			Statement statement = DBHelper.getConnection().createStatement();
+			String setCapacityQuery = "UPDATE " + facilityTableName + " SET capacity = " + capacity + " WHERE id = " + facilitySerialNumber + ";";
+			statement.executeQuery(setCapacityQuery);
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+	}
 
 }
