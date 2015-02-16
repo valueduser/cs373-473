@@ -19,6 +19,8 @@ public class MaintenanceDAO {
 			statement.executeUpdate(tableCreation);
 			String addMaintRequestQuery = "INSERT INTO " + MaintenanceTableName + "(facilitySerialNumber, requestID, maintType, timeToComplete, isOpen, isScheduled, startDate) VALUES (" + maintReq.getFacilitySerialNumber() + ", " + maintReq.getRequestID() + ", '" + maintReq.getMaintType() + "', " + maintReq.getTimeToComplete() + ", '" + maintReq.getIsOpen() + "', '" +  maintReq.getIsScheduled() + "', " +  maintReq.getStartDate() + ");";
 			statement.executeUpdate(addMaintRequestQuery);
+			
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -53,6 +55,9 @@ public class MaintenanceDAO {
 			
 			int startDate = rs.getInt("startDate");
 			maintReq.setStartDate(startDate);
+			
+			statement.close();
+			rs.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -65,6 +70,8 @@ public class MaintenanceDAO {
 			Statement statement = DBHelper.getConnection().createStatement();
 			String removeMaintReqQuery = "DELETE FROM " + MaintenanceTableName + " WHERE requestID = " + requestID + ";";
 			statement.executeUpdate(removeMaintReqQuery);
+			
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());

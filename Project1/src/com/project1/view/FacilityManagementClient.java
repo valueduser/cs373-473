@@ -44,7 +44,7 @@ public class FacilityManagementClient {
 			building1.setCapacity(2);
 			building1.setDownTime(2000);
 			building1.setEndDate(9999);
-			building1.setParentID(0);
+			building1.setParentId(0);
 			building1.setScheduledDownTime(1500);
 			building1.setStartDate(408);
 			building1.setUnscheduledDownTime(500);
@@ -57,7 +57,7 @@ public class FacilityManagementClient {
 			building2.setCapacity(2);
 			building2.setDownTime(100000);
 			building2.setEndDate(9999);
-			building2.setParentID(0);
+			building2.setParentId(0);
 			building2.setScheduledDownTime(50000);
 			building2.setStartDate(101);
 			building2.setUnscheduledDownTime(50000);
@@ -71,7 +71,7 @@ public class FacilityManagementClient {
 			building3.setCapacity(2);
 			building3.setDownTime(90000);
 			building3.setEndDate(9999);
-			building3.setParentID(0);
+			building3.setParentId(0);
 			building3.setScheduledDownTime(80000);
 			building3.setStartDate(101);
 			building3.setUnscheduledDownTime(10000);
@@ -94,7 +94,7 @@ public class FacilityManagementClient {
 			room1.setCapacity(2);
 			room1.setDownTime(1000);
 			room1.setEndDate(9999);
-			room1.setParentID(1);
+			room1.setParentId(1);
 			room1.setScheduledDownTime(500);
 			room1.setStartDate(408);
 			room1.setUnscheduledDownTime(500);
@@ -107,7 +107,7 @@ public class FacilityManagementClient {
 			room2.setCapacity(2);
 			room2.setDownTime(1000);
 			room2.setEndDate(9999);
-			room2.setParentID(1);
+			room2.setParentId(1);
 			room2.setScheduledDownTime(500);
 			room2.setStartDate(408);
 			room2.setUnscheduledDownTime(500);
@@ -121,10 +121,11 @@ public class FacilityManagementClient {
 			room3.setIsUsed(false);
 			room3.setDownTime(500000);
 			room3.setEndDate(9999);
-			room3.setParentID(2);
+			room3.setParentId(2);
 			room3.setScheduledDownTime(250000);
 			room3.setStartDate(101);
 			room3.setUnscheduledDownTime(250000);
+			room2.assignFacilityToUse("Rental");
 			room3.vacateFacility(false);
 			facilityInfo.add(room3);
 
@@ -134,10 +135,11 @@ public class FacilityManagementClient {
 			room4.setIsUsed(false);
 			room4.setDownTime(500000);
 			room4.setEndDate(9999);
-			room4.setParentID(2);
+			room4.setParentId(2);
 			room4.setScheduledDownTime(250000);
 			room4.setStartDate(101);
 			room4.setUnscheduledDownTime(250000);
+			room2.assignFacilityToUse("Rental");
 			room4.vacateFacility(false);
 			facilityInfo.add(room4);
 			
@@ -146,7 +148,7 @@ public class FacilityManagementClient {
 			room5.setCapacity(2);
 			room5.setDownTime(30000);
 			room5.setEndDate(9999);
-			room5.setParentID(1);
+			room5.setParentId(1);
 			room5.setScheduledDownTime(15000);
 			room5.setStartDate(408);
 			room5.setUnscheduledDownTime(15000);
@@ -159,7 +161,7 @@ public class FacilityManagementClient {
 			room6.setCapacity(3);
 			room6.setDownTime(60000);
 			room6.setEndDate(9999);
-			room6.setParentID(1);
+			room6.setParentId(1);
 			room6.setScheduledDownTime(30000);
 			room6.setStartDate(101);
 			room6.setUnscheduledDownTime(30000);
@@ -178,7 +180,13 @@ public class FacilityManagementClient {
 			
 			System.out.println("***************** Searching for Facilities objects in Database *********************");
 			//print facilities from Database
+			facilityTableLength = 9;
+			System.out.println(" id | capacity | isUsed | hasVacancy | usage | startDate | endDate | scheduledDownTime | unscheduledDownTime | parentID");
 			
+			for(int j = 0; j <= facilityTableLength ; j++)
+			{
+				System.out.println(facDAO.getBuilding(j).getFacilitySerialNumber() + " " + facDAO.getBuilding(j).getCapacity());
+			}			
 			
 			System.out.println("************************* Generating Maintenance objects ****************************");
 			

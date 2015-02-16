@@ -57,6 +57,16 @@ public class Room implements FacilityInterface {
 	public int getDownTime(){
 		return this.downTime;
 	}
+	
+	@Override
+	public int getScheduledDownTime() {
+		return this.scheduledDownTime;
+	}
+
+	@Override
+	public int getUnscheduledDownTime() {
+		return this.unscheduledDownTime;
+	}
 
 	@Override
 	public String getFacilityInformation() { //TODO
@@ -174,8 +184,8 @@ public class Room implements FacilityInterface {
 	}
 
 	@Override
-	public void setParentID(int parentID) {
-		this.parentId = parentID;
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
+
 import com.project1.model.Facility.Room;
 
 public class RoomDAO {
@@ -17,14 +18,14 @@ public class RoomDAO {
 		
 		try{
 			Statement statement = DBHelper.getConnection().createStatement();
-			int roomID = room.getFacilitySerialNumber();
-			room.getFacilityUse();
-			room.getStartDate();
-			room.getEndDate();
 			
+			String tableCreation = "CREATE TABLE IF NOT EXISTS "+ facilityTableName + "(\"id\" INTEGER, \"capacity\" INTEGER, \"isUsed\" BOOLEAN, \"hasVacancy\" BOOLEAN, \"usage\" TEXT, \"startDate\" INTEGER, \"endDate\" INTEGER, \"downTime\" INTEGER, \"scheduledDownTime\" INTEGER, \"unscheduledDownTime\" INTEGER, \"parentId\" INTEGER);";
+			statement.executeUpdate(tableCreation);
 			
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	') VALUES (" + room.getFacilitySerialNumber() + ", " + room.getCapacity() + ", true, " + room.getVacancy() + ", " + room.getFacilityUse() + ", " + room.getStartDate() + ", "  + room.getEndDate() + ", null, null, null, " + room.getParentId() + ";"; 
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'downTime', 'scheduledDownTime', 'unscheduledDownTime', 'parentId') VALUES (" + room.getFacilitySerialNumber() + ", " + room.getCapacity() + ", true, " + room.getVacancy() + ", " + room.getFacilityUse() + ", " + room.getStartDate() + ", "  + room.getEndDate() + ", "  + room.getDownTime() + ", "  + room.getScheduledDownTime() + ", "  + room.getUnscheduledDownTime() + ", "  + room.getParentId() + ";"; 
 			statement.executeUpdate(addFacilityQuery);
+			
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -38,7 +39,7 @@ public class RoomDAO {
 			Statement statement = DBHelper.getConnection().createStatement();
 			
 			
-			String getFacilityQuery = "SELECT capacity, startDate, endDate, downTime FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
+			String getFacilityQuery = "SELECT capacity, usage, startDate, endDate, downTime, unscheduledDownTime, scheduledDownTime, parentId FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
 			ResultSet rs = statement.executeQuery(getFacilityQuery);
 			
@@ -60,8 +61,8 @@ public class RoomDAO {
 			int scheduledDownTime = rs.getInt("scheduledDownTime");
 			room.setScheduledDownTime(scheduledDownTime);
 			
-			int parentID = rs.getInt("parentID");
-			room.setParentID(parentID);
+			int parentId = rs.getInt("parentId");
+			room.setParentId(parentId);
 			
 			String usage = rs.getString("usage");
 			room.assignFacilityToUse(usage);
@@ -69,6 +70,8 @@ public class RoomDAO {
 			boolean isVacant = rs.getBoolean("hasVacancy");
 			room.vacateFacility(isVacant);
 
+			statement.close();
+			rs.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -83,6 +86,8 @@ public class RoomDAO {
 			String removeFacilityQuery = "DELETE FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
 			statement.executeUpdate(removeFacilityQuery);
+			
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());

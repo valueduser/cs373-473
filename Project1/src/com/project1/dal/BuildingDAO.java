@@ -19,14 +19,15 @@ public class BuildingDAO {
 		//get the bldg's properties and add them to the table
 		
 		try{
-	Statement statement = DBHelper.getConnection().createStatement();
+			Statement statement = DBHelper.getConnection().createStatement();
 
-			String tableCreation = "CREATE TABLE IF NOT EXISTS "+ facilityTableName + "(\"id\" INTEGER, \"capacity\" INTEGER, \"isUsed\" BOOLEAN, \"hasVacancy\" BOOLEAN, \"usage\" TEXT, \"startDate\" INTEGER, \"endDate\" INTEGER, \"scheduledDownTime\" INTEGER, \"unscheduledDownTime\" INTEGER, \"parentID\" INTEGER);";
+			String tableCreation = "CREATE TABLE IF NOT EXISTS "+ facilityTableName + "(\"id\" INTEGER, \"capacity\" INTEGER, \"isUsed\" BOOLEAN, \"hasVacancy\" BOOLEAN, \"usage\" TEXT, \"startDate\" INTEGER, \"endDate\" INTEGER, \"downTime\" INTEGER, \"scheduledDownTime\" INTEGER, \"unscheduledDownTime\" INTEGER, \"parentId\" INTEGER);";
 			statement.executeUpdate(tableCreation);
 			
 			
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID') VALUES (" + fac.getFacilitySerialNumber() + ", " + fac.getCapacity() + ", '" + true + "', '" + fac.getVacancy() + "', '" + fac.getFacilityUse() + "', " + fac.getStartDate() + ", "  + fac.getEndDate() + ", " + fac.getDownTime() + ", 0, " + fac.getParentId() + ");";
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'downTime' ,'scheduledDownTime', 'unscheduledDownTime', 'parentId') VALUES (" + fac.getFacilitySerialNumber() + ", " + fac.getCapacity() + ", '" + true + "', '" + fac.getVacancy() + "', '" + fac.getFacilityUse() + "', " + fac.getStartDate() + ", "  + fac.getEndDate() + ", " + fac.getDownTime() + ", " + fac.getScheduledDownTime() + ", " + fac.getUnscheduledDownTime() + ", " + fac.getParentId() + ");";
 			statement.executeUpdate(addFacilityQuery);
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -40,7 +41,7 @@ public class BuildingDAO {
 			Statement statement = DBHelper.getConnection().createStatement();
 			
 			
-			String getFacilityQuery = "SELECT capacity, startDate, endDate, downTime FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
+			String getFacilityQuery = "SELECT capacity, usage, startDate, endDate, downTime, scheduledDownTime, unscheduledDownTime, parentIdFROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
 			ResultSet rs = statement.executeQuery(getFacilityQuery);
 			
@@ -62,15 +63,17 @@ public class BuildingDAO {
 			int scheduledDownTime = rs.getInt("scheduledDownTime");
 			bldg.setScheduledDownTime(scheduledDownTime);
 			
-			int parentID = rs.getInt("parentID");
-			bldg.setParentID(parentID);
+			int parentId = rs.getInt("parentId");
+			bldg.setParentId(parentId);
 			
 			String usage = rs.getString("usage");
 			bldg.assignFacilityToUse(usage);
 			
 			boolean isVacant = rs.getBoolean("hasVacancy");
 			bldg.vacateFacility(isVacant);
-
+			
+			rs.close();
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -85,7 +88,7 @@ public class BuildingDAO {
 			Statement statement = DBHelper.getConnection().createStatement();
 			
 			
-			String getFacilityQuery = "SELECT capacity, startDate, endDate, downTime FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
+			String getFacilityQuery = "SELECT capacity, startDate, endDate, downTime, scheduledDownTime, unscheduledDownTime FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
 			ResultSet rs = statement.executeQuery(getFacilityQuery);
 			
@@ -107,15 +110,17 @@ public class BuildingDAO {
 			int scheduledDownTime = rs.getInt("scheduledDownTime");
 			rm.setScheduledDownTime(scheduledDownTime);
 			
-			int parentID = rs.getInt("parentID");
-			rm.setParentID(parentID);
+			int parentId = rs.getInt("parentId");
+			rm.setParentId(parentId);
 			
 			String usage = rs.getString("usage");
 			rm.assignFacilityToUse(usage);
 			
 			boolean isVacant = rs.getBoolean("hasVacancy");
 			rm.vacateFacility(isVacant);
-
+			
+			rs.close();
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -130,6 +135,7 @@ public class BuildingDAO {
 			String removeFacilityQuery = "DELETE FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
 			statement.executeUpdate(removeFacilityQuery);
+			statement.close();
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());

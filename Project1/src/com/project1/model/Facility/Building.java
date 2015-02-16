@@ -132,6 +132,16 @@ public class Building implements FacilityInterface {
 	}
 
 	@Override
+	public int getScheduledDownTime() {
+		return this.scheduledDownTime;
+	}
+
+	@Override
+	public int getUnscheduledDownTime() {
+		return this.unscheduledDownTime;
+	}
+	
+	@Override
 	public void assignFacilityToUse(String useType) {
 		if(this.isUsed == true) {
 			System.out.println("Facility already in use.");
@@ -182,8 +192,8 @@ public class Building implements FacilityInterface {
 	}
 
 	@Override
-	public void setParentID(int parentID) {
-		this.parentId = parentID;
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
 	}
 
 	@Override

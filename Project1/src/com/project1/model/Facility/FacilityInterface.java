@@ -22,6 +22,8 @@ public interface FacilityInterface {
 	public int getParentId();
 	public int getDownTime();
 	public int getCapacity();
+	public int getScheduledDownTime();
+	public int getUnscheduledDownTime();
 
 	public void assignFacilityToUse(String useType); //setter for isUsed and useType
 	public void vacateFacility(boolean isVacant); //setter for isVacant
@@ -31,7 +33,8 @@ public interface FacilityInterface {
 	public void setCapacity(int capacity);
 	public void setScheduledDownTime(int scheduledDownTime);
 	public void setUnscheduledDownTime(int unscheduledDownTime);
-	public void setParentID(int parentID);
+	public void setParentId(int parentID);
 	public void setFacilityId(int serialNumber);
 	public void setIsUsed(boolean isUsed);
+	
 }
