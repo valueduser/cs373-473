@@ -22,6 +22,7 @@ public interface FacilityInterface {
 	public int getStartDate();
 	public int getParentId();
 	public int getDownTime();
+	public int getCapacity();
 
 	public void assignFacilityToUse(String useType); //setter for isUsed and useType
 	public void vacateFacility(boolean isVacant); //setter for isVacant

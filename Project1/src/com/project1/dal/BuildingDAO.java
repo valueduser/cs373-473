@@ -23,14 +23,8 @@ public class BuildingDAO {
 		//get the bldg's properties and add them to the table
 		
 		try{
-			Statement statement = DBHelper.getConnection().createStatement();
-			int bldgID = bldg.getFacilitySerialNumber();
-			bldg.getFacilityUse();
-			bldg.getStartDate();
-			bldg.getEndDate();
-			
-			
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	')] VALUES (" + bldgID + ", null, true, false, null, null, null, null, null, null, null);"; 
+			Statement statement = DBHelper.getConnection().createStatement();																																									
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	')] VALUES (" + bldg.getFacilitySerialNumber() + ", " + bldg.getCapacity() + ", true, " + bldg.getVacancy() + ", " + bldg.getFacilityUse() + ", " + bldg.getStartDate() + ", "  + bldg.getEndDate() + ", null, null, null, null);"; 
 			statement.executeQuery(addFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {

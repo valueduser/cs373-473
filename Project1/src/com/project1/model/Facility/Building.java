@@ -94,6 +94,11 @@ public class Building implements FacilityInterface {
 		return this.parentId;
 	}
 
+	@Override
+	public int getCapacity() {
+		return this.capacity;
+	}
+	
 
 	@Override
 	public ArrayList<FacilityInterface> getChildren(ArrayList<FacilityInterface> facilities) {

@@ -116,6 +116,11 @@ public class Room implements FacilityInterface {
 	public int getStartDate() {
 		return this.startDate;
 	}
+	
+	@Override
+	public int getCapacity() {
+		return this.capacity;
+	}
 
 	@Override
 	public void assignFacilityToUse(String useType) {
