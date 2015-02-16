@@ -6,15 +6,15 @@ import com.project1.model.Facility.*;
 
 public class MaintDetails implements MaintenanceInterface {
 
-	private ArrayList<MaintenanceInterface> MaintenanceList;
+	private ArrayList<MaintenanceInterface> maintenanceList;
 	
 	
 	public ArrayList<MaintenanceInterface> getMaintenanceList() {
-		return MaintenanceList;
+		return maintenanceList;
 	}
 
 	public void setMaintenanceList(ArrayList<MaintenanceInterface> maintenanceList) {
-		MaintenanceList = maintenanceList;
+		this.maintenanceList = maintenanceList;
 	}
 
 	@Override

@@ -19,8 +19,7 @@ public class FacilityManagementClient {
 		ArrayList<MaintenanceInterface> maintenanceBaseLine = new ArrayList<MaintenanceInterface>();
 		ArrayList<MaintenanceInterface> maintenanceInfo = new ArrayList<MaintenanceInterface>();
 		
-		MaintenanceInterface maintDetailProcessor = new MaintDetails();
-
+		MaintDetails maintDetailProcessor = new MaintDetails();
 		
 		
 		System.out.println("*********** Searching for existing Facilities objects in Database ****************");
@@ -168,7 +167,7 @@ public class FacilityManagementClient {
 			room6.vacateFacility(false);
 			facilityInfo.add(room6);
 		
-			//adding to db
+//			adding to db
 			Iterator<FacilityInterface> it1 = facilityInfo.iterator();
 			while(it1.hasNext())
 			{
@@ -231,15 +230,50 @@ public class FacilityManagementClient {
 				maintDAO.addMaintenanceReq(m);
 			}
 		
+			maintDetailProcessor.setMaintenanceList(maintenanceInfo);
+			
 			System.out.println("***************** Searching for Maintenance objects in Database *********************");
 	
-			//print out Maintenance reports for each facility
 			
+			//print out Maintenance reports for each facility			
+			Iterator<FacilityInterface> it3 = facilityInfo.iterator();
+			while(it3.hasNext())
+			{
+				FacilityInterface obj = it3.next();
+				
+				System.out.println("Down time for facility " + obj.getFacilitySerialNumber() + " " + maintDetailProcessor.calcDownTimeForFaciliity(obj.getFacilitySerialNumber()));
+				System.out.println("Maintenance cost for facility " + obj.getFacilitySerialNumber() + " " + maintDetailProcessor.calcMaintCostForFacility(obj.getFacilitySerialNumber()));
+				System.out.println("Problem rate for facility "+ obj.getFacilitySerialNumber() + " " + maintDetailProcessor.calcProblemRateForFacility(obj));
+				
+				ArrayList<MaintenanceInterface> maintList = maintDetailProcessor.listFacilityProblems(obj.getFacilitySerialNumber());
+				if (maintList.size() >0){
+					Iterator<MaintenanceInterface> it4 = maintList.iterator();
+					while(it4.hasNext())
+					{
+						MaintenanceInterface obj2 = it4.next();
+						MaintRequest m = (MaintRequest) obj2;
+						System.out.println("Current problem with facility" + obj.getFacilitySerialNumber() + ": " + m.getRequestID() +", "+ m.getMaintType());
+					}
+				}
+				else{
+					System.out.println("There are no current problems with facility " + obj.getFacilitySerialNumber());
+				}
+				
+				ArrayList<MaintenanceInterface> openMaintList = maintDetailProcessor.listMaintRequestsForFacility(obj.getFacilitySerialNumber());
+				if(openMaintList.size() > 0){
+					Iterator<MaintenanceInterface> it5 = openMaintList.iterator();
+					while(it5.hasNext())
+					{
+						MaintenanceInterface obj2 = it5.next();
+						MaintRequest m = (MaintRequest) obj2;
+					System.out.println("Maintenance problem for facility "+ obj.getFacilitySerialNumber() + ": " + m.getRequestID() +", "+ m.getMaintType());
+					}
+				}
+				else{
+					System.out.println("There are no past problems with facility " + obj.getFacilitySerialNumber());
+				}
+			}
 			
-			//facility
-			//room
-			//room
-
 		}
 		//clear db
 	}
