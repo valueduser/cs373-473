@@ -1,9 +1,7 @@
 package com.project1.model.Facility;
 
-
 import java.util.ArrayList;
 import java.util.List;
-import com.project1.model.Maintenance.*;
 
 public class Room implements FacilityInterface {
 
@@ -15,13 +13,16 @@ public class Room implements FacilityInterface {
 	private boolean isUsed = false;
 	private boolean isVacant = false;
 	private String usage;
-	private String startDate; //yyyymmdd
-	private String endDate; //yyyymmdd
+	private String startDate; //days from 1000/01/01
+	private String endDate; //days from 1000/01/01
 
 	/*in minutes*/
 	private float downTime; 
 	private int scheduledDownTime;
 	private int unscheduledDownTime;
+	
+	private String facilityTableName = "facilities";
+	
 	@Override
 	public List<FacilityInterface> listFacilities() {
 		// TODO Auto-generated method stub
@@ -117,5 +118,19 @@ public class Room implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
+	public int getFacilitySerialNumber() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int getEndDate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int getStartDate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

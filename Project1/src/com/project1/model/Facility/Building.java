@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.project1.dal.ManagmentDB;
-import com.project1.model.Maintenance.*;
 import com.project1.model.Facility.Room;
 
 public class Building implements FacilityInterface {
@@ -18,8 +17,8 @@ public class Building implements FacilityInterface {
 	private boolean isVacant = false;
 	private String usage;
 	private List<Room> rooms = new ArrayList<Room>();
-	private String startDate; //yyyymmdd
-	private String endDate; //yyyymmdd
+	private String startDate; //days from 1000/01/01
+	private String endDate; //days from 1000/01/01
 	
 	/*in minutes*/
 	private float downTime;
@@ -141,16 +140,22 @@ public class Building implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
 	public int getFacilitySerialNumber() {
 		// TODO Auto-generated method stub
-		return this.serialNumber;
+		return 0;
 	}
-	public void getStartDate(int bldgID) {
+
+	@Override
+	public int getEndDate() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
-	public void getEndDate(int bldgID) {
+
+	@Override
+	public int getStartDate() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 }

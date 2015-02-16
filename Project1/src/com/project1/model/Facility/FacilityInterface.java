@@ -15,7 +15,7 @@ public interface FacilityInterface {
 	public void removeFacility(int facilitySerialNumber); 
 
 	//java has a built in dateTime object. We should look at using that or a external framework for this. I will look into this later
-	public void isInUseDuringInterval(int time1, int time2); //dates in form of yyyymmdd  for now 
+	public void isInUseDuringInterval(int time1, int time2); //days from 1000/01/01
 	public void listActualUsage(int facilitySerialNumber); //total time the unit has been in use
 	public void calcUsageRate (int facilitySerialNumber);
 
@@ -30,12 +30,12 @@ public interface FacilityInterface {
 
 	public void assignFacilityToUse(int facilitySerialNumber, String useType); //setter for isUsed and useType
 	public void vacateFacility(int facilitySerialNumber); //setter for isVacant
-	public void setStartDate(int startDate, int facilitySerialNumber); //yyyymmdd
-	public void setEndDate(int endDate, int facilitySerialNumber); //yyyymmdd
+	public void setStartDate(int startDate, int facilitySerialNumber); //days from 1000/01/01
+	public void setEndDate(int endDate, int facilitySerialNumber); //days from 1000/01/01
 	public void setDownTime(int downTime, int facilitySerialNumber);
 	public void setCapacity(int capacity, int facilitySerialNumber);
 	public int getFacilitySerialNumber();
-	public void getEndDate(int facilitySerialNumber);
-	public void getStartDate(int facilitySerialNumber);
+	public int getEndDate();
+	public int getStartDate();
 
 }
