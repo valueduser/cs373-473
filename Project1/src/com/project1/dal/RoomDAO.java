@@ -23,8 +23,8 @@ public class RoomDAO {
 			room.getEndDate();
 			
 			
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	')] VALUES (" + room.getFacilitySerialNumber() + ", " + room.getCapacity() + ", true, " + room.getVacancy() + ", " + room.getFacilityUse() + ", " + room.getStartDate() + ", "  + room.getEndDate() + ", null, null, null, " + room.getParentId() + ";"; 
-			statement.executeQuery(addFacilityQuery);
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	') VALUES (" + room.getFacilitySerialNumber() + ", " + room.getCapacity() + ", true, " + room.getVacancy() + ", " + room.getFacilityUse() + ", " + room.getStartDate() + ", "  + room.getEndDate() + ", null, null, null, " + room.getParentId() + ";"; 
+			statement.executeUpdate(addFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -82,7 +82,7 @@ public class RoomDAO {
 			Statement statement = DBHelper.getConnection().createStatement();
 			String removeFacilityQuery = "DELETE FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
-			statement.executeQuery(removeFacilityQuery);
+			statement.executeUpdate(removeFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());

@@ -14,7 +14,7 @@ public class DBHelper {
  
 		try {
 			// create a database connection
-	        connection = DriverManager.getConnection("jdbc:sqlite://127.0.0.1", "root", "root");
+	        connection = DriverManager.getConnection("jdbc:sqlite:my.db");
 	        Statement statement = connection.createStatement();
 	        statement.setQueryTimeout(30);  // set timeout to 30 sec.
  

@@ -14,24 +14,19 @@ public class BuildingDAO {
 	public BuildingDAO(){}
 	
 	private String facilityTableName = "facilities";
-	/**
-	 * ids | capacity | isUsed | hasVacancy | usage | startDate | endDate | scheduledDownTime | unscheduledDownTime | downTime | parentID
-	 */
-	
 	
 	public void addNewFacility(FacilityInterface fac) {
 		//get the bldg's properties and add them to the table
 		
 		try{
 	Statement statement = DBHelper.getConnection().createStatement();
-			int facID = fac.getFacilitySerialNumber();
-			fac.getFacilityUse();
-			fac.getStartDate();
-			fac.getEndDate();
+
+			String tableCreation = "CREATE TABLE IF NOT EXISTS "+ facilityTableName + "(\"id\" INTEGER, \"capacity\" INTEGER, \"isUsed\" BOOLEAN, \"hasVacancy\" BOOLEAN, \"usage\" TEXT, \"startDate\" INTEGER, \"endDate\" INTEGER, \"scheduledDownTime\" INTEGER, \"unscheduledDownTime\" INTEGER, \"parentID\" INTEGER);";
+			statement.executeUpdate(tableCreation);
 			
 			
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	')] VALUES (" + facID + ", null, true, false, null, null, null, null, null, null, null);"; 
-			statement.executeQuery(addFacilityQuery);
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID') VALUES (" + fac.getFacilitySerialNumber() + ", " + fac.getCapacity() + ", '" + true + "', '" + fac.getVacancy() + "', '" + fac.getFacilityUse() + "', " + fac.getStartDate() + ", "  + fac.getEndDate() + ", " + fac.getDownTime() + ", 0, " + fac.getParentId() + ");";
+			statement.executeUpdate(addFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -134,7 +129,7 @@ public class BuildingDAO {
 			Statement statement = DBHelper.getConnection().createStatement();
 			String removeFacilityQuery = "DELETE FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
-			statement.executeQuery(removeFacilityQuery);
+			statement.executeUpdate(removeFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());

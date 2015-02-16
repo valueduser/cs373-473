@@ -166,7 +166,7 @@ public class FacilityManagementClient {
 			room6.assignFacilityToUse("Rental");
 			room6.vacateFacility(false);
 			facilityInfo.add(room6);
-		
+			
 //			adding to db
 			Iterator<FacilityInterface> it1 = facilityInfo.iterator();
 			while(it1.hasNext())

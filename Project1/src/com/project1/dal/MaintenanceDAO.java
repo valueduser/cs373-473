@@ -15,8 +15,10 @@ public class MaintenanceDAO {
 		try
 		{			
 			Statement statement = DBHelper.getConnection().createStatement();
-			String addMaintRequestQuery = "INSERT INTO " + MaintenanceTableName + "(facilitySerialNumber, requestID, maintType, timeToComplete, isOpen, isScheduled, startDate) VALUES (" + maintReq.getFacilitySerialNumber() + ", " + maintReq.getRequestID() + ", " + maintReq.getMaintType() + ", " + maintReq.getTimeToComplete() + ", " + maintReq.getIsOpen() + ", " +  maintReq.getIsScheduled() + ", " +  maintReq.getStartDate() + ";";
-			statement.executeQuery(addMaintRequestQuery);
+			String tableCreation = "CREATE TABLE IF NOT EXISTS "+ MaintenanceTableName + "(\"facilitySerialNumber\" INTEGER, \"requestID\" INTEGER, \"maintType\" TEXT, \"timeToComplete\" INTEGER, \"isOpen\" BOOLEAN, \"isScheduled\" BOOLEAN, \"startDate\" INTEGER)";
+			statement.executeUpdate(tableCreation);
+			String addMaintRequestQuery = "INSERT INTO " + MaintenanceTableName + "(facilitySerialNumber, requestID, maintType, timeToComplete, isOpen, isScheduled, startDate) VALUES (" + maintReq.getFacilitySerialNumber() + ", " + maintReq.getRequestID() + ", '" + maintReq.getMaintType() + "', " + maintReq.getTimeToComplete() + ", '" + maintReq.getIsOpen() + "', '" +  maintReq.getIsScheduled() + "', " +  maintReq.getStartDate() + ");";
+			statement.executeUpdate(addMaintRequestQuery);
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
@@ -61,8 +63,8 @@ public class MaintenanceDAO {
 		try
 		{
 			Statement statement = DBHelper.getConnection().createStatement();
-			String removeMaintReqQuery = "DELETE FROM " + MaintenanceTableName + " WHERE requestID = " + requestID;
-			statement.executeQuery(removeMaintReqQuery);
+			String removeMaintReqQuery = "DELETE FROM " + MaintenanceTableName + " WHERE requestID = " + requestID + ";";
+			statement.executeUpdate(removeMaintReqQuery);
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
