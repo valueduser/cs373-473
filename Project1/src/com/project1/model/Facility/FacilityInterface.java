@@ -9,7 +9,7 @@ public interface FacilityInterface {
 	 */
 	
 	//these are all db calls
-	public List<Building> listFacilities ();
+	public List<FacilityInterface> listFacilities ();
 	public void addNewFacility(); //new serial number will be generated here
 	public void addFacilityDetails(int facilitySerialNumber);
 	public void removeFacility(int facilitySerialNumber); 

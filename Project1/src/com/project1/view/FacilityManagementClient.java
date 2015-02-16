@@ -43,5 +43,7 @@ public class FacilityManagementClient {
 		//room
 		//room
 
+		
+		//clear facility table
 	}
 }
