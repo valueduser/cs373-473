@@ -14,13 +14,26 @@ public class BuildingDAO {
 	public BuildingDAO(){}
 	
 	private String facilityTableName = "facilities";
+	/**
+	 * ids | capacity | isUsed | hasVacancy | usage | startDate | endDate |
+	 */
+	
 	
 	public void addNewFacility(Building bldg) {
 		//get the bldg's properties and add them to the table
 		
 		try{
 			Statement statement = DBHelper.getConnection().createStatement();
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + ";"; //TODO add facility details (default capacity etc)
+			int bldgID = bldg.getFacilitySerialNumber();
+			bldg.getFacilityUse(bldgID);
+			bldg.getStartDate(bldgID);
+			bldg.getEndDate(bldgID);
+			
+			//Date date = new Date();
+			SimpleDateFormat today = new SimpleDateFormat("yyyy/MM/dd");
+			
+			
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate')] VALUES (" + bldgID + ", null, true, false, null, " + today + ", null);"; 
 			statement.executeQuery(addFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {
@@ -29,20 +42,33 @@ public class BuildingDAO {
 	}
 	
 	public Building getFacility(int facilitySerialNumber) {
+		Building bldg = new Building();
+
 		try{
 			Statement statement = DBHelper.getConnection().createStatement();
-//			String addFacilityQuery = "INSERT INTO " + facilityTableName + ";"; //TODO add facility details (default capacity etc)
-			//Change ^ accordingly
-//			statement.executeQuery(getFacilityQuery);
 			
-			//create a Building with the properties in the table row
-			//return it
-			return null;
+			
+			String getFacilityQuery = "SELECT capacity, startDate, endDate, downTime FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
+			
+			ResultSet rs = statement.executeQuery(getFacilityQuery);
+			
+			int capacity = rs.getInt("capacity");
+			bldg.setCapacity(capacity, facilitySerialNumber);
+			
+			int startDate = rs.getInt("startDate");
+			bldg.setStartDate(startDate, facilitySerialNumber);
+			
+			int endDate = rs.getInt("endDate");
+			bldg.setEndDate(endDate, facilitySerialNumber);
+			
+			int downTime = rs.getInt("downTime");
+			bldg.setDownTime(downTime, facilitySerialNumber);
+
 		}
 		catch (SQLException sqlExcep) {
 			System.err.println("Error: " + sqlExcep.getMessage());
 		}
-		return null;
+		return bldg;
 	}
 	
 	public void removeFacility(int facilitySerialNumber) {

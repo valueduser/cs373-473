@@ -28,9 +28,8 @@ public class Building implements FacilityInterface {
 	
 	private String facilityTableName = "facilities";
 
-	public List<Building> listFacilities() {
-//		String call = "SELECT id, capacity, isUsed, hasVacancy, usage, startDate, endDate, downTime " + "FROM " + facilityTableName + ";";
-		return Building; //todo
+	public void listFacilities() {
+		String call = "SELECT id, capacity, isUsed, hasVacancy, usage, startDate, endDate, downTime " + "FROM " + facilityTableName + ";";
 	}
 	
 	public void addNewFacility() {
@@ -61,7 +60,7 @@ public class Building implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
-	public String getFacilityInformation(int facilitySerialNumber) {
+	public void getFacilityInformation(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -89,19 +88,19 @@ public class Building implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setStartDate(int startDate, int facilitySerialNumber) {
+	public void setStartDate(int startDate) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setEndDate(int endDate, int facilitySerialNumber) {
+	public void setEndDate(int endDate) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setDownTime(int downTime, int facilitySerialNumber) {
+	public void setDownTime(int downTime) {
 		// TODO Auto-generated method stub
 		
 	}
-	public void setCapacity(int capacity, int facilitySerialNumber) {
+	public void setCapacity(int capacity) {
 		// TODO Auto-generated method stub
 		
 	}
