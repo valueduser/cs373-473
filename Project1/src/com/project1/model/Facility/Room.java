@@ -177,5 +177,15 @@ public class Room implements FacilityInterface {
 	public void setParentID(int parentID) {
 		this.parentId = parentID;
 	}
+	
+	@Override
+	public void setFacilityId(int serialNumber) {
+		this.serialNumber = serialNumber;
+	}
+	
+	@Override
+	public void setIsUsed(boolean isUsed) {
+		this.isUsed = isUsed;
+	}
 
 }

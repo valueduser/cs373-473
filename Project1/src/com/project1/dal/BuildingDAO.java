@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.project1.model.Facility.Building;
+import com.project1.model.Facility.*;
 
 public class BuildingDAO {
 	public BuildingDAO(){}
@@ -19,12 +19,18 @@ public class BuildingDAO {
 	 */
 	
 	
-	public void addNewFacility(Building bldg) {
+	public void addNewFacility(FacilityInterface fac) {
 		//get the bldg's properties and add them to the table
 		
 		try{
-			Statement statement = DBHelper.getConnection().createStatement();																																									
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	')] VALUES (" + bldg.getFacilitySerialNumber() + ", " + bldg.getCapacity() + ", true, " + bldg.getVacancy() + ", " + bldg.getFacilityUse() + ", " + bldg.getStartDate() + ", "  + bldg.getEndDate() + ", null, null, null, null);"; 
+	Statement statement = DBHelper.getConnection().createStatement();
+			int facID = fac.getFacilitySerialNumber();
+			fac.getFacilityUse();
+			fac.getStartDate();
+			fac.getEndDate();
+			
+			
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	')] VALUES (" + facID + ", null, true, false, null, null, null, null, null, null, null);"; 
 			statement.executeQuery(addFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {
@@ -32,7 +38,7 @@ public class BuildingDAO {
 		}
 	}
 	
-	public Building getFacility(int facilitySerialNumber) {
+	public Building getBuilding(int facilitySerialNumber) {
 		Building bldg = new Building();
 
 		try{
@@ -75,6 +81,51 @@ public class BuildingDAO {
 			System.err.println("Error: " + sqlExcep.getMessage());
 		}
 		return bldg;
+	}
+	
+	public Room getRoom(int facilitySerialNumber) {
+		Room rm = new Room();
+
+		try{
+			Statement statement = DBHelper.getConnection().createStatement();
+			
+			
+			String getFacilityQuery = "SELECT capacity, startDate, endDate, downTime FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
+			
+			ResultSet rs = statement.executeQuery(getFacilityQuery);
+			
+			int capacity = rs.getInt("capacity");
+			rm.setCapacity(capacity);
+			
+			int startDate = rs.getInt("startDate");
+			rm.setStartDate(startDate);
+			
+			int endDate = rs.getInt("endDate");
+			rm.setEndDate(endDate);
+			
+			int downTime = rs.getInt("downTime");
+			rm.setDownTime(downTime);
+			
+			int unscheduledDownTime = rs.getInt("unscheduledDownTime");
+			rm.setUnscheduledDownTime(unscheduledDownTime);
+			
+			int scheduledDownTime = rs.getInt("scheduledDownTime");
+			rm.setScheduledDownTime(scheduledDownTime);
+			
+			int parentID = rs.getInt("parentID");
+			rm.setParentID(parentID);
+			
+			String usage = rs.getString("usage");
+			rm.assignFacilityToUse(usage);
+			
+			boolean isVacant = rs.getBoolean("hasVacancy");
+			rm.vacateFacility(isVacant);
+
+		}
+		catch (SQLException sqlExcep) {
+			System.err.println("Error: " + sqlExcep.getMessage());
+		}
+		return rm;
 	}
 	
 	public void removeFacility(int facilitySerialNumber) {

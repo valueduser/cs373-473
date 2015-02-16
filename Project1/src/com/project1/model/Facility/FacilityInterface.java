@@ -10,7 +10,6 @@ public interface FacilityInterface {
 	public int listActualUsage(int facilitySerialNumber); //total time the unit has been in use
 	public int calcUsageRate (int facilitySerialNumber);
 
-
 	public String getFacilityUse(); // getter for usage; uses isUsed as check
 	public String getFacilityInformation(); // getter for general facility data
 	public int requestAvailableCapacity(); // getter for capacity
@@ -33,4 +32,6 @@ public interface FacilityInterface {
 	public void setScheduledDownTime(int scheduledDownTime);
 	public void setUnscheduledDownTime(int unscheduledDownTime);
 	public void setParentID(int parentID);
+	public void setFacilityId(int serialNumber);
+	public void setIsUsed(boolean isUsed);
 }
