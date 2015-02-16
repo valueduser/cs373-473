@@ -5,6 +5,7 @@ import java.util.List;
 
 public class MaintRequest implements MaintenanceInterface {
 
+	private int facilitySerialNumber;
 	private int requestID;
 	private String maintType;
 	private int timeToComplete;
@@ -42,6 +43,9 @@ public class MaintRequest implements MaintenanceInterface {
 	public void setPassedInspections (List<MaintenanceInterface> completedMaintenance) {
 		this.completedMaintenance = completedMaintenance;
 	}
+	public void setFacilitySerialNumber(int facilitySerialNumber) {
+		this.facilitySerialNumber = facilitySerialNumber;
+	}
 	
 	/*Accessors*/
 	public int getRequestID(){
@@ -68,6 +72,11 @@ public class MaintRequest implements MaintenanceInterface {
 	public List<MaintenanceInterface> getCompletedMaintenance (){
 		return this.completedMaintenance;
 	}
+	public int getFacilitySerialNumber() {
+		return facilitySerialNumber;
+	}
+	
+	
 	@Override
 	public void ScheduleMaintenance(int facilitySerialNumber, String maintType,
 			int startDate) {
