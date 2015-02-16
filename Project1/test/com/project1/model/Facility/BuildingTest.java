@@ -12,14 +12,6 @@ public class BuildingTest {
 	
 	private Building bldg;
 
-//	@BeforeClass
-//	public static void setUpBeforeClass() throws Exception {
-//	}
-//
-//	@AfterClass
-//	public static void tearDownAfterClass() throws Exception {
-//	}
-
 	@Before
 	public void setUp() throws Exception {
 		bldg = new Building();
@@ -50,15 +42,17 @@ public class BuildingTest {
 	public void testAddFacilityDetails() {
 		bldg.addNewFacility();
 		//TODO somehow get the facilitySerialNumber??
-//		int facilitySerialNumber = 55; //TODO looks like this will increment
+		int facilitySerialNumber = 44;
 		bldg.addFacilityDetails(facilitySerialNumber);//TODO what details will this add?
-		assert.equals("Added facility details: ", TODO expected, bldg.toString()); //TODO is toString appropriate here?
+		Building tbldg = new Building();
+		tbldg.addFacilityDetails(facilitySerialNumber);
+		assert.equals("Added facility details: ", tbldg.getFacilityInformation(facilitySerialNumber), bldg.getFacilityInformation(facilitySerialNumber)); //TODO is toString appropriate here?
 		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testRemoveFacility() {
-//		int facilitySerialNumber = 47;//TODO looks like this will increment
+		int facilitySerialNumber = 47;//TODO looks like this will increment
 		bldg.addNewFacility();
 		//TODO somehow get the facilitySerialNumber??
 		bldg.addFacilityDetails(facilitySerialNumber);
@@ -83,6 +77,7 @@ public class BuildingTest {
 
 	@Test
 	public void testListActualUsage() {
+		
 		fail("Not yet implemented");
 	}
 

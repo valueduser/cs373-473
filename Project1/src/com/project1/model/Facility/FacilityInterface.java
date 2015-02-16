@@ -34,5 +34,8 @@ public interface FacilityInterface {
 	public void setEndDate(int endDate, int facilitySerialNumber); //yyyymmdd
 	public void setDownTime(int downTime, int facilitySerialNumber);
 	public void setCapacity(int capacity, int facilitySerialNumber);
+	public int getFacilitySerialNumber();
+	public void getEndDate(int facilitySerialNumber);
+	public void getStartDate(int facilitySerialNumber);
 
 }

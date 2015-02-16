@@ -27,14 +27,7 @@ public class Building implements FacilityInterface {
 	private int unscheduledDownTime;
 	
 	private String facilityTableName = "facilities";
-<<<<<<< HEAD
 
-	public void listFacilities() {
-		String call = "SELECT id, capacity, isUsed, hasVacancy, usage, startDate, endDate, downTime " + "FROM " + facilityTableName + ";";
-	}
-=======
->>>>>>> 20678a4908770e36f9cb6793b869e598ac8b392a
-	
 	@Override
 	public List<FacilityInterface> listFacilities() {
 		// TODO Auto-generated method stub
@@ -82,11 +75,8 @@ public class Building implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
-<<<<<<< HEAD
-=======
 
 	@Override
->>>>>>> 20678a4908770e36f9cb6793b869e598ac8b392a
 	public void getFacilityInformation(int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		
@@ -127,21 +117,6 @@ public class Building implements FacilityInterface {
 		// TODO Auto-generated method stub
 		
 	}
-<<<<<<< HEAD
-	public void setStartDate(int startDate) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setEndDate(int endDate) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setDownTime(int downTime) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setCapacity(int capacity) {
-=======
 
 	@Override
 	public void setStartDate(int startDate, int facilitySerialNumber) {
@@ -163,7 +138,18 @@ public class Building implements FacilityInterface {
 
 	@Override
 	public void setCapacity(int capacity, int facilitySerialNumber) {
->>>>>>> 20678a4908770e36f9cb6793b869e598ac8b392a
+		// TODO Auto-generated method stub
+		
+	}
+	public int getFacilitySerialNumber() {
+		// TODO Auto-generated method stub
+		return this.serialNumber;
+	}
+	public void getStartDate(int bldgID) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void getEndDate(int bldgID) {
 		// TODO Auto-generated method stub
 		
 	}
