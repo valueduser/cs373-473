@@ -111,10 +111,4 @@ public class MaintRequest implements MaintenanceInterface {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public double calcProblemRateForFacility(FacilityInterface facility) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }
