@@ -2,6 +2,8 @@ package com.project1.model.Maintenance;
 
 import java.util.ArrayList;
 
+import com.project1.model.Facility.FacilityInterface;
+
 public class MaintRequest implements MaintenanceInterface {
 
 	private int facilitySerialNumber;
@@ -108,5 +110,11 @@ public class MaintRequest implements MaintenanceInterface {
 			int facilitySerialNumber) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public double calcProblemRateForFacility(FacilityInterface facility) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
