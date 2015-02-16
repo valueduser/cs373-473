@@ -173,19 +173,62 @@ public class FacilityManagementClient {
 			Iterator<FacilityInterface> it1 = facilityInfo.iterator();
 			while(it1.hasNext())
 			{
+				facilityTableLength++;
 				FacilityInterface obj = it1.next();
 				facDAO.addNewFacility(obj);
 			}
-			
-			
+						
 			System.out.println("***************** Searching for Facilities objects in Database *********************");
 			//print facilities from Database
-			facilityTableLength = 9;
-			System.out.println(" id | capacity | isUsed | hasVacancy | usage | startDate | endDate | scheduledDownTime | unscheduledDownTime | parentID");
+			System.out.println("id | capacity | hasVacancy | usage | startDate | endDate | scheduledDownTime | unscheduledDownTime | parentID");
 			
-			for(int j = 0; j <= facilityTableLength ; j++)
+			for(int j = 0; j < facilityTableLength ; j++)
 			{
-				System.out.println(facDAO.getBuilding(j).getFacilitySerialNumber() + " " + facDAO.getBuilding(j).getCapacity());
+				/** Works as expected
+				FacilityInterface tempFac = facilityInfo.get(j);
+				System.out.println(tempFac.getFacilitySerialNumber() + "  | " + tempFac.getCapacity() + " | " + 
+						tempFac.getVacancy() + " | " + tempFac.getFacilityUse() + " | "	+ tempFac.getStartDate() + 
+						" | " + tempFac.getEndDate() + " | " + tempFac.getScheduledDownTime() + " | " + tempFac.getUnscheduledDownTime() +
+						" | " + tempFac.getParentId());
+				*/
+				
+			
+				
+				/**
+				 * 0  | 0 | false | null | 0 | 0 | 0 | 0 | 0
+				 * Error: [SQLITE_SCHEMA]  The database schema changed (no such column: capacity)
+				 */
+				FacilityInterface tempFac = facDAO.getBuilding(j);
+				System.out.println(tempFac.getFacilitySerialNumber() + "  | " + tempFac.getCapacity() + " | " + 
+						tempFac.getVacancy() + " | " + tempFac.getFacilityUse() + " | "	+ tempFac.getStartDate() + 
+						" | " + tempFac.getEndDate() + " | " + tempFac.getScheduledDownTime() + " | " + tempFac.getUnscheduledDownTime() +
+						" | " + tempFac.getParentId());
+				
+				
+				
+				
+				/**
+				 * 0  | 0 | false | null | 0 | 0 | 0 | 0 | 0
+				 * Error: [SQLITE_SCHEMA]  The database schema changed (no such column: capacity)
+				 */
+//				Building tempFac = new Building();
+//				tempFac = facDAO.getBuilding(j);
+//				System.out.println(tempFac.getFacilitySerialNumber() + "  | " + tempFac.getCapacity() + " | " + 
+//						tempFac.getVacancy() + " | " + tempFac.getFacilityUse() + " | "	+ tempFac.getStartDate() + 
+//						" | " + tempFac.getEndDate() + " | " + tempFac.getScheduledDownTime() + " | " + tempFac.getUnscheduledDownTime() +
+//						" | " + tempFac.getParentId());
+				
+				
+				/**
+				 * 0  | 0 | false | null | 0 | 0 | 0 | 0 | 0
+				 * Error: [SQLITE_SCHEMA]  The database schema changed (no such column: capacity)
+				 */
+				/**
+				 System.out.println(facDAO.getBuilding(j).getFacilitySerialNumber() + " | " + facDAO.getBuilding(j).getCapacity() + " | " + 
+						facDAO.getBuilding(j).getVacancy() + " | " + facDAO.getBuilding(j).getFacilityUse() + " | "	+ facDAO.getBuilding(j).getStartDate() + 
+						" | " + facDAO.getBuilding(j).getEndDate() + " | " + facDAO.getBuilding(j).getScheduledDownTime() + " | " + facDAO.getBuilding(j).getUnscheduledDownTime() +
+						" | " + facDAO.getBuilding(j).getParentId());
+				 */
 			}			
 			
 			System.out.println("************************* Generating Maintenance objects ****************************");
