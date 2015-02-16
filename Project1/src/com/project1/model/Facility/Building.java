@@ -164,7 +164,7 @@ public class Building implements FacilityInterface {
 
 	@Override
 	public void setCapacity(int capacity) {
-		if(capacity > MAX_BUILDING_CAPACITY){
+		if(capacity <= MAX_BUILDING_CAPACITY){
 			this.capacity = capacity;
 		}
 		else {

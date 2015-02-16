@@ -24,12 +24,14 @@ public class FacilityManagementClient {
 		
 		
 		System.out.println("*********** Searching for existing Facilities objects in Database ****************");
-		System.out.println("/n");
+		System.out.println("\n");
+		
+		
 		//we need to add the logic check here. Just connect and check the db table length
 		int facilityTableLength = 0;
 		if(facilityTableLength <1){
 			System.out.println("*************************** No Facilites Found ***********************************");
-			System.out.println("/n");
+			System.out.println("\n");
 			System.out.println("ADDING FACILITIES");
 			System.out.println("BUILDINGS:");
 			System.out.println("FACILITYID: 1, CAPACITY: 2, ISUSED: true, HASVACANCY: true, USAGE: Rental, STARTDATE: 408, ENDDATE: 9999, SCHEDULEDDOWNTIME: 1500, UNSCHEDULEDDOWNTIME: 500, DOWNTIME: 2000 , PARENTID: 0");
@@ -40,7 +42,7 @@ public class FacilityManagementClient {
 		//add BUILDINGS
 			FacilityInterface building1 = new Building();
 			building1.setFacilityId(1);
-			building1.setCapacity(2000);
+			building1.setCapacity(2);
 			building1.setDownTime(2000);
 			building1.setEndDate(9999);
 			building1.setParentID(0);
@@ -167,28 +169,78 @@ public class FacilityManagementClient {
 			facilityInfo.add(room6);
 		
 			//adding to db
-			Iterator<FacilityInterface> it = facilityInfo.iterator();
-			while(it.hasNext())
+			Iterator<FacilityInterface> it1 = facilityInfo.iterator();
+			while(it1.hasNext())
 			{
-				FacilityInterface obj = it.next();
+				FacilityInterface obj = it1.next();
 				facDAO.addNewFacility(obj);
 			}
 			
-		}
-		else {
-		System.out.println("************ Searching for existing Facilities objects in Database *****************");
-		//print facilities from Database
+			
+			System.out.println("***************** Searching for Facilities objects in Database *********************");
+			//print facilities from Database
+			
+			
+			System.out.println("************************* Generating Maintenance objects ****************************");
+			
+			MaintRequest maint1 = new MaintRequest();
+			maint1.setRequestID(1);
+			maint1.setFacilitySerialNumber(2);
+			maint1.setIsOpen(true);
+			maint1.setIsScheduled(false);
+			maint1.setMaintType("SEV 3");
+			maint1.setStartDate(102);
+			maint1.setTimeToComplete(999999999);
+			maintenanceInfo.add(maint1);
+			
+			MaintRequest maint2 = new MaintRequest();
+			maint2.setRequestID(1);
+			maint2.setFacilitySerialNumber(1);
+			maint2.setIsOpen(true);
+			maint2.setIsScheduled(true);
+			maint2.setMaintType("INSPECTION");
+			maint2.setStartDate(400);
+			maint2.setTimeToComplete(120);
+			maintenanceInfo.add(maint2);
+			
+			MaintRequest maint3 = new MaintRequest();
+			maint3.setRequestID(1);
+			maint3.setFacilitySerialNumber(3);
+			maint3.setIsOpen(true);
+			maint3.setIsScheduled(true);
+			maint3.setMaintType("INSPECTION");
+			maint3.setStartDate(400);
+			maint3.setTimeToComplete(120);
+			maintenanceInfo.add(maint3);
+			
+			MaintRequest maint4 = new MaintRequest();
+			maint4.setRequestID(1);
+			maint4.setFacilitySerialNumber(3);
+			maint4.setIsOpen(true);
+			maint4.setIsScheduled(true);
+			maint4.setMaintType("SEV 1");
+			maint4.setStartDate(410);
+			maint4.setTimeToComplete(120);
+			maintenanceInfo.add(maint4);
+			
+			Iterator<MaintenanceInterface> it2 = maintenanceInfo.iterator();
+			while(it2.hasNext())
+			{
+				MaintenanceInterface obj = it2.next();
+				MaintRequest m = (MaintRequest) obj;
+				maintDAO.addMaintenanceReq(m);
+			}
 		
-		
-		System.out.println("************ Searching for existing Maintenance objects in Database *****************");
-		
-		//print out Maintenance reports for each facility
-		
-		//facility
-		//room
-		//room
+			System.out.println("***************** Searching for Maintenance objects in Database *********************");
+	
+			//print out Maintenance reports for each facility
+			
+			
+			//facility
+			//room
+			//room
 
-		
 		}
+		//clear db
 	}
 }

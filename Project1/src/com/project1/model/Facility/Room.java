@@ -155,7 +155,7 @@ public class Room implements FacilityInterface {
 
 	@Override
 	public void setCapacity(int capacity) {
-		if(capacity > MAX_ROOM_CAPACITY){
+		if(capacity <= MAX_ROOM_CAPACITY){
 			this.capacity = capacity;
 		}
 		else {
