@@ -1,7 +1,11 @@
 package com.project1.model.Facility;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import com.project1.model.Maintenance.MaintDetails;
+import com.project1.model.Maintenance.MaintenanceInterface;
 
 public class Room implements FacilityInterface {
 
@@ -13,124 +17,160 @@ public class Room implements FacilityInterface {
 	private boolean isUsed = false;
 	private boolean isVacant = false;
 	private String usage;
-	private String startDate; //days from 1000/01/01
-	private String endDate; //days from 1000/01/01
+	private int startDate; //days from 1000/01/01
+	private int endDate; //days from 1000/01/01
 
 	/*in minutes*/
-	private float downTime; 
+	private int downTime; 
 	private int scheduledDownTime;
 	private int unscheduledDownTime;
 	
 	private String facilityTableName = "facilities";
+
+	@Override
+	public boolean isInUseDuringInterval(int time1, int time2) {
+		if(this.endDate < time2 && this.startDate > time1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public int listActualUsage(int facilitySerialNumber) {
+		int upTime = (this.getEndDate() - this.getStartDate()) - this.getDownTime();
+		return upTime;
+	}
+
+	@Override
+	public int calcUsageRate(int facilitySerialNumber) {
+		int upTime = this.listActualUsage(facilitySerialNumber);
+		int usageRate = upTime / (this.getEndDate() - this.getStartDate());
+		return usageRate;
+	}
+
+	@Override
+	public String getFacilityUse() {
+		return this.usage;		
+	}
 	
 	@Override
-	public List<FacilityInterface> listFacilities() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getDownTime(){
+		return this.downTime;
 	}
+
 	@Override
-	public void addNewFacility() {
-		// TODO Auto-generated method stub
-		
+	public String getFacilityInformation() { //TODO
+		String facInfo = "";
+		return facInfo;
 	}
+
 	@Override
-	public void addFacilityDetails(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
+	public int requestAvailableCapacity() {
+		return this.capacity;
 	}
+
 	@Override
-	public void removeFacility(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
+	public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance) {
+		MaintenanceInterface inspections = new MaintDetails();
+		ArrayList<MaintenanceInterface> facInspections = inspections.listMaint(this.serialNumber, "INSPECTION");
+		return facInspections;
 	}
+
 	@Override
-	public void isInUseDuringInterval(int time1, int time2) {
-		// TODO Auto-generated method stub
-		
+	public boolean getVacancy() {
+		return this.isVacant;
 	}
+	
 	@Override
-	public void listActualUsage(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
+	public int getParentId() {
+		return this.parentId;
 	}
+
 	@Override
-	public void calcUsageRate(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
+	public ArrayList<FacilityInterface> getChildren(ArrayList<FacilityInterface> facilities) {
+		ArrayList<FacilityInterface> childeren = new ArrayList<FacilityInterface>();
 		
+		Iterator<FacilityInterface> it = facilities.iterator();
+		while(it.hasNext())
+		{
+		    FacilityInterface obj = it.next();
+		    Room fac = (Room) obj;
+		    if (fac.getParentId() == this.getFacilitySerialNumber()){
+		    	childeren.add(fac);
+		    }
+		}
+		return childeren;
 	}
-	@Override
-	public void getFacilityUse(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getFacilityInformation(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void requestAvailableCapacity(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void listFacilityInspections(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getVacancy() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getChildren(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void assignFacilityToUse(int facilitySerialNumber, String useType) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void vacateFacility(int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setStartDate(int startDate, int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setEndDate(int endDate, int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setDownTime(int downTime, int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setCapacity(int capacity, int facilitySerialNumber) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
 	public int getFacilitySerialNumber() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.serialNumber;
 	}
+
 	@Override
 	public int getEndDate() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.endDate;
 	}
+
 	@Override
 	public int getStartDate() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.startDate;
 	}
+
+	@Override
+	public void assignFacilityToUse(String useType) {
+		if(this.isUsed == true) {
+			System.out.println("Facility already in use.");
+		}
+		else {
+			this.isUsed = true;
+			this.usage = useType;
+		}
+	}
+
+	@Override
+	public void vacateFacility(boolean isVacant) {
+		this.isVacant = isVacant;
+	}
+
+	@Override
+	public void setStartDate(int startDate) {
+		this.startDate = startDate;
+	}
+
+	@Override
+	public void setEndDate(int endDate) {
+		this.endDate = endDate;	
+	}
+
+	@Override
+	public void setDownTime(int downTime) {
+		this.downTime = downTime;
+	}
+
+	@Override
+	public void setCapacity(int capacity) {
+		if(capacity > MAX_ROOM_CAPACITY){
+			this.capacity = capacity;
+		}
+		else {
+			System.out.println("Capacity not valid");
+		}
+	}
+
+	@Override
+	public void setScheduledDownTime(int scheduledDownTime) {
+		this.scheduledDownTime = scheduledDownTime;
+	}
+
+	@Override
+	public void setUnscheduledDownTime(int unscheduledDownTime) {
+		this.unscheduledDownTime = unscheduledDownTime;
+	}
+
+	@Override
+	public void setParentID(int parentID) {
+		this.parentId = parentID;
+	}
+
 }

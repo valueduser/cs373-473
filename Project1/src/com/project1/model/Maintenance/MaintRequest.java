@@ -84,7 +84,7 @@ public class MaintRequest implements MaintenanceInterface {
 		return 0;
 	}
 	@Override
-	public double calcProblemRateForFacility(int facilitySerialNumber) {
+	public double calcProblemRateForFacility(FacilityInterface facility) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

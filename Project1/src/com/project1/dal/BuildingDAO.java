@@ -15,7 +15,7 @@ public class BuildingDAO {
 	
 	private String facilityTableName = "facilities";
 	/**
-	 * ids | capacity | isUsed | hasVacancy | usage | startDate | endDate |
+	 * ids | capacity | isUsed | hasVacancy | usage | startDate | endDate | scheduledDownTime | unscheduledDownTime | downTime | parentID
 	 */
 	
 	
@@ -25,15 +25,12 @@ public class BuildingDAO {
 		try{
 			Statement statement = DBHelper.getConnection().createStatement();
 			int bldgID = bldg.getFacilitySerialNumber();
-			bldg.getFacilityUse(bldgID);
-			bldg.getStartDate(bldgID);
-			bldg.getEndDate(bldgID);
-			
-			//Date date = new Date();
-			SimpleDateFormat today = new SimpleDateFormat("yyyy/MM/dd");
+			bldg.getFacilityUse();
+			bldg.getStartDate();
+			bldg.getEndDate();
 			
 			
-			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate')] VALUES (" + bldgID + ", null, true, false, null, " + today + ", null);"; 
+			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'scheduledDownTime', 'unscheduledDownTime', 'parentID	')] VALUES (" + bldgID + ", null, true, false, null, null, null, null, null, null, null);"; 
 			statement.executeQuery(addFacilityQuery);
 		}
 		catch (SQLException sqlExcep) {
@@ -53,16 +50,31 @@ public class BuildingDAO {
 			ResultSet rs = statement.executeQuery(getFacilityQuery);
 			
 			int capacity = rs.getInt("capacity");
-			bldg.setCapacity(capacity, facilitySerialNumber);
+			bldg.setCapacity(capacity);
 			
 			int startDate = rs.getInt("startDate");
-			bldg.setStartDate(startDate, facilitySerialNumber);
+			bldg.setStartDate(startDate);
 			
 			int endDate = rs.getInt("endDate");
-			bldg.setEndDate(endDate, facilitySerialNumber);
+			bldg.setEndDate(endDate);
 			
 			int downTime = rs.getInt("downTime");
-			bldg.setDownTime(downTime, facilitySerialNumber);
+			bldg.setDownTime(downTime);
+			
+			int unscheduledDownTime = rs.getInt("unscheduledDownTime");
+			bldg.setUnscheduledDownTime(unscheduledDownTime);
+			
+			int scheduledDownTime = rs.getInt("scheduledDownTime");
+			bldg.setScheduledDownTime(scheduledDownTime);
+			
+			int parentID = rs.getInt("parentID");
+			bldg.setParentID(parentID);
+			
+			String usage = rs.getString("usage");
+			bldg.assignFacilityToUse(usage);
+			
+			boolean isVacant = rs.getBoolean("hasVacancy");
+			bldg.vacateFacility(isVacant);
 
 		}
 		catch (SQLException sqlExcep) {
