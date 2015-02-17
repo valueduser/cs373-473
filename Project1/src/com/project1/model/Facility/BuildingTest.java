@@ -119,7 +119,7 @@ public class BuildingTest {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		ArrayList<MaintenanceInterface> inspections = maintDetails.listMaint(tempFac.getFacilitySerialNumber(), "INSPECTIONS");
 		int length = inspections.size();
-		assertEquals(length, 0);
+		assertEquals(length, 1);
 	}
 
 	@Test

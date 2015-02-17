@@ -43,9 +43,12 @@ public class BuildingDAO {
 			psAddFacilityQuery.setInt(11, fac.getParentId());
 	
 			psAddFacilityQuery.executeUpdate();
+//			statement.executeUpdate(addFacilityQuery);
 			
 			psAddFacilityQuery.close();
-
+//			connection.close();
+//			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'downTime' ,'scheduledDownTime', 'unscheduledDownTime', 'parentId') VALUES (" + fac.getFacilitySerialNumber() + ", " + fac.getCapacity() + ", '" + true + "', '" + fac.getVacancy() + "', '" + fac.getFacilityUse() + "', " + fac.getStartDate() + ", "  + fac.getEndDate() + ", " + fac.getDownTime() + ", " + fac.getScheduledDownTime() + ", " + fac.getUnscheduledDownTime() + ", " + fac.getParentId() + ");";
+//			statement.executeUpdate(addFacilityQuery);
 			statement.close();
 		}
 		catch (SQLException sqlExcep) {
@@ -59,6 +62,8 @@ public class BuildingDAO {
 		try{
 			Statement statement = DBHelper.getConnection().createStatement();
 			
+			
+//			String getFacilityQuery = "SELECT capacity, usage, startDate, endDate, downTime, scheduledDownTime, unscheduledDownTime, parentIdFROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			String getFacilityQuery = "SELECT id, capacity, isUsed, hasVacancy, usage, startDate, endDate, downTime, unscheduledDownTime, scheduledDownTime, parentId FROM " + facilityTableName + " WHERE id = " + facilitySerialNumber + ";";
 			
 			ResultSet rs = statement.executeQuery(getFacilityQuery);
@@ -77,6 +82,33 @@ public class BuildingDAO {
 				bldg.setScheduledDownTime(rs.getInt("scheduledDownTime"));
 				bldg.setParentId(rs.getInt("parentId"));
 			}
+			
+//			int capacity = rs.getInt("capacity");
+//			bldg.setCapacity(capacity);
+//			
+//			int startDate = rs.getInt("startDate");
+//			bldg.setStartDate(startDate);
+//			
+//			int endDate = rs.getInt("endDate");
+//			bldg.setEndDate(endDate);
+//			
+//			int downTime = rs.getInt("downTime");
+//			bldg.setDownTime(downTime);
+//			
+//			int unscheduledDownTime = rs.getInt("unscheduledDownTime");
+//			bldg.setUnscheduledDownTime(unscheduledDownTime);
+//			
+//			int scheduledDownTime = rs.getInt("scheduledDownTime");
+//			bldg.setScheduledDownTime(scheduledDownTime);
+//			
+//			int parentId = rs.getInt("parentId");
+//			bldg.setParentId(parentId);
+//			
+//			String usage = rs.getString("usage");
+//			bldg.assignFacilityToUse(usage);
+//			
+//			boolean isVacant = rs.getBoolean("hasVacancy");
+//			bldg.vacateFacility(isVacant);
 			
 			rs.close();
 			statement.close();

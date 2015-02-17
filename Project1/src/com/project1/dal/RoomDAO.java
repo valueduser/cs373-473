@@ -43,9 +43,12 @@ public class RoomDAO {
 			psAddFacilityQuery.setInt(10, room.getUnscheduledDownTime());
 			psAddFacilityQuery.setInt(11, room.getParentId());
 	
-
+//			statement.executeUpdate(addFacilityQuery);			
+			
 			psAddFacilityQuery.executeUpdate();
-
+//			String addFacilityQuery = "INSERT INTO " + facilityTableName + "('id', 'capacity', 'isUsed', 'hasVacancy', 'usage', 'startDate', 'endDate', 'downTime', 'scheduledDownTime', 'unscheduledDownTime', 'parentId') VALUES (" + room.getFacilitySerialNumber() + ", " + room.getCapacity() + ", true, " + room.getVacancy() + ", " + room.getFacilityUse() + ", " + room.getStartDate() + ", "  + room.getEndDate() + ", "  + room.getDownTime() + ", "  + room.getScheduledDownTime() + ", "  + room.getUnscheduledDownTime() + ", "  + room.getParentId() + ";"; 
+//			statement.executeUpdate(addFacilityQuery);
+			
 			psAddFacilityQuery.close();
 			statement.close();
 		}
@@ -78,7 +81,34 @@ public class RoomDAO {
 				room.setScheduledDownTime(rs.getInt("scheduledDownTime"));
 				room.setParentId(rs.getInt("parentId"));
 			}
-		
+			
+//			int capacity = rs.getInt("capacity");
+//			room.setCapacity(capacity);
+//			
+//			int startDate = rs.getInt("startDate");
+//			room.setStartDate(startDate);
+//			
+//			int endDate = rs.getInt("endDate");
+//			room.setEndDate(endDate);
+//			
+//			int downTime = rs.getInt("downTime");
+//			room.setDownTime(downTime);
+//			
+//			int unscheduledDownTime = rs.getInt("unscheduledDownTime");
+//			room.setUnscheduledDownTime(unscheduledDownTime);
+//			
+//			int scheduledDownTime = rs.getInt("scheduledDownTime");
+//			room.setScheduledDownTime(scheduledDownTime);
+//			
+//			int parentId = rs.getInt("parentId");
+//			room.setParentId(parentId);
+//			
+//			String usage = rs.getString("usage");
+//			room.assignFacilityToUse(usage);
+//			
+//			boolean isVacant = rs.getBoolean("hasVacancy");
+//			room.vacateFacility(isVacant);
+
 			statement.close();
 			rs.close();
 		}
