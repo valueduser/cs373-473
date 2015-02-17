@@ -125,7 +125,7 @@ public class FacilityManagementClient {
 			room3.setScheduledDownTime(250000);
 			room3.setStartDate(101);
 			room3.setUnscheduledDownTime(250000);
-			room2.assignFacilityToUse("Rental");
+			room3.assignFacilityToUse("Rental");
 			room3.vacateFacility(false);
 			facilityInfo.add(room3);
 
@@ -139,7 +139,7 @@ public class FacilityManagementClient {
 			room4.setScheduledDownTime(250000);
 			room4.setStartDate(101);
 			room4.setUnscheduledDownTime(250000);
-			room2.assignFacilityToUse("Rental");
+			room4.assignFacilityToUse("Rental");
 			room4.vacateFacility(false);
 			facilityInfo.add(room4);
 			

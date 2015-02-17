@@ -24,6 +24,7 @@ public interface FacilityInterface {
 	public int getCapacity();
 	public int getScheduledDownTime();
 	public int getUnscheduledDownTime();
+	public boolean getIsUsed();
 
 	public void assignFacilityToUse(String useType); //setter for isUsed and useType
 	public void vacateFacility(boolean isVacant); //setter for isVacant

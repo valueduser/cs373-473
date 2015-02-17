@@ -2,7 +2,6 @@ package com.project1.model.Facility;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import com.project1.model.Maintenance.MaintDetails;
 import com.project1.model.Maintenance.MaintenanceInterface;
@@ -134,7 +133,7 @@ public class Room implements FacilityInterface {
 
 	@Override
 	public void assignFacilityToUse(String useType) {
-		if(this.isUsed == true) {
+		if(this.getIsUsed() == true) {
 			System.out.println("Facility already in use.");
 		}
 		else {
@@ -196,6 +195,11 @@ public class Room implements FacilityInterface {
 	@Override
 	public void setIsUsed(boolean isUsed) {
 		this.isUsed = isUsed;
+	}
+
+	@Override
+	public boolean getIsUsed() {
+		return this.isUsed;
 	}
 
 }

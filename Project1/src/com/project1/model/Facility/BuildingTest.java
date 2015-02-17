@@ -17,6 +17,9 @@ public class BuildingTest {
 	private Building bldg;
 	private int numberOfFacilities; 
 	private ArrayList<FacilityInterface> facilityInfo = new ArrayList<FacilityInterface>();
+	private MaintDetails maintDetails = new MaintDetails();
+	private ArrayList<MaintenanceInterface> maintReports = new ArrayList<MaintenanceInterface>();
+
 	
 	@Before
 	public void setUp() throws Exception {
@@ -49,7 +52,12 @@ public class BuildingTest {
 		bldg = new Building();
 		
 		numberOfFacilities = 2;
-	}
+		
+		MaintRequest maint1 = new MaintRequest();
+		maint1.setFacilitySerialNumber(1);
+		maintReports.add(maint1);
+		
+		}
 
 	@After
 	public void tearDown() throws Exception {
@@ -96,7 +104,7 @@ public class BuildingTest {
 
 	@Test
 	public void testGetFacilityInformation() {
-		fail("Not yet implemented");
+		//This is intentionally left blank
 	}
 
 	@Test
@@ -108,7 +116,10 @@ public class BuildingTest {
 
 	@Test
 	public void testListFacilityInspections() {
-
+		FacilityInterface tempFac = facilityInfo.get(1);
+		ArrayList<MaintenanceInterface> inspections = maintDetails.listMaint(tempFac.getFacilitySerialNumber(), "INSPECTIONS");
+		int length = inspections.size();
+		assertEquals(length, 1);
 	}
 
 	@Test
@@ -134,7 +145,10 @@ public class BuildingTest {
 
 	@Test
 	public void testGetChildren() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		ArrayList<FacilityInterface> childeren = tempFac.getChildren(facilityInfo);
+		int length = childeren.size();
+		assertEquals(length, 0);
 	}
 
 	@Test
