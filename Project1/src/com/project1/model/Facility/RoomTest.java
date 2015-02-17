@@ -4,60 +4,49 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import com.project1.model.Facility.*;
 import com.project1.model.Maintenance.MaintDetails;
 import com.project1.model.Maintenance.MaintRequest;
 import com.project1.model.Maintenance.MaintenanceInterface;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-public class BuildingTest {
-	private Building bldg;
-	private int numberOfFacilities; 
+public class RoomTest {
+	private Room room;
 	private ArrayList<FacilityInterface> facilityInfo = new ArrayList<FacilityInterface>();
 	private MaintDetails maintDetails = new MaintDetails();
 	private ArrayList<MaintenanceInterface> maintReports = new ArrayList<MaintenanceInterface>();
-
 	
 	@Before
 	public void setUp() throws Exception {
+		FacilityInterface room1 = new Room();
+		room1.setFacilityId(4);
+		room1.setCapacity(2);
+		room1.setDownTime(1000);
+		room1.setEndDate(9999);
+		room1.setParentId(1);
+		room1.setScheduledDownTime(500);
+		room1.setStartDate(408);
+		room1.setUnscheduledDownTime(500);
+		room1.assignFacilityToUse("Rental");
+		room1.vacateFacility(false);
+		facilityInfo.add(room1);
 		
-		FacilityInterface building1 = new Building();
-		building1.setFacilityId(1);
-		building1.setCapacity(2);
-		building1.setDownTime(2000);
-		building1.setEndDate(9999);
-		building1.setParentId(0);
-		building1.setScheduledDownTime(1500);
-		building1.setStartDate(408);
-		building1.setUnscheduledDownTime(500);
-		building1.assignFacilityToUse("Rental");
-		building1.vacateFacility(true);
-		facilityInfo.add(building1);
-		
-		FacilityInterface building2 = new Building();
-		building2.setFacilityId(2);
-		building2.setCapacity(2);
-		building2.setDownTime(100000);
-		building2.setEndDate(9999);
-		building2.setParentId(0);
-		building2.setScheduledDownTime(50000);
-		building2.setStartDate(101);
-		building2.setUnscheduledDownTime(50000);
-		building2.assignFacilityToUse("Rental");
-		building2.vacateFacility(true);
-		facilityInfo.add(building2);
-		bldg = new Building();
-		
-		numberOfFacilities = 2;
-		
-		MaintRequest maint1 = new MaintRequest();
-		maint1.setFacilitySerialNumber(1);
-		maintReports.add(maint1);
-		
-		}
+		FacilityInterface room2 = new Room();
+		room2.setFacilityId(5);
+		room2.setCapacity(2);
+		room2.setDownTime(1000);
+		room2.setEndDate(9999);
+		room2.setParentId(1);
+		room2.setScheduledDownTime(500);
+		room2.setStartDate(408);
+		room2.setUnscheduledDownTime(500);
+		room2.assignFacilityToUse("Rental");
+		room2.vacateFacility(false);
+		facilityInfo.add(room2);
+	}
 
 	@After
 	public void tearDown() throws Exception {
@@ -75,7 +64,7 @@ public class BuildingTest {
 	@Test
 	public void testListActualUsage() {
 		FacilityInterface tempFac = facilityInfo.get(1);
-		int result = 9999 - 101 - 100000; 
+		int result = 9999 - 408 - 1000; 
 		assertEquals(result, tempFac.listActualUsage(tempFac.getFacilitySerialNumber()));
 	}
 
@@ -85,26 +74,35 @@ public class BuildingTest {
 		int upTime = tempFac.listActualUsage(tempFac.getFacilitySerialNumber());
 		int usageRate = upTime / (tempFac.getEndDate() - tempFac.getStartDate());
 		int result = tempFac.calcUsageRate(tempFac.getFacilitySerialNumber());
-		assertEquals(result, usageRate);
+		assertEquals(result, usageRate);	
 	}
 
 	@Test
 	public void testGetFacilityUse() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		String result = tempFac.getFacilityUse();
-		assertEquals(result, "Rental");
-	}
+		assertEquals(result, "Rental");	
+		}
 
 	@Test
 	public void testGetDownTime() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getDownTime();
-		assertEquals(result, 100000);
+		assertEquals(result, 1000);
 	}
 
 	@Test
-	public void testGetFacilityInformation() {
-		//This is intentionally left blank
+	public void testGetScheduledDownTime() {
+		FacilityInterface tempFac = facilityInfo.get(1);
+		int result = tempFac.getScheduledDownTime();
+		assertEquals(result, 500);	
+		}
+
+	@Test
+	public void testGetUnscheduledDownTime() {
+		FacilityInterface tempFac = facilityInfo.get(1);
+		int result = tempFac.getScheduledDownTime();
+		assertEquals(result, 500);
 	}
 
 	@Test
@@ -119,71 +117,59 @@ public class BuildingTest {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		ArrayList<MaintenanceInterface> inspections = maintDetails.listMaint(tempFac.getFacilitySerialNumber(), "INSPECTIONS");
 		int length = inspections.size();
-		assertEquals(length, 0);
+		assertEquals(length, 1);
 	}
 
 	@Test
 	public void testGetVacancy() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		boolean result = tempFac.getVacancy();
-		assertEquals(result, true);
-	}
+		assertEquals(result, false);	
+		}
 
 	@Test
 	public void testGetParentId() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getParentId();
-		assertEquals(result, 0);
+		assertEquals(result, 1);
 	}
 
 	@Test
-	public void testGetCapacity() {
-		FacilityInterface tempFac = facilityInfo.get(1);
-		int result = tempFac.getCapacity();
-		assertEquals(result, 2);	
+	public void testGetFacilityInformation() {
+		//This is intentionally left blank
 	}
-
+	
 	@Test
 	public void testGetChildren() {
-		FacilityInterface tempFac = facilityInfo.get(1);
-		ArrayList<FacilityInterface> childeren = tempFac.getChildren(facilityInfo);
-		int length = childeren.size();
-		assertEquals(length, 0);
+		//This is intentionally left blank
 	}
 
 	@Test
 	public void testGetFacilitySerialNumber() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getFacilitySerialNumber();
-		assertEquals(result, 2);	
+		assertEquals(result, 5);
 	}
 
 	@Test
 	public void testGetEndDate() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getEndDate();
-		assertEquals(result, 9999);
-	}
+		assertEquals(result, 9999);	
+		}
 
 	@Test
 	public void testGetStartDate() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getStartDate();
-		assertEquals(result, 101);	
+		assertEquals(result, 408);
 	}
 
 	@Test
-	public void testGetScheduledDownTime() {
+	public void testGetCapacity() {
 		FacilityInterface tempFac = facilityInfo.get(1);
-		int result = tempFac.getScheduledDownTime();
-		assertEquals(result, 50000);	
-	}
-
-	@Test
-	public void testGetUnscheduledDownTime() {
-		FacilityInterface tempFac = facilityInfo.get(1);
-		int result = tempFac.getUnscheduledDownTime();
-		assertEquals(result, 50000);		}
+		int result = tempFac.getCapacity();
+		assertEquals(result, 2);	}
 
 	@Test
 	public void testAssignFacilityToUse() {
@@ -219,7 +205,7 @@ public class BuildingTest {
 		FacilityInterface tempFac = facilityInfo.get(0);
 		int dt = tempFac.getDownTime() + 56;
 		tempFac.setDownTime(dt);
-		assertEquals(tempFac.getDownTime(), 2056);
+		assertEquals(tempFac.getDownTime(), 1056);
 	}
 
 	@Test
@@ -234,7 +220,7 @@ public class BuildingTest {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int schDT = tempFac.getScheduledDownTime() + 111;
 		tempFac.setScheduledDownTime(schDT);
-		assertEquals(tempFac.getScheduledDownTime(), 50111);
+		assertEquals(tempFac.getScheduledDownTime(), 611);
 	}
 
 	@Test
@@ -242,7 +228,7 @@ public class BuildingTest {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int unSchDt = tempFac.getUnscheduledDownTime() + 16;
 		tempFac.setUnscheduledDownTime(unSchDt);
-		assertEquals(tempFac.getUnscheduledDownTime(), 50016);
+		assertEquals(tempFac.getUnscheduledDownTime(), 516);
 	}
 
 	@Test
