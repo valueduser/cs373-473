@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import com.project1.model.Facility.*;
+import com.project1.model.Maintenance.MaintDetails;
+import com.project1.model.Maintenance.MaintRequest;
+import com.project1.model.Maintenance.MaintenanceInterface;
 
 import org.junit.After;
 import org.junit.Before;
@@ -59,17 +62,22 @@ public class BuildingTest {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		boolean result = tempFac.isInUseDuringInterval(time1, time2);
 		assertEquals(result, false);
-		//assert.equals(result, false);
 	}
 
 	@Test
 	public void testListActualUsage() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		int result = 9999 - 101 - 100000; 
+		assertEquals(result, tempFac.listActualUsage(tempFac.getFacilitySerialNumber()));
 	}
 
 	@Test
 	public void testCalcUsageRate() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		int upTime = tempFac.listActualUsage(tempFac.getFacilitySerialNumber());
+		int usageRate = upTime / (tempFac.getEndDate() - tempFac.getStartDate());
+		int result = tempFac.calcUsageRate(tempFac.getFacilitySerialNumber());
+		assertEquals(result, usageRate);
 	}
 
 	@Test
@@ -83,7 +91,7 @@ public class BuildingTest {
 	public void testGetDownTime() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getDownTime();
-		assertEquals(result, 2000);
+		assertEquals(result, 100000);
 	}
 
 	@Test
@@ -93,17 +101,21 @@ public class BuildingTest {
 
 	@Test
 	public void testRequestAvailableCapacity() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		int result = tempFac.requestAvailableCapacity();
+		assertEquals(result, 2);
 	}
 
 	@Test
 	public void testListFacilityInspections() {
-		fail("Not yet implemented");
+
 	}
 
 	@Test
 	public void testGetVacancy() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		boolean result = tempFac.getVacancy();
+		assertEquals(result, true);
 	}
 
 	@Test
@@ -129,7 +141,7 @@ public class BuildingTest {
 	public void testGetFacilitySerialNumber() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getFacilitySerialNumber();
-		assertEquals(result, 1);	
+		assertEquals(result, 2);	
 	}
 
 	@Test
@@ -143,75 +155,101 @@ public class BuildingTest {
 	public void testGetStartDate() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getStartDate();
-		assertEquals(result, 408);	
+		assertEquals(result, 101);	
 	}
 
 	@Test
 	public void testGetScheduledDownTime() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getScheduledDownTime();
-		assertEquals(result, 1500);	
+		assertEquals(result, 50000);	
 	}
 
 	@Test
 	public void testGetUnscheduledDownTime() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getUnscheduledDownTime();
-		assertEquals(result, 500);		}
+		assertEquals(result, 50000);		}
 
 	@Test
 	public void testAssignFacilityToUse() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.setIsUsed(false);
+		tempFac.assignFacilityToUse("Restaurant");
+		assertEquals(tempFac.getFacilityUse(), "Restaurant");
 	}
 
 	@Test
 	public void testVacateFacility() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.vacateFacility(true);
+		assertEquals(tempFac.getVacancy(), true);
 	}
 
 	@Test
 	public void testSetStartDate() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.setStartDate(20150216);
+		assertEquals(tempFac.getStartDate(), 20150216);
 	}
 
 	@Test
 	public void testSetEndDate() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.setEndDate(20150216);
+		assertEquals(tempFac.getEndDate(), 20150216);
 	}
 
 	@Test
 	public void testSetDownTime() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(0);
+		int dt = tempFac.getDownTime() + 56;
+		tempFac.setDownTime(dt);
+		assertEquals(tempFac.getDownTime(), 2056);
 	}
 
 	@Test
 	public void testSetCapacity() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.setCapacity(3);
+		assertEquals(tempFac.getCapacity(), 3);
 	}
 
 	@Test
 	public void testSetScheduledDownTime() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		int schDT = tempFac.getScheduledDownTime() + 111;
+		tempFac.setScheduledDownTime(schDT);
+		assertEquals(tempFac.getScheduledDownTime(), 50111);
 	}
 
 	@Test
 	public void testSetUnscheduledDownTime() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		int unSchDt = tempFac.getUnscheduledDownTime() + 16;
+		tempFac.setUnscheduledDownTime(unSchDt);
+		assertEquals(tempFac.getUnscheduledDownTime(), 50016);
 	}
 
 	@Test
 	public void testSetParentId() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.setParentId(11);
+		assertEquals(tempFac.getParentId(), 11);
 	}
 
 	@Test
 	public void testSetFacilityId() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.setFacilityId(42); 
+		assertEquals(tempFac.getFacilitySerialNumber(), 42);
 	}
 
 	@Test
 	public void testSetIsUsed() {
-		fail("Not yet implemented");
+		FacilityInterface tempFac = facilityInfo.get(1);
+		tempFac.setIsUsed(false);
+		assertEquals(tempFac.getIsUsed(), false);
 	}
 
 }
