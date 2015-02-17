@@ -1,4 +1,4 @@
-package com.project1.model.Facility;
+package com.project1.model.Maintenance;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class RoomTest {
+public class InspectionTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,97 +27,82 @@ public class RoomTest {
 	}
 
 	@Test
-	public void testListFacilities() {
+	public void testScheduleMaintenance() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testAddNewFacility() {
+	public void testMakeFacilityMaintRequest() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testAddFacilityDetails() {
+	public void testCalcMaintCostForFacility() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testRemoveFacility() {
+	public void testCalcProblemRateForFacility() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testIsInUseDuringInterval() {
+	public void testCalcDownTimeForFaciliity() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testListActualUsage() {
+	public void testListMaintRequestsForFacility() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testCalcUsageRate() {
+	public void testListMaint() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetFacilityUse() {
+	public void testListFacilityProblems() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetFacilityInformation() {
+	public void testScheduleMaintenanceIntString() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testRequestAvailableCapacity() {
+	public void testMakeFacilityMaintRequestIntIntString() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testListFacilityInspections() {
+	public void testCalcMaintCostForFacilityInt() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetVacancy() {
+	public void testCalcProblemRateForFacilityInt() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetChildren() {
+	public void testCalcDownTimeForFaciliityInt() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testAssignFacilityToUse() {
+	public void testListMaintRequestsForFacilityInt() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testVacateFacility() {
+	public void testListMaintIntString() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testSetStartDate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetEndDate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetDownTime() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetCapacity() {
+	public void testListFacilityProblemsInt() {
 		fail("Not yet implemented");
 	}
 
