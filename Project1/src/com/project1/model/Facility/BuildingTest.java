@@ -58,7 +58,7 @@ public class BuildingTest {
 		int time2 = 235;
 		FacilityInterface tempFac = facilityInfo.get(1);
 		boolean result = tempFac.isInUseDuringInterval(time1, time2);
-		assert.equals(result);
+		assertEquals(result, false);
 		//assert.equals(result, false);
 	}
 
@@ -76,14 +76,14 @@ public class BuildingTest {
 	public void testGetFacilityUse() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		String result = tempFac.getFacilityUse();
-		assert.equals(result, "Rental");
+		assertEquals(result, "Rental");
 	}
 
 	@Test
 	public void testGetDownTime() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getDownTime();
-		assert.equals(result, 2000);
+		assertEquals(result, 2000);
 	}
 
 	@Test
@@ -110,14 +110,14 @@ public class BuildingTest {
 	public void testGetParentId() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getParentId();
-		assert.equals(result, 0);
+		assertEquals(result, 0);
 	}
 
 	@Test
 	public void testGetCapacity() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getCapacity();
-		assert.equals(result, 2);	
+		assertEquals(result, 2);	
 	}
 
 	@Test
@@ -129,35 +129,35 @@ public class BuildingTest {
 	public void testGetFacilitySerialNumber() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getFacilitySerialNumber();
-		assert.equals(result, 1);	
+		assertEquals(result, 1);	
 	}
 
 	@Test
 	public void testGetEndDate() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getEndDate();
-		assert.equals(result, 9999);
+		assertEquals(result, 9999);
 	}
 
 	@Test
 	public void testGetStartDate() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getStartDate();
-		assert.equals(result, 408);	
+		assertEquals(result, 408);	
 	}
 
 	@Test
 	public void testGetScheduledDownTime() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getScheduledDownTime();
-		assert.equals(result, 1500);	
+		assertEquals(result, 1500);	
 	}
 
 	@Test
 	public void testGetUnscheduledDownTime() {
 		FacilityInterface tempFac = facilityInfo.get(1);
 		int result = tempFac.getUnscheduledDownTime();
-		assert.equals(result, 500);		}
+		assertEquals(result, 500);		}
 
 	@Test
 	public void testAssignFacilityToUse() {
