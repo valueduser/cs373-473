@@ -79,7 +79,7 @@ public class Building implements FacilityInterface {
 	@Override
 	public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance) {
 		MaintenanceInterface inspections = new MaintDetails();
-		ArrayList<MaintenanceInterface> facInspections = inspections.listMaint(this.serialNumber, "INSPECTION");
+		ArrayList<MaintenanceInterface> facInspections = inspections.listMaint(this.getFacilitySerialNumber(), "INSPECTION");
 		return facInspections;
 	}
 

@@ -10,7 +10,10 @@ public class MaintDetails implements MaintenanceInterface {
 	
 	
 	public ArrayList<MaintenanceInterface> getMaintenanceList() {
-		return maintenanceList;
+		if (this.maintenanceList != null){
+		return this.maintenanceList;
+		}
+		return null;
 	}
 
 	public void setMaintenanceList(ArrayList<MaintenanceInterface> maintenanceList) {
@@ -18,7 +21,7 @@ public class MaintDetails implements MaintenanceInterface {
 	}
 
 	@Override
-	public MaintenanceInterface ScheduleMaintenance(int facilitySerialNumber, int requestID, String maintType, int startDate) {
+	public MaintenanceInterface scheduleMaintenance(int facilitySerialNumber, int requestID, String maintType, int startDate) {
 		MaintRequest scheduledMaint = new MaintRequest();
 		scheduledMaint.setFacilitySerialNumber(facilitySerialNumber);
 		scheduledMaint.setRequestID(requestID);
@@ -46,21 +49,27 @@ public class MaintDetails implements MaintenanceInterface {
 
 	@Override
 	public double calcMaintCostForFacility(int facilitySerialNumber) {
-		double maintHours = 0;
-		double costPerHourDownTime = 12.5;
-		double maintCost = 0;
-		ArrayList<MaintenanceInterface> maintenanceList = this.getMaintenanceList();
-		Iterator<MaintenanceInterface> it = maintenanceList.iterator();
-		while(it.hasNext())
-		{
-		    MaintenanceInterface obj = it.next();
-		    MaintRequest maint = (MaintRequest) obj;
-		    if (maint.getFacilitySerialNumber() == facilitySerialNumber){
-		    	maintHours += maint.getTimeToComplete()/60;
-		    }
+		if (facilitySerialNumber != 0){
+			double maintHours = 0;
+			double costPerHourDownTime = 12.5;
+			double maintCost = 0;
+			ArrayList<MaintenanceInterface> maintenanceList = this.getMaintenanceList();
+			if (maintenanceList != null){
+				Iterator<MaintenanceInterface> it = maintenanceList.iterator();
+				while(it.hasNext())
+				{
+				    MaintenanceInterface obj = it.next();
+				    MaintRequest maint = (MaintRequest) obj;
+				    if (maint.getFacilitySerialNumber() == facilitySerialNumber){
+				    	maintHours += maint.getTimeToComplete()/60;
+				    }
+				}
+				maintCost = maintHours * costPerHourDownTime;
+				return maintCost;
+			}
+			return 0;
 		}
-		maintCost = maintHours * costPerHourDownTime;
-		return maintCost;
+		return 0;
 	}
 
 	@Override
@@ -72,17 +81,20 @@ public class MaintDetails implements MaintenanceInterface {
 		double daysNotOperable = 0;
 
 		ArrayList<MaintenanceInterface> maintenanceList = this.getMaintenanceList();
-		Iterator<MaintenanceInterface> it = maintenanceList.iterator();
-		while(it.hasNext())
-		{
-		    MaintenanceInterface obj = it.next();
-		    MaintRequest maint = (MaintRequest) obj;
-		    if (!maint.getIsOpen()){
-		    	daysNotOperable += (maint.getTimeToComplete()/60)/24;
-		    }
+		if(maintenanceList != null){
+			Iterator<MaintenanceInterface> it = maintenanceList.iterator();
+			while(it.hasNext())
+			{
+			    MaintenanceInterface obj = it.next();
+			    MaintRequest maint = (MaintRequest) obj;
+			    if (!maint.getIsOpen()){
+			    	daysNotOperable += (maint.getTimeToComplete()/60)/24;
+			    }
+			}
+			problemRate = daysNotOperable/daysOperable;
+			return problemRate;
 		}
-		problemRate = daysNotOperable/daysOperable;
-		return problemRate;
+		return 0;
 	}
 
 	@Override
@@ -90,16 +102,19 @@ public class MaintDetails implements MaintenanceInterface {
 		double downTime = 0;
 		
 		ArrayList<MaintenanceInterface> maintenanceList = this.getMaintenanceList();
-		Iterator<MaintenanceInterface> it = maintenanceList.iterator();
-		while(it.hasNext())
-		{
-		    MaintenanceInterface obj = it.next();
-		    MaintRequest maint = (MaintRequest) obj;
-		    if (maint.getFacilitySerialNumber() == facilitySerialNumber && !maint.getIsOpen()){
-		    	downTime += maint.getTimeToComplete()/60;
-		    }
+		if(maintenanceList != null){
+			Iterator<MaintenanceInterface> it = maintenanceList.iterator();
+			while(it.hasNext())
+			{
+			    MaintenanceInterface obj = it.next();
+			    MaintRequest maint = (MaintRequest) obj;
+			    if (maint.getFacilitySerialNumber() == facilitySerialNumber && !maint.getIsOpen()){
+			    	downTime += maint.getTimeToComplete()/60;
+			    }
+			}
+			return downTime;
 		}
-		return downTime;
+		return 0;
 	}
 
 	@Override
@@ -107,17 +122,19 @@ public class MaintDetails implements MaintenanceInterface {
 		ArrayList<MaintenanceInterface> maintForFacility = new ArrayList<MaintenanceInterface>();
 		
 		ArrayList<MaintenanceInterface> maintenanceList = this.getMaintenanceList();
-		Iterator<MaintenanceInterface> it = maintenanceList.iterator();
-		while(it.hasNext())
-		{
-		    MaintenanceInterface obj = it.next();
-		    MaintRequest maint = (MaintRequest) obj;
-		    if (maint.getFacilitySerialNumber() == facilitySerialNumber){
-		    	maintForFacility.add(maint);
-		    }
+		if(maintenanceList != null){
+			Iterator<MaintenanceInterface> it = maintenanceList.iterator();
+			while(it.hasNext())
+			{
+			    MaintenanceInterface obj = it.next();
+			    MaintRequest maint = (MaintRequest) obj;
+			    if (maint.getFacilitySerialNumber() == facilitySerialNumber){
+			    	maintForFacility.add(maint);
+			    }
+			}
+			return maintForFacility;
 		}
-		
-		return maintForFacility;
+		return null;
 	}
 
 	@Override
@@ -125,21 +142,24 @@ public class MaintDetails implements MaintenanceInterface {
 		ArrayList<MaintenanceInterface> maintList = new ArrayList<MaintenanceInterface>();
 		
 		ArrayList<MaintenanceInterface> maintenanceList = this.getMaintenanceList();
-		Iterator<MaintenanceInterface> it = maintenanceList.iterator();
-		while(it.hasNext())
-		{
-		    MaintenanceInterface obj = it.next();
-		    MaintRequest maint = (MaintRequest) obj;
-		    if (maintType == "ALL"){
-		    	maintList.add(maint);
-		    }
-		    else{
-			    if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getMaintType() == maintType){
+		if(maintenanceList != null){
+			Iterator<MaintenanceInterface> it = maintenanceList.iterator();
+			while(it.hasNext())
+			{
+			    MaintenanceInterface obj = it.next();
+			    MaintRequest maint = (MaintRequest) obj;
+			    if (maintType == "ALL"){
 			    	maintList.add(maint);
 			    }
-		    }
+			    else{
+				    if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getMaintType() == maintType){
+				    	maintList.add(maint);
+				    }
+			   }
+			}
+			return maintList;
 		}
-		return maintList;
+		return null;
 	}
 
 	@Override
@@ -147,16 +167,19 @@ public class MaintDetails implements MaintenanceInterface {
 		ArrayList<MaintenanceInterface> maintList = new ArrayList<MaintenanceInterface>();
 		
 		ArrayList<MaintenanceInterface> maintenanceList = this.getMaintenanceList();
-		Iterator<MaintenanceInterface> it = maintenanceList.iterator();
-		while(it.hasNext())
-		{
-		    MaintenanceInterface obj = it.next();
-		    MaintRequest maint = (MaintRequest) obj;
-		    if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getIsOpen()){
-		    	maintList.add(maint);
-		    }
+		if(maintenanceList != null){
+			Iterator<MaintenanceInterface> it = maintenanceList.iterator();
+			while(it.hasNext())
+			{
+			    MaintenanceInterface obj = it.next();
+			    MaintRequest maint = (MaintRequest) obj;
+			    if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getIsOpen()){
+			    	maintList.add(maint);
+			    }
+			}
+			return maintList;
 		}
-		return maintList;
+		return null;
 	}
 
 }
