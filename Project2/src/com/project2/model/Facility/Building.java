@@ -3,11 +3,8 @@ package com.project2.model.Facility;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- * Created by chrislowe on 3/3/15.
- */
 public class Building implements FacilityInterface{
-
+    //todo overhaul
     public static final int MAX_BUILDING_CAPACITY = 15;
 
     private int serialNumber;
