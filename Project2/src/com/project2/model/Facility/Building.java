@@ -1,5 +1,8 @@
 package com.project2.model.Facility;
 
+import com.project2.model.Maintenance.MaintDetails;
+import com.project2.model.Maintenance.MaintenanceInterface;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 

@@ -2,11 +2,15 @@ package com.project2.model.Facility;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import com.project2.model.Maintenance.MaintDetails;
+import com.project2.model.Maintenance.MaintenanceInterface;
 
 /**
  * Created by chrislowe on 3/3/15.
  */
 public class Room implements FacilityInterface{
+    //todo overhaul
+
     public static final int MAX_ROOM_CAPACITY = 3;
 
     private int serialNumber;

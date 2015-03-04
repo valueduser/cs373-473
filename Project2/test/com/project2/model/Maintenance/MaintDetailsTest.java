@@ -40,7 +40,7 @@ public class MaintDetailsTest {
     @Test
     public void testScheduleMaintenance() {
         boolean itWorked = false;
-        MaintenanceInterface scheduled = details.scheduleMaintenance(fac.getFacilitySerialNumber(), 1, "SEV 1", 500);
+        MaintenanceInterface scheduled = details.ScheduleMaintenance(fac.getFacilitySerialNumber(), 1, "SEV 1", 500);
         if (scheduled != null){
             itWorked = true;
         }

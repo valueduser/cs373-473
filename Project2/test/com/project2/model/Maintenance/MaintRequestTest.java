@@ -40,7 +40,7 @@ public class MaintRequestTest {
     public void testScheduleMaintenance() {
         boolean isNull = false;
         MaintenanceInterface tempMaint = maintRequests.get(1);
-        if (tempMaint.scheduleMaintenance(0, 0, "", 0) == null){
+        if (tempMaint.ScheduleMaintenance(0, 0, "", 0) == null){
             isNull = true;
         }
         assertEquals(isNull, true);

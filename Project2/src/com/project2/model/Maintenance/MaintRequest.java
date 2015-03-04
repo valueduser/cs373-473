@@ -1,6 +1,7 @@
 package com.project2.model.Maintenance;
 
 import java.util.ArrayList;
+import com.project2.model.Facility.FacilityInterface;
 
 public class MaintRequest implements MaintenanceInterface{
     private int facilitySerialNumber;

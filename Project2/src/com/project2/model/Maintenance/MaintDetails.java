@@ -2,6 +2,9 @@ package com.project2.model.Maintenance;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import com.project2.model.Maintenance.MaintDetails;
+import com.project2.model.Maintenance.MaintenanceInterface;
+import com.project2.model.Facility.FacilityInterface;
 
 public class MaintDetails implements MaintenanceInterface{
     private ArrayList<MaintenanceInterface> maintenanceList;
@@ -19,7 +22,7 @@ public class MaintDetails implements MaintenanceInterface{
     }
 
     @Override
-    public MaintenanceInterface scheduleMaintenance(int facilitySerialNumber, int requestID, String maintType, int startDate) {
+    public MaintenanceInterface ScheduleMaintenance(int facilitySerialNumber, int requestID, String maintType, int startDate) {
         MaintRequest scheduledMaint = new MaintRequest();
         scheduledMaint.setFacilitySerialNumber(facilitySerialNumber);
         scheduledMaint.setRequestID(requestID);

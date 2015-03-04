@@ -3,11 +3,18 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.project2.model.Facility.Building">
-    <class name="BuildingImpl" table="customer">
-        <id name="customerId" column="customerid"/>
-        <property name="lastName" type="string" column="lname"/>
-        <property name="firstName" type="string" column="fname"/>
-        <one-to-one name="billingAddress" class="com.online.bookstore.model.customer.AddressImpl" cascade="save-update, delete"></one-to-one>
+<hibernate-mapping package="com.project2.model.Facility">
+    <class name="Building" table="facilities">
+        <id name="serialNumber" column="id"/>
+        <property name="capacity" type="int" column="capacity"/>
+        <property name="isUsed" type="boolean" column="isused"/>
+        <property name="isVacant" type="string" column="lname"/>
+        <property name="usage" type="string" column="usage"/>
+        <property name="startDate" type="int" column="startdate"/>
+        <property name="endDate" type="int" column="enddate"/>
+        <property name="downTime" type="int" column="downtime"/>
+        <property name="scheduledDownTime" type="int" column="scheduleddowntime"/>
+        <property name="unscheduledDownTime" type="int" column="unscheduleddowntime"/>
+        <property name="parentId" type="int" column="parentid"/>
     </class>
 </hibernate-mapping>

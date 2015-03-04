@@ -4,8 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/FacilityMgmt</property>
-        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/FacilityMgmt</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.username">user</property>
         <property name="connection.password">newPassword</property>
         <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
