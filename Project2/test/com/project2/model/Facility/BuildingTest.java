@@ -26,7 +26,7 @@ public class BuildingTest {
     public void setUp() throws Exception {
 
         FacilityInterface building1 = new Building();
-        building1.setFacilityId(1);
+        building1.setFacilitySerialNumber(1);
         building1.setCapacity(2);
         building1.setDownTime(2000);
         building1.setEndDate(9999);
@@ -34,12 +34,12 @@ public class BuildingTest {
         building1.setScheduledDownTime(1500);
         building1.setStartDate(408);
         building1.setUnscheduledDownTime(500);
-        building1.assignFacilityToUse("Rental");
-        building1.vacateFacility(true);
+        building1.setUsage("Rental");
+        building1.setIsVacant(true);
         facilityInfo.add(building1);
 
         FacilityInterface building2 = new Building();
-        building2.setFacilityId(2);
+        building2.setFacilitySerialNumber(2);
         building2.setCapacity(2);
         building2.setDownTime(100000);
         building2.setEndDate(9999);
@@ -47,8 +47,8 @@ public class BuildingTest {
         building2.setScheduledDownTime(50000);
         building2.setStartDate(101);
         building2.setUnscheduledDownTime(50000);
-        building2.assignFacilityToUse("Rental");
-        building2.vacateFacility(true);
+        building2.setUsage("Rental");
+        building2.setIsVacant(true);
         facilityInfo.add(building2);
         bldg = new Building();
 
@@ -98,7 +98,7 @@ public class BuildingTest {
     @Test
     public void testGetFacilityUse() {
         FacilityInterface tempFac = facilityInfo.get(1);
-        String result = tempFac.getFacilityUse();
+        String result = tempFac.getUsage();
         assertEquals(result, "Rental");
     }
 
@@ -134,7 +134,7 @@ public class BuildingTest {
     @Test
     public void testGetVacancy() {
         FacilityInterface tempFac = facilityInfo.get(1);
-        boolean result = tempFac.getVacancy();
+        boolean result = tempFac.getIsVacant();
         assertEquals(result, true);
     }
 
@@ -204,15 +204,15 @@ public class BuildingTest {
     public void testAssignFacilityToUse() {
         FacilityInterface tempFac = facilityInfo.get(1);
         tempFac.setIsUsed(false);
-        tempFac.assignFacilityToUse("Restaurant");
-        assertEquals(tempFac.getFacilityUse(), "Restaurant");
+        tempFac.setUsage("Restaurant");
+        assertEquals(tempFac.getUsage(), "Restaurant");
     }
 
     @Test
     public void testVacateFacility() {
         FacilityInterface tempFac = facilityInfo.get(1);
-        tempFac.vacateFacility(true);
-        assertEquals(tempFac.getVacancy(), true);
+        tempFac.setIsVacant(true);
+        assertEquals(tempFac.getIsVacant(), true);
     }
 
     @Test
@@ -270,7 +270,7 @@ public class BuildingTest {
     @Test
     public void testSetFacilityId() {
         FacilityInterface tempFac = facilityInfo.get(1);
-        tempFac.setFacilityId(42);
+        tempFac.setFacilitySerialNumber(42);
         assertEquals(tempFac.getFacilitySerialNumber(), 42);
     }
 

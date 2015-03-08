@@ -6,7 +6,6 @@ import com.project2.model.Facility.Building;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-
 public class BuildingDAO {
 
     public void addBuilding(Building bldg) {
@@ -27,9 +26,16 @@ public class BuildingDAO {
 
     public Building retrieveBuilding(int id) {
         try {
-            //todo
-            Building bldg = new Building();
-            return bldg;
+            Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+
+            Query getBuildingQuery = session.createQuery("From Building where serialNumber =:id");
+            getBuildingQuery.setString(id, "id");
+
+            List bldgList = getBuildingQuery.list();
+
+            session.getTransaction().commit();
+            return (Building)bldgList.get(0);
         } catch (Exception e) {
             e.printStackTrace();
         }
