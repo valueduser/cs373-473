@@ -16,7 +16,7 @@ public class MaintDetailsTest {
     @Before
     public void setUp() throws Exception {
 
-        fac.setFacilityId(1);
+        fac.setFacilitySerialNumber(1);
         fac.setCapacity(2);
         fac.setDownTime(2000);
         fac.setEndDate(9999);
@@ -24,8 +24,8 @@ public class MaintDetailsTest {
         fac.setScheduledDownTime(1500);
         fac.setStartDate(408);
         fac.setUnscheduledDownTime(500);
-        fac.assignFacilityToUse("Rental");
-        fac.vacateFacility(true);
+        fac.setUsage("Rental");
+        fac.setIsVacant(true);
 
         MaintRequest maint1 = new MaintRequest();
         maint1.setFacilitySerialNumber(1);

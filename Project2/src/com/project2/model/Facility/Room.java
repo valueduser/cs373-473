@@ -5,9 +5,6 @@ import java.util.Iterator;
 import com.project2.model.Maintenance.MaintDetails;
 import com.project2.model.Maintenance.MaintenanceInterface;
 
-/**
- * Created by chrislowe on 3/3/15.
- */
 public class Room implements FacilityInterface{
     //todo overhaul
 
@@ -51,7 +48,7 @@ public class Room implements FacilityInterface{
     }
 
     @Override
-    public String getFacilityUse() {
+    public String getUsage() {
         return this.usage;
     }
 
@@ -89,7 +86,7 @@ public class Room implements FacilityInterface{
     }
 
     @Override
-    public boolean getVacancy() {
+    public boolean getIsVacant() {
         return this.isVacant;
     }
 
@@ -135,7 +132,7 @@ public class Room implements FacilityInterface{
     }
 
     @Override
-    public void assignFacilityToUse(String useType) {
+    public void setUsage(String useType) {
         if(this.getIsUsed() == true) {
             System.out.println("Facility already in use.");
         }
@@ -146,7 +143,7 @@ public class Room implements FacilityInterface{
     }
 
     @Override
-    public void vacateFacility(boolean isVacant) {
+    public void setIsVacant(boolean isVacant) {
         this.isVacant = isVacant;
     }
 
@@ -191,7 +188,7 @@ public class Room implements FacilityInterface{
     }
 
     @Override
-    public void setFacilityId(int serialNumber) {
+    public void setFacilitySerialNumber(int serialNumber) {
         this.serialNumber = serialNumber;
     }
 
