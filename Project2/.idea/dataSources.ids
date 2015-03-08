@@ -1570,17 +1570,17 @@
       <column name="definition" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
     </table>
     <table name="facilities" schema="public" catalog="FacilityMgmt" type="TABLE">
-      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnZmFjaWxpdGllc19pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
       <column name="capacity" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="isused" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="hasvacancy" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
-      <column name="usage" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="usage" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="startdate" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="enddate" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="downtime" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="scheduleddowntime" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="unscheduleddowntime" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="parentid" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="facilities_pkey" columns="id"/>
     </table>
     <table name="facilities_id_seq" schema="public" catalog="FacilityMgmt" type="SEQUENCE">
@@ -1596,13 +1596,14 @@
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
     <table name="maintenance" schema="public" catalog="FacilityMgmt" type="TABLE">
-      <column name="facilityserialnumber" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnbWFpbnRlbmFuY2VfZmFjaWxpdHlzZXJpYWxudW1iZXJfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="oldfacilityserialnumber" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnbWFpbnRlbmFuY2VfZmFjaWxpdHlzZXJpYWxudW1iZXJfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
       <column name="requestid" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="mainttype" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <column name="timetocomplete" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="isopen" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="isscheduled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="startdate" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="facilityserialnumber" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="maintenance_pkey" columns="facilityserialnumber"/>
     </table>
     <table name="maintenance_facilityserialnumber_seq" schema="public" catalog="FacilityMgmt" type="SEQUENCE">

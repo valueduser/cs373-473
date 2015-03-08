@@ -4,26 +4,25 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import com.project2.model.Facility.*;
-import com.project2.model.Maintenance.MaintDetails;
-import com.project2.model.Maintenance.MaintRequest;
+import com.project2.DAO.BuildingDAO;
+import com.project2.DAO.HibernatePGSQLHelper;
 import com.project2.model.Maintenance.MaintenanceInterface;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.hibernate.Session;
+import org.junit.*;
 
 public class BuildingTest {
-    private Building bldg;
     private int numberOfFacilities;
-    private ArrayList<FacilityInterface> facilityInfo = new ArrayList<FacilityInterface>();
     private ArrayList<FacilityInterface> facilities = new ArrayList<FacilityInterface>();
-    private MaintDetails maintDetails = new MaintDetails();
     private ArrayList<MaintenanceInterface> maintReports = new ArrayList<MaintenanceInterface>();
+    FacilityInterface tempFac = new Building();
+    BuildingDAO facDAO = new BuildingDAO();
 
-
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void oneTimeSetUp() {
+        // one-time initialization code
+        System.out.println("@BeforeClass - oneTimeSetUp");
+        BuildingDAO facDAO = new BuildingDAO();
 
         FacilityInterface building1 = new Building();
         building1.setFacilitySerialNumber(1);
@@ -36,10 +35,10 @@ public class BuildingTest {
         building1.setUnscheduledDownTime(500);
         building1.setUsage("Rental");
         building1.setIsVacant(true);
-        facilityInfo.add(building1);
+        facDAO.addBuilding(building1);
 
         FacilityInterface building2 = new Building();
-        building2.setFacilitySerialNumber(2);
+        building2.setFacilitySerialNumber(0);
         building2.setCapacity(2);
         building2.setDownTime(100000);
         building2.setEndDate(9999);
@@ -47,48 +46,57 @@ public class BuildingTest {
         building2.setScheduledDownTime(50000);
         building2.setStartDate(101);
         building2.setUnscheduledDownTime(50000);
-        building2.setUsage("Rental");
+        building2.setUsage("Commercial");
         building2.setIsVacant(true);
-        facilityInfo.add(building2);
-        bldg = new Building();
+        facDAO.addBuilding(building2);
+    }
 
-        numberOfFacilities = 2;
+//    @AfterClass
+//    public static void oneTimeTearDown() {
+//        // one-time cleanup code
+//        System.out.println("@AfterClass - oneTimeTearDown");
+//        Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+//        session.createSQLQuery("truncate table facilities").executeUpdate();
+//    }
 
-        MaintRequest maint1 = new MaintRequest();
-        maint1.setFacilitySerialNumber(1);
-        maint1.setIsOpen(false);
-        maint1.setIsScheduled(true);
-        maint1.setMaintType("INSPECTION");
-        maint1.setRequestID(1);
-        maint1.setStartDate(208);
-        maint1.setTimeToComplete(20);
-        maintReports.add(maint1);
-
+    @Before
+    public void setUp() throws Exception {
+//        numberOfFacilities = 2;
+        tempFac = facDAO.retrieveBuilding(1);
     }
 
     @After
     public void tearDown() throws Exception {
+//        facDAO.removeBuilding(tempFac);
+        tempFac = new Building();
+//        facDAO.removeBuilding(building1);
+//        facDAO.removeBuilding(2);
     }
 
     @Test
     public void testIsInUseDuringInterval() {
+        System.out.println("testIsInUseDuringInterval...");
+
         int time1 = 234;
         int time2 = 235;
-        FacilityInterface tempFac = facilityInfo.get(1);
         boolean result = tempFac.isInUseDuringInterval(time1, time2);
         assertEquals(result, false);
     }
 
     @Test
     public void testListActualUsage() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testListActualUsage...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = 9999 - 101 - 100000;
         assertEquals(result, tempFac.listActualUsage(tempFac.getFacilitySerialNumber()));
     }
 
     @Test
     public void testCalcUsageRate() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testCalcUsageRate...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int upTime = tempFac.listActualUsage(tempFac.getFacilitySerialNumber());
         int usageRate = upTime / (tempFac.getEndDate() - tempFac.getStartDate());
         int result = tempFac.calcUsageRate(tempFac.getFacilitySerialNumber());
@@ -97,34 +105,44 @@ public class BuildingTest {
 
     @Test
     public void testGetFacilityUse() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetFacilityUse...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         String result = tempFac.getUsage();
         assertEquals(result, "Rental");
     }
 
     @Test
     public void testGetDownTime() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetDownTime...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getDownTime();
         assertEquals(result, 100000);
     }
 
     @Test
     public void testGetFacilityInformation() {
+        System.out.println("testGetFacilityInformation...");
+
         //This is intentionally left blank
     }
 
     @Test
     public void testRequestAvailableCapacity() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testRequestAvailableCapacity...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.requestAvailableCapacity();
         assertEquals(result, 2);
     }
 
     @Test
     public void testListFacilityInspections() {
+        System.out.println("testListFacilityInspections...");
+
         boolean isNotNull = false;
-        FacilityInterface tempFac = facilityInfo.get(1);
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         if(tempFac.listFacilityInspections(maintReports) != null){
             isNotNull = true;
         }
@@ -133,31 +151,39 @@ public class BuildingTest {
 
     @Test
     public void testGetVacancy() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetVacancy...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         boolean result = tempFac.getIsVacant();
         assertEquals(result, true);
     }
 
     @Test
     public void testGetParentId() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetParentId...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getParentId();
         assertEquals(result, 0);
     }
 
     @Test
     public void testGetCapacity() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetCapacity...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getCapacity();
         assertEquals(result, 2);
     }
 
     @Test
     public void testGetChildren() {
+        System.out.println("testGetChildren...");
+
         boolean isNotNull;
-        FacilityInterface tempFac = facilityInfo.get(1);
-        ArrayList<FacilityInterface> childeren = tempFac.getChildren(facilities);
-        if(childeren != null){
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
+        ArrayList<FacilityInterface> children = tempFac.getChildren(facilities);
+        if(children != null){
             isNotNull = true;
         }
         else{
@@ -168,41 +194,53 @@ public class BuildingTest {
 
     @Test
     public void testGetFacilitySerialNumber() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetFacilitySerialNumber...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getFacilitySerialNumber();
         assertEquals(result, 2);
     }
 
     @Test
     public void testGetEndDate() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetEndDate...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getEndDate();
         assertEquals(result, 9999);
     }
 
     @Test
     public void testGetStartDate() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetStartDate...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getStartDate();
         assertEquals(result, 101);
     }
 
     @Test
     public void testGetScheduledDownTime() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetScheduledDownTime...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getScheduledDownTime();
         assertEquals(result, 50000);
     }
 
     @Test
     public void testGetUnscheduledDownTime() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testGetUnscheduledDownTime...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getUnscheduledDownTime();
         assertEquals(result, 50000);		}
 
     @Test
     public void testAssignFacilityToUse() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testAssignFacilityToUse...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setIsUsed(false);
         tempFac.setUsage("Restaurant");
         assertEquals(tempFac.getUsage(), "Restaurant");
@@ -210,28 +248,36 @@ public class BuildingTest {
 
     @Test
     public void testVacateFacility() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testVacateFacility...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setIsVacant(true);
         assertEquals(tempFac.getIsVacant(), true);
     }
 
     @Test
     public void testSetStartDate() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetStartDate...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setStartDate(20150216);
         assertEquals(tempFac.getStartDate(), 20150216);
     }
 
     @Test
     public void testSetEndDate() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetEndDate...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setEndDate(20150216);
         assertEquals(tempFac.getEndDate(), 20150216);
     }
 
     @Test
     public void testSetDownTime() {
-        FacilityInterface tempFac = facilityInfo.get(0);
+        System.out.println("testSetDownTime...");
+
+        FacilityInterface tempFac = facDAO.retrieveBuilding(0);
         int dt = tempFac.getDownTime() + 56;
         tempFac.setDownTime(dt);
         assertEquals(tempFac.getDownTime(), 2056);
@@ -239,14 +285,18 @@ public class BuildingTest {
 
     @Test
     public void testSetCapacity() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetCapacity...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setCapacity(3);
         assertEquals(tempFac.getCapacity(), 3);
     }
 
     @Test
     public void testSetScheduledDownTime() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetScheduledDownTime...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int schDT = tempFac.getScheduledDownTime() + 111;
         tempFac.setScheduledDownTime(schDT);
         assertEquals(tempFac.getScheduledDownTime(), 50111);
@@ -254,7 +304,9 @@ public class BuildingTest {
 
     @Test
     public void testSetUnscheduledDownTime() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetUnscheduledDownTime...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int unSchDt = tempFac.getUnscheduledDownTime() + 16;
         tempFac.setUnscheduledDownTime(unSchDt);
         assertEquals(tempFac.getUnscheduledDownTime(), 50016);
@@ -262,23 +314,28 @@ public class BuildingTest {
 
     @Test
     public void testSetParentId() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetParentId...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setParentId(11);
         assertEquals(tempFac.getParentId(), 11);
     }
 
     @Test
     public void testSetFacilityId() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetFacilityId...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setFacilitySerialNumber(42);
         assertEquals(tempFac.getFacilitySerialNumber(), 42);
     }
 
     @Test
     public void testSetIsUsed() {
-        FacilityInterface tempFac = facilityInfo.get(1);
+        System.out.println("testSetIsUsed...");
+
+//        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         tempFac.setIsUsed(false);
         assertEquals(tempFac.getIsUsed(), false);
     }
-
 }
