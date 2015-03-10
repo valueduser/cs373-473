@@ -42,4 +42,21 @@ public class BuildingDAO {
         }
         return null;
     }
+
+//    public List<FacilityInterface> retrieveFacNums(){
+//        try{
+//            Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+//            session.beginTransaction();
+//
+//            Query getAllFacNumsQuery = session.createQuery("From Building bl");
+//
+//            List bldgList = getAllFacNumsQuery.list();
+//
+//            session.getTransaction().commit();
+//            return bldgList;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 }

@@ -134,17 +134,18 @@ public class Building implements FacilityInterface{
 
     @Override
     public void setUsage(String useType) {
-        if(this.getIsUsed() == true) {
-            System.out.println("Facility already in use.");
-        }
-        else {
+//        if(this.getIsUsed() == true) {
+//            System.out.println("Facility already in use.");
+//        }
+//        else {
             this.isUsed = true;
             this.usage = useType;
-        }
+//        }
     }
 
     @Override
     public void setIsVacant(boolean isVacant) {
+        setIsUsed(false);
         this.isVacant = isVacant;
     }
 

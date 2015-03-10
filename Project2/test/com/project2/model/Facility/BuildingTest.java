@@ -51,23 +51,58 @@ public class BuildingTest {
         facDAO.addBuilding(building2);
     }
 
-//    @AfterClass
-//    public static void oneTimeTearDown() {
-//        // one-time cleanup code
-//        System.out.println("@AfterClass - oneTimeTearDown");
+    @AfterClass
+    public static void oneTimeTearDown() {
+        // one-time cleanup code
+        System.out.println("@AfterClass - oneTimeTearDown");
+
+        System.out.println("Deleting all entries from facilities:");
+
+
 //        Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
-//        session.createSQLQuery("truncate table facilities").executeUpdate();
-//    }
+//        session.beginTransaction();
+//        session.createQuery("delete from facilities");
+//        session.getTransaction().commit();
+
+        /**
+        try{
+            Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            session.createSQLQuery("DELETE FROM facilities").executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
+        /**
+        try {
+            Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+            session.beginTransaction();
+            session.createSQLQuery("TRUNCATE TABLE facilities").executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            System.out.println("Should have torn down.");
+        }*/
+
+
+    }
 
     @Before
     public void setUp() throws Exception {
-//        numberOfFacilities = 2;
         tempFac = facDAO.retrieveBuilding(1);
     }
 
     @After
     public void tearDown() throws Exception {
-//        facDAO.removeBuilding(tempFac);
+        /**
+        facDAO.removeBuilding(tempFac);
+        tempFac = new Building();
+        tempFac = facDAO.retrieveBuilding(1);
+         */
+
         tempFac = new Building();
 //        facDAO.removeBuilding(building1);
 //        facDAO.removeBuilding(2);
@@ -88,7 +123,7 @@ public class BuildingTest {
         System.out.println("testListActualUsage...");
 
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
-        int result = 9999 - 101 - 100000;
+        int result = 9999 - 408 - 2000;
         assertEquals(result, tempFac.listActualUsage(tempFac.getFacilitySerialNumber()));
     }
 
@@ -118,7 +153,7 @@ public class BuildingTest {
 
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getDownTime();
-        assertEquals(result, 100000);
+        assertEquals(result, 2000);
     }
 
     @Test
@@ -198,7 +233,7 @@ public class BuildingTest {
 
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getFacilitySerialNumber();
-        assertEquals(result, 2);
+        assertEquals(result, 1);
     }
 
     @Test
@@ -216,7 +251,7 @@ public class BuildingTest {
 
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getStartDate();
-        assertEquals(result, 101);
+        assertEquals(result, 408);
     }
 
     @Test
@@ -225,7 +260,7 @@ public class BuildingTest {
 
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getScheduledDownTime();
-        assertEquals(result, 50000);
+        assertEquals(result, 1500);
     }
 
     @Test
@@ -234,7 +269,7 @@ public class BuildingTest {
 
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int result = tempFac.getUnscheduledDownTime();
-        assertEquals(result, 50000);		}
+        assertEquals(result, 500);		}
 
     @Test
     public void testAssignFacilityToUse() {
@@ -280,7 +315,7 @@ public class BuildingTest {
         FacilityInterface tempFac = facDAO.retrieveBuilding(0);
         int dt = tempFac.getDownTime() + 56;
         tempFac.setDownTime(dt);
-        assertEquals(tempFac.getDownTime(), 2056);
+        assertEquals(tempFac.getDownTime(), 100056);
     }
 
     @Test
@@ -299,7 +334,7 @@ public class BuildingTest {
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int schDT = tempFac.getScheduledDownTime() + 111;
         tempFac.setScheduledDownTime(schDT);
-        assertEquals(tempFac.getScheduledDownTime(), 50111);
+        assertEquals(tempFac.getScheduledDownTime(), 1611);
     }
 
     @Test
@@ -309,7 +344,7 @@ public class BuildingTest {
 //        FacilityInterface tempFac = facDAO.retrieveBuilding(1);
         int unSchDt = tempFac.getUnscheduledDownTime() + 16;
         tempFac.setUnscheduledDownTime(unSchDt);
-        assertEquals(tempFac.getUnscheduledDownTime(), 50016);
+        assertEquals(tempFac.getUnscheduledDownTime(), 516);
     }
 
     @Test

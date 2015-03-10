@@ -7,5 +7,10 @@
       <schema-pattern>FacilityMgmt.pg_catalog FacilityMgmt.public</schema-pattern>
       <default-schemas>FacilityMgmt.pg_catalog FacilityMgmt.public</default-schemas>
     </data-source>
+    <data-source name="HSQLDB - FacilityMgmt" uuid="8a663ae1-385a-443c-867d-d102dd18aad9">
+      <secret-storage>master_key</secret-storage>
+      <schema-pattern>PUBLIC.PUBLIC</schema-pattern>
+      <default-schemas>PUBLIC.PUBLIC</default-schemas>
+    </data-source>
   </component>
 </project>
