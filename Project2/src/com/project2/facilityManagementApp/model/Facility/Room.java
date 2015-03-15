@@ -1,8 +1,7 @@
-package com.project2.facilityManagmentApp.model.Facility;
+package com.project2.facilityManagementApp.model.Facility;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
 
 public class Room implements FacilityInterface{
     public static final int MAX_ROOM_CAPACITY = 3;

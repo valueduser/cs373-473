@@ -4,13 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import build.tools.javazic.Main;
-import com.project2.facilityManagmentApp.DAO.BuildingDAO;
+import com.project2.facilityManagementApp.DAO.BuildingDAO;
 import org.junit.*;
 
-import com.project2.facilityManagmentApp.model.Facility.*;
-import com.project2.facilityManagmentApp.model.Maintenance.MaintRequestImpl;
-import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
+import com.project2.facilityManagementApp.model.Facility.*;
+import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 
 public class RoomTest {
 //    private Room room;

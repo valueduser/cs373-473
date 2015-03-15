@@ -2,8 +2,8 @@
 //
 //import java.util.ArrayList;
 //import java.util.Iterator;
-//import com.project2.facilityManagmentApp.model.Maintenance.MaintDetail;
-//import com.project2.facilityManagmentApp.model.Facility.FacilityInterface;
+//import com.project2.facilityManagementApp.model.Maintenance.MaintDetail;
+//import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
 //
 //public class MaintDetailImpl implements MaintDetail{
 //    private ArrayList<MaintDetail> maintenanceList;

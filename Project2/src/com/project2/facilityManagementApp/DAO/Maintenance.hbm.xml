@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.project2.facilityManagmentApp.model.Maintenance">
+<hibernate-mapping package="com.project2.facilityManagementApp.model.Maintenance">
     <class name="MaintRequestImpl" table="maintenance">
         <id name="requestId" column="requestid"/>
         <property name="maintType" type="string" column="mainttype"/>

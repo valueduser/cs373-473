@@ -1,6 +1,4 @@
-package com.project2.facilityManagmentApp.model.Facility;
-
-import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
+package com.project2.facilityManagementApp.model.Facility;
 
 import java.util.ArrayList;
 import java.util.Iterator;

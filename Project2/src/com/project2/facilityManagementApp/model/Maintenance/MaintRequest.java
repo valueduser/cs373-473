@@ -1,4 +1,4 @@
-package com.project2.facilityManagmentApp.model.Maintenance;
+package com.project2.facilityManagementApp.model.Maintenance;
 
 public interface MaintRequest {
 

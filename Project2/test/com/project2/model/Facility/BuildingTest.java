@@ -4,10 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import com.project2.facilityManagmentApp.model.Facility.*;
-import com.project2.facilityManagmentApp.DAO.BuildingDAO;
-import com.project2.facilityManagmentApp.DAO.HibernatePGSQLHelper;
-import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
+import com.project2.facilityManagementApp.model.Facility.*;
+import com.project2.facilityManagementApp.DAO.BuildingDAO;
+import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 
 import org.junit.*;
 

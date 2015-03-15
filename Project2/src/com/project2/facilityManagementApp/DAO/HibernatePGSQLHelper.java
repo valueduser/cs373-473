@@ -1,4 +1,4 @@
-package com.project2.facilityManagmentApp.DAO;
+package com.project2.facilityManagementApp.DAO;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

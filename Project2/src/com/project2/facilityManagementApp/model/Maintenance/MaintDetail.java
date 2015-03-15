@@ -1,6 +1,6 @@
 //package com.project2.facilityManagmentApp.model.Maintenance;
 //
-//import com.project2.facilityManagmentApp.model.Facility.FacilityInterface;
+//import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
 //
 //import java.util.ArrayList;
 //

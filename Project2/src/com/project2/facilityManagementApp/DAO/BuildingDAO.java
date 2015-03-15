@@ -1,8 +1,8 @@
-package com.project2.facilityManagmentApp.DAO;
+package com.project2.facilityManagementApp.DAO;
 
 import java.util.List;
-import com.project2.facilityManagmentApp.model.Facility.Building;
-import com.project2.facilityManagmentApp.model.Facility.FacilityInterface;
+
+import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
 import org.hibernate.Query;
 import org.hibernate.Session;
 

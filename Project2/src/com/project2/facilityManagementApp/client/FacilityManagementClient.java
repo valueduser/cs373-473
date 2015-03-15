@@ -1,18 +1,14 @@
-package com.project2.facilityManagmentApp.client;
+package com.project2.facilityManagementApp.client;
 
-import com.project2.facilityManagmentApp.DAO.BuildingDAO;
-import com.project2.facilityManagmentApp.model.Facility.Building;
-import com.project2.facilityManagmentApp.model.Facility.FacilityInterface;
+import com.project2.facilityManagementApp.DAO.BuildingDAO;
+import com.project2.facilityManagementApp.model.Facility.Building;
+import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-
-import java.util.Map;
 
 public class FacilityManagementClient {
     //todo stub
