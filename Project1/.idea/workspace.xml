@@ -2,39 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c9d568-4485-4922-8940-19db7aeebf3c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/ManagementTools/FacManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/ManagementTools/FacManagerImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Maintenance/MaintDetail.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Maintenance/MaintDetailImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/ManagementTools/MaintManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/ManagementTools/MaintManagerImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Maintenance/MaintRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Maintenance/MaintRequestImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/Service/MaintenanceService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/Service/ManagementService.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/model/Maintenance/MaintDetails.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/model/Maintenance/MaintRequest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/model/Maintenance/MaintenanceInterface.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/bin/com/project2/DAO/Building.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/Building.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/bin/com/project2/DAO/Maintenance.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/Maintenance.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/DAO/Building.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/bin/com/project2/facilityManagmentApp/DAO/Building.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/DAO/BuildingDAO.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/BuildingDAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/DAO/HibernatePGSQLHelper.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/HibernatePGSQLHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/DAO/Maintenance.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/bin/com/project2/facilityManagmentApp/DAO/Maintenance.hbm.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/model/Facility/Building.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Facility/Building.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/model/Facility/FacilityInterface.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Facility/FacilityInterface.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/model/Facility/Room.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Facility/Room.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/view/FacilityManagementClient.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/client/FacilityManagementClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/.classpath" afterPath="$PROJECT_DIR$/../Project2/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/Building.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/Building.hbm.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/BuildingTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/BuildingTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintDetailsTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintDetailsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintRequestTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintRequestTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/Project2.iml" afterPath="$PROJECT_DIR$/../Project2/Project2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Maintenance/MaintRequestImpl.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Maintenance/MaintRequestImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/Maintenance.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/Maintenance.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/MaintenanceDAO.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/DAO/MaintenanceDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Facility/Room.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagmentApp/model/Facility/Room.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/RoomTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/RoomTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/resources/app-context.xml" afterPath="$PROJECT_DIR$/../Project2/resources/app-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/bin/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/../Project2/bin/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" />
     </list>
     <ignored path="Project1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -781,16 +756,16 @@
       <workItem from="1425329088752" duration="3241000" />
       <workItem from="1425359412176" duration="4639000" />
       <workItem from="1425485599526" duration="1323000" />
-      <workItem from="1426450712264" duration="1299000" />
+      <workItem from="1426450712264" duration="1529000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10654000" />
+    <option name="totallyTimeSpent" value="10884000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1657" y="24" width="1543" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />

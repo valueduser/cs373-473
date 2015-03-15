@@ -5,8 +5,6 @@ import java.util.Iterator;
 import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
 
 public class Room implements FacilityInterface{
-    //todo overhaul
-
     public static final int MAX_ROOM_CAPACITY = 3;
 
     private int serialNumber;

@@ -4,19 +4,19 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import com.project2.DAO.BuildingDAO;
+import build.tools.javazic.Main;
+import com.project2.facilityManagmentApp.DAO.BuildingDAO;
 import org.junit.*;
 
 import com.project2.facilityManagmentApp.model.Facility.*;
-import com.project2.facilityManagmentApp.model.Maintenance.MaintDetails;
+import com.project2.facilityManagmentApp.model.Maintenance.MaintRequestImpl;
 import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
-import com.project2.facilityManagmentApp.model.Maintenance.MaintenanceInterface;
 
 public class RoomTest {
 //    private Room room;
 //    private ArrayList<FacilityInterface> facilityInfo = new ArrayList<FacilityInterface>();
 //    private MaintDetails maintDetails = new MaintDetails();
-    private ArrayList<MaintenanceInterface> maintReports = new ArrayList<MaintenanceInterface>();
+    private ArrayList<MaintRequest> maintReports = new ArrayList<MaintRequest>();
     FacilityInterface tempFac = new Building();
     BuildingDAO facDAO = new BuildingDAO();
 

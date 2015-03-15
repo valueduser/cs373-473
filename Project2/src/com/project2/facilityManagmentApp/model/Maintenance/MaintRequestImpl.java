@@ -2,7 +2,7 @@ package com.project2.facilityManagmentApp.model.Maintenance;
 
 public class MaintRequestImpl implements MaintRequest{
     private int facilitySerialNumber;
-    private int requestID;
+    private int requestId;
     private String maintType;
     private int timeToComplete;
     private boolean isOpen;
@@ -13,7 +13,7 @@ public class MaintRequestImpl implements MaintRequest{
 
     @Override
     public void setRequestId(int id){
-        this.requestID = id;
+        this.requestId = id;
     }
     @Override
     public void setMaintType(String type){
@@ -41,7 +41,7 @@ public class MaintRequestImpl implements MaintRequest{
     }
     @Override
     public int getRequestId(){
-        return this.requestID;
+        return this.requestId;
     }
     @Override
     public String getMaintType (){

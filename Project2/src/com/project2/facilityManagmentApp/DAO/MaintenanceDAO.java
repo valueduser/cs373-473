@@ -4,7 +4,6 @@ import java.util.List;
 import com.project2.facilityManagmentApp.model.Facility.Building;
 import com.project2.facilityManagmentApp.model.Facility.FacilityInterface;
 import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
-import com.project2.facilityManagmentApp.model.Maintenance.MaintenanceInterface;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -19,7 +18,7 @@ public class MaintenanceDAO {
 
 
 
-    public MaintenanceInterface getMaintenanceReq(int requestID){
+    public MaintRequest getMaintenanceReq(int requestID){
         try {
             Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
             session.beginTransaction();
@@ -31,7 +30,7 @@ public class MaintenanceDAO {
             List maintList = getMaintReqQuery.list();
 
             session.getTransaction().commit();
-            return (MaintenanceInterface)maintList.get(0);
+            return (MaintRequest)maintList.get(0);
         } catch (Exception e) {
             e.printStackTrace();
         }
