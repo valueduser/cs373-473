@@ -5,14 +5,14 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import com.project2.DAO.BuildingDAO;
-import com.project2.DAO.HibernatePGSQLHelper;
+//import com.project2.DAO.HibernatePGSQLHelper;
 import com.project2.model.Maintenance.MaintenanceInterface;
 
-import org.hibernate.Session;
+//import org.hibernate.Session;
 import org.junit.*;
 
 public class BuildingTest {
-    private int numberOfFacilities;
+//    private int numberOfFacilities;
     private ArrayList<FacilityInterface> facilities = new ArrayList<FacilityInterface>();
     private ArrayList<MaintenanceInterface> maintReports = new ArrayList<MaintenanceInterface>();
     FacilityInterface tempFac = new Building();
@@ -55,9 +55,6 @@ public class BuildingTest {
     public static void oneTimeTearDown() {
         // one-time cleanup code
         System.out.println("@AfterClass - oneTimeTearDown");
-
-        System.out.println("Deleting all entries from facilities:");
-
 
 //        Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
 //        session.beginTransaction();

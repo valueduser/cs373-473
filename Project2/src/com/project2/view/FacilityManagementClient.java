@@ -37,30 +37,12 @@ public class FacilityManagementClient {
     }
 
     public static void main(final String[] args) throws Exception {
-//        final Session session = getSession();
         try {
-        //            System.out.println("querying all the managed entities...");
-        //            final Map metadataMap = session.getSessionFactory().getAllClassMetadata();
-        //            for (Object key : metadataMap.keySet()) {
-        //                final ClassMetadata classMetadata = (ClassMetadata) metadataMap.get(key);
-        //                final String entityName = classMetadata.getEntityName();
-        //                final Query query = session.createQuery("from " + entityName);
-        //                System.out.println("executing: " + query.getQueryString());
-        //                for (Object o : query.list()) {
-        //                    System.out.println("  " + o);
-        //                }
-
-
-
-
-            System.out.println("*************** INSERT EXAMPLE *************************");
-            System.out.println("*************** This example involves Instantiating and Saving Building ***********************");
-
-            System.out.println("*************** Instantiating Building ***********************");
             BuildingDAO facDAO = new BuildingDAO();
 
+            //Add the buildings
             Building building1 = new Building();
-            building1.setFacilitySerialNumber(1);
+            building1.setFacilitySerialNumber(99);
             building1.setCapacity(2);
             building1.setDownTime(2000);
             building1.setEndDate(9999);
@@ -69,8 +51,35 @@ public class FacilityManagementClient {
             building1.setStartDate(408);
             building1.setUnscheduledDownTime(500);
             building1.setUsage("Rental");
-            building1.setIsVacant(true);
+            building1.setIsVacant(false);
             facDAO.addBuilding(building1);
+            System.out.println("Building serial" + building1.getFacilitySerialNumber() + " added.");
+
+            Building building2 = new Building();
+            building2.setFacilitySerialNumber(42);
+            building2.setCapacity(15);
+            building2.setDownTime(0);
+            building2.setEndDate(5013);
+            building2.setParentId(0);
+            building2.setScheduledDownTime(0);
+            building2.setStartDate(0);
+            building2.setUnscheduledDownTime(0);
+            building2.setUsage("Bank");
+            building2.setIsVacant(false);
+            facDAO.addBuilding(building2);
+            System.out.println("Building serial" + building2.getFacilitySerialNumber() + " added.");
+
+
+            //Delete the Building
+            //Find a customer if already exists; if not, create a new one.
+            FacilityInterface bldg1 = facDAO.retrieveBuilding(99);
+            FacilityInterface bldg2 = facDAO.retrieveBuilding(42);
+            System.out.println(bldg1.getFacilitySerialNumber());
+            System.out.println(bldg2.getFacilitySerialNumber());
+
+
+            facDAO.removeBuilding(building1);
+            facDAO.removeBuilding(building2);
 
         }
         catch (Exception e) {
