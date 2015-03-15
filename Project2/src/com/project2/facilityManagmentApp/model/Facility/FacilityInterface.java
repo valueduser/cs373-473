@@ -1,18 +1,18 @@
-package com.project2.model.Facility;
+package com.project2.facilityManagmentApp.model.Facility;
 
-import com.project2.model.Maintenance.MaintenanceInterface;
+import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
 
 import java.util.ArrayList;
 
 public interface FacilityInterface {
-    public boolean isInUseDuringInterval(int time1, int time2);
-    public int listActualUsage(int facilitySerialNumber);
-    public int calcUsageRate(int facilitySerialNumber);
+//    public boolean isInUseDuringInterval(int time1, int time2);
+//    public int listActualUsage(int facilitySerialNumber);
+//    public int calcUsageRate(int facilitySerialNumber);
     public String getUsage();
     public int getDownTime();
-    public String getFacilityInformation();
+//    public String getFacilityInformation();
     public int requestAvailableCapacity();
-    public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance);
+//    public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance);
     public boolean getIsVacant();
     public int getParentId();
     public int getCapacity();
@@ -22,6 +22,7 @@ public interface FacilityInterface {
     public int getStartDate();
     public int getScheduledDownTime();
     public int getUnscheduledDownTime();
+    public boolean getIsUsed();
     public void setUsage(String useType);
     public void setIsVacant(boolean isVacant);
     public void setStartDate(int startDate);
@@ -33,5 +34,4 @@ public interface FacilityInterface {
     public void setParentId(int parentId);
     public void setFacilitySerialNumber(int serialNumber);
     public void setIsUsed(boolean isUsed);
-    public boolean getIsUsed();
 }

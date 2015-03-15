@@ -1,7 +1,6 @@
-package com.project2.model.Facility;
+package com.project2.facilityManagmentApp.model.Facility;
 
-import com.project2.model.Maintenance.MaintDetails;
-import com.project2.model.Maintenance.MaintenanceInterface;
+import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,27 +25,29 @@ public class Building implements FacilityInterface{
 
     private String facilityTableName = "facilities";
 
-    @Override
-    public boolean isInUseDuringInterval(int time1, int time2) {
-        if(this.endDate < time2 && this.startDate > time1){
-            return true;
-        }
-        return false;
-    }
+//    @Override
+//    public boolean isInUseDuringInterval(int time1, int time2) {
+//        if(this.endDate < time2 && this.startDate > time1){
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    @Override
+//    public int listActualUsage(int facilitySerialNumber) {
+//        int upTime = (this.getEndDate() - this.getStartDate()) - this.getDownTime();
+//        return upTime;
+//    }
+//
+//    @Override
+//    public int calcUsageRate(int facilitySerialNumber) {
+//        int upTime = this.listActualUsage(facilitySerialNumber);
+//        int usageRate = upTime / (this.getEndDate() - this.getStartDate());
+//        return usageRate;
+//    }
 
-    @Override
-    public int listActualUsage(int facilitySerialNumber) {
-        int upTime = (this.getEndDate() - this.getStartDate()) - this.getDownTime();
-        return upTime;
-    }
-
-    @Override
-    public int calcUsageRate(int facilitySerialNumber) {
-        int upTime = this.listActualUsage(facilitySerialNumber);
-        int usageRate = upTime / (this.getEndDate() - this.getStartDate());
-        return usageRate;
-    }
-
+    public Building(){}
+    
     @Override
     public String getUsage() {
         return this.usage;
@@ -57,23 +58,23 @@ public class Building implements FacilityInterface{
         return this.downTime;
     }
 
-    @Override
-    public String getFacilityInformation() { //TODO
-        String facInfo = "";
-        return facInfo;
-    }
+//    @Override
+//    public String getFacilityInformation() { //TODO
+//        String facInfo = "";
+//        return facInfo;
+//    }
 
     @Override
     public int requestAvailableCapacity() {
         return this.capacity;
     }
 
-    @Override
-    public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance) {
-        MaintenanceInterface inspections = new MaintDetails();
-        ArrayList<MaintenanceInterface> facInspections = inspections.listMaint(this.getFacilitySerialNumber(), "INSPECTION");
-        return facInspections;
-    }
+//    @Override
+//    public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance) {
+//        MaintenanceInterface inspections = new MaintDetails();
+//        ArrayList<MaintenanceInterface> facInspections = inspections.listMaint(this.getFacilitySerialNumber(), "INSPECTION");
+//        return facInspections;
+//    }
 
     @Override
     public boolean getIsVacant() {
@@ -134,13 +135,8 @@ public class Building implements FacilityInterface{
 
     @Override
     public void setUsage(String useType) {
-//        if(this.getIsUsed() == true) {
-//            System.out.println("Facility already in use.");
-//        }
-//        else {
-            this.isUsed = true;
+            this.setIsUsed(true);
             this.usage = useType;
-//        }
     }
 
     @Override

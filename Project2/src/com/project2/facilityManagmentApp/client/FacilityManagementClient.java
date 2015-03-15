@@ -1,8 +1,8 @@
-package com.project2.view;
+package com.project2.facilityManagmentApp.client;
 
-import com.project2.DAO.BuildingDAO;
-import com.project2.model.Facility.Building;
-import com.project2.model.Facility.FacilityInterface;
+import com.project2.facilityManagmentApp.DAO.BuildingDAO;
+import com.project2.facilityManagmentApp.model.Facility.Building;
+import com.project2.facilityManagmentApp.model.Facility.FacilityInterface;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;

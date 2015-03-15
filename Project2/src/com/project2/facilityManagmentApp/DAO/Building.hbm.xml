@@ -8,7 +8,7 @@
         <id name="FacilitySerialNumber" column="id"/>
         <property name="capacity" type="int" column="capacity"/>
         <property name="isUsed" type="boolean" column="isused"/>
-        <property name="isVacant" type="string" column="hasvacancy"/>
+        <property name="isVacant" type="boolean" column="hasvacancy"/>
         <property name="usage" type="string" column="usage"/>
         <property name="startDate" type="int" column="startdate"/>
         <property name="endDate" type="int" column="enddate"/>

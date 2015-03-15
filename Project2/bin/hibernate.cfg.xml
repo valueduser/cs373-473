@@ -7,7 +7,7 @@
         <!-- Database connection settings -->
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/FacilityMgmt</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.username">user</property>
+        <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">newPassword</property>
         <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
         <!-- DB schema will be updated if needed -->
