@@ -3,11 +3,12 @@ package com.project2.model.Maintenance;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import com.project2.facilityManagmentApp.model.Maintenance.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.project2.model.Facility.*;
+import com.project2.facilityManagmentApp.model.Facility.*;
 
 public class MaintDetailsTest {
     private MaintDetails details = new MaintDetails();

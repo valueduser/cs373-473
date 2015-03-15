@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import com.project2.DAO.BuildingDAO;
 import org.junit.*;
 
-import com.project2.model.Facility.*;
-import com.project2.model.Maintenance.MaintDetails;
-import com.project2.model.Maintenance.MaintRequest;
-import com.project2.model.Maintenance.MaintenanceInterface;
+import com.project2.facilityManagmentApp.model.Facility.*;
+import com.project2.facilityManagmentApp.model.Maintenance.MaintDetails;
+import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
+import com.project2.facilityManagmentApp.model.Maintenance.MaintenanceInterface;
 
 public class RoomTest {
 //    private Room room;

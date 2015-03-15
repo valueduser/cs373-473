@@ -4,9 +4,16 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import com.project2.DAO.BuildingDAO;
 //import com.project2.DAO.HibernatePGSQLHelper;
 import com.project2.model.Maintenance.MaintenanceInterface;
+=======
+import com.project2.facilityManagmentApp.model.Facility.*;
+import com.project2.facilityManagmentApp.DAO.BuildingDAO;
+import com.project2.facilityManagmentApp.DAO.HibernatePGSQLHelper;
+import com.project2.facilityManagmentApp.model.Maintenance.MaintenanceInterface;
+>>>>>>> 43181b221ac4006a1d203fc214245c3252c912cb
 
 //import org.hibernate.Session;
 import org.junit.*;
