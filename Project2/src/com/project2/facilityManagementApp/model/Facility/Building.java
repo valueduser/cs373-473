@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Building implements FacilityInterface{
-    //todo overhaul
     public static final int MAX_BUILDING_CAPACITY = 15;
 
     private int serialNumber;
@@ -23,27 +22,6 @@ public class Building implements FacilityInterface{
 
     private String facilityTableName = "facilities";
 
-//    @Override
-//    public boolean isInUseDuringInterval(int time1, int time2) {
-//        if(this.endDate < time2 && this.startDate > time1){
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    @Override
-//    public int listActualUsage(int facilitySerialNumber) {
-//        int upTime = (this.getEndDate() - this.getStartDate()) - this.getDownTime();
-//        return upTime;
-//    }
-//
-//    @Override
-//    public int calcUsageRate(int facilitySerialNumber) {
-//        int upTime = this.listActualUsage(facilitySerialNumber);
-//        int usageRate = upTime / (this.getEndDate() - this.getStartDate());
-//        return usageRate;
-//    }
-
     public Building(){}
     
     @Override
@@ -55,24 +33,11 @@ public class Building implements FacilityInterface{
     public int getDownTime(){
         return this.downTime;
     }
-
-//    @Override
-//    public String getFacilityInformation() { //TODO
-//        String facInfo = "";
-//        return facInfo;
-//    }
-
+    
     @Override
     public int requestAvailableCapacity() {
         return this.capacity;
     }
-
-//    @Override
-//    public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance) {
-//        MaintenanceInterface inspections = new MaintDetails();
-//        ArrayList<MaintenanceInterface> facInspections = inspections.listMaint(this.getFacilitySerialNumber(), "INSPECTION");
-//        return facInspections;
-//    }
 
     @Override
     public boolean getIsVacant() {

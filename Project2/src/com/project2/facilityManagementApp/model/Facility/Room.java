@@ -22,27 +22,6 @@ public class Room implements FacilityInterface{
 
     private String facilityTableName = "facilities";
 
-//    @Override
-//    public boolean isInUseDuringInterval(int time1, int time2) {
-//        if(this.endDate < time2 && this.startDate > time1){
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    @Override
-//    public int listActualUsage(int facilitySerialNumber) {
-//        int upTime = (this.getEndDate() - this.getStartDate()) - this.getDownTime();
-//        return upTime;
-//    }
-//
-//    @Override
-//    public int calcUsageRate(int facilitySerialNumber) {
-//        int upTime = this.listActualUsage(facilitySerialNumber);
-//        int usageRate = upTime / (this.getEndDate() - this.getStartDate());
-//        return usageRate;
-//    }
-
     public Room() {}
     
     @Override
@@ -65,23 +44,10 @@ public class Room implements FacilityInterface{
         return this.unscheduledDownTime;
     }
 
-//    @Override
-//    public String getFacilityInformation() { //TODO
-//        String facInfo = "";
-//        return facInfo;
-//    }
-
     @Override
     public int requestAvailableCapacity() {
         return this.capacity;
     }
-
-//    @Override
-//    public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance) {
-//        MaintenanceInterface inspections = new MaintDetails();
-//        ArrayList<MaintenanceInterface> facInspections = inspections.listMaint(this.serialNumber, "INSPECTION");
-//        return facInspections;
-//    }
 
     @Override
     public boolean getIsVacant() {

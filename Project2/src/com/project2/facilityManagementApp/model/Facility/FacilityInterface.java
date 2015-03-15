@@ -3,14 +3,9 @@ package com.project2.facilityManagementApp.model.Facility;
 import java.util.ArrayList;
 
 public interface FacilityInterface {
-//    public boolean isInUseDuringInterval(int time1, int time2);
-//    public int listActualUsage(int facilitySerialNumber);
-//    public int calcUsageRate(int facilitySerialNumber);
     public String getUsage();
     public int getDownTime();
-//    public String getFacilityInformation();
     public int requestAvailableCapacity();
-//    public ArrayList<MaintenanceInterface> listFacilityInspections(ArrayList<MaintenanceInterface> maintenance);
     public boolean getIsVacant();
     public int getParentId();
     public int getCapacity();
