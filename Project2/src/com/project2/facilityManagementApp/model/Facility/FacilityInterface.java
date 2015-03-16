@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public interface FacilityInterface {
     public String getUsage();
     public int getDownTime();
-    public int requestAvailableCapacity();
     public boolean getIsVacant();
     public int getParentId();
     public int getCapacity();

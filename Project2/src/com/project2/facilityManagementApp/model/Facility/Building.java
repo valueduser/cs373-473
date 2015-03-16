@@ -28,32 +28,27 @@ public class Building implements FacilityInterface{
     
     @Override
     public String getUsage() {
-        return this.usage;
+        return usage;
     }
 
     @Override
     public int getDownTime(){
-        return this.downTime;
+        return downTime;
     }
     
     @Override
-    public int requestAvailableCapacity() {
-        return this.capacity;
-    }
-
-    @Override
     public boolean getIsVacant() {
-        return this.isVacant;
+        return isVacant;
     }
 
     @Override
     public int getParentId() {
-        return this.parentId;
+        return parentId;
     }
 
     @Override
     public int getCapacity() {
-        return this.capacity;
+        return capacity;
     }
 
 
@@ -66,7 +61,7 @@ public class Building implements FacilityInterface{
         {
             FacilityInterface obj = it.next();
             Room fac = (Room) obj;
-            if (fac.getParentId() == this.getFacilitySerialNumber()){
+            if (fac.getParentId() == getFacilitySerialNumber()){
                 childeren.add(fac);
             }
         }
@@ -75,27 +70,27 @@ public class Building implements FacilityInterface{
 
     @Override
     public int getFacilitySerialNumber() {
-        return this.serialNumber;
+        return serialNumber;
     }
 
     @Override
     public int getEndDate() {
-        return this.endDate;
+        return endDate;
     }
 
     @Override
     public int getStartDate() {
-        return this.startDate;
+        return startDate;
     }
 
     @Override
     public int getScheduledDownTime() {
-        return this.scheduledDownTime;
+        return scheduledDownTime;
     }
 
     @Override
     public int getUnscheduledDownTime() {
-        return this.unscheduledDownTime;
+        return unscheduledDownTime;
     }
 
     @Override
@@ -161,7 +156,7 @@ public class Building implements FacilityInterface{
 
     @Override
     public boolean getIsUsed() {
-        return this.isUsed;
+        return isUsed;
     }
 
     @Override
@@ -171,6 +166,6 @@ public class Building implements FacilityInterface{
 
     @Override
     public String getAddress(){
-        return this.address;
+        return address;
     }
 }
