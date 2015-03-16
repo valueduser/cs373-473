@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c9d568-4485-4922-8940-19db7aeebf3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/out/production/Project2/META-INF/app-context.xml" afterPath="$PROJECT_DIR$/../Project2/out/production/Project2/META-INF/app-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/resources/META-INF/app-context.xml" afterPath="$PROJECT_DIR$/../Project2/resources/META-INF/app-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/Facility.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/Facility.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/FacilityDAO.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/FacilityDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/FacilityTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/FacilityTest.java" />
     </list>
     <ignored path="Project1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -773,7 +772,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1543" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />

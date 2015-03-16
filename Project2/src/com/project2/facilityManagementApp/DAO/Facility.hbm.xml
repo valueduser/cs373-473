@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.project2.facilityManagementApp.model.Facility">
 	<class name="FacilityImpl" table="facilities">
-		<id name="FacilitySerialNumber" column="id" />
+        <id name="FacilitySerialNumber" column="id" />
 		<property name="capacity" type="int" column="capacity" />
 		<property name="isUsed" type="boolean" column="isused" />
 		<property name="isVacant" type="boolean" column="hasvacancy" />

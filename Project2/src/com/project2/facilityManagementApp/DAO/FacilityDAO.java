@@ -29,7 +29,7 @@ public class FacilityDAO {
             Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             System.out.println("Getting Facility from DB: " + id);
-            Query getFacilityQuery = session.createQuery("From Facility bl where bl.FacilitySerialNumber = :id");
+            Query getFacilityQuery = session.createQuery("From FacilityImpl bl where bl.FacilitySerialNumber = :id");
             getFacilityQuery.setParameter("id", id);
 
             List bldgList = getFacilityQuery.list();
