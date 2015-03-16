@@ -16,6 +16,8 @@ public interface FacilityInterface {
     public int getScheduledDownTime();
     public int getUnscheduledDownTime();
     public boolean getIsUsed();
+    public String getAddress();
+    public void setAddress(String address);
     public void setUsage(String useType);
     public void setIsVacant(boolean isVacant);
     public void setStartDate(int startDate);

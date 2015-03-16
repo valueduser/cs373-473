@@ -47,6 +47,7 @@ public class FacilityManagementClient {
             building1.setStartDate(408);
             building1.setUnscheduledDownTime(500);
             building1.setUsage("Rental");
+            building1.setAddress("7114 W. 231st St. North Talmadge, OH 44145");
             building1.setIsVacant(false);
             facDAO.addBuilding(building1);
             System.out.println("Building serial" + building1.getFacilitySerialNumber() + " added.");
@@ -61,6 +62,7 @@ public class FacilityManagementClient {
             building2.setStartDate(0);
             building2.setUnscheduledDownTime(0);
             building2.setUsage("Bank");
+            building2.setAddress("1555 N. Oakmont Rd. West Village, TN 53453");
             building2.setIsVacant(false);
             facDAO.addBuilding(building2);
             System.out.println("Building serial" + building2.getFacilitySerialNumber() + " added.");

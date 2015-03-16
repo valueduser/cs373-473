@@ -1581,6 +1581,7 @@
       <column name="unscheduleddowntime" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="parentid" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="address" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="facilities_pkey" columns="id"/>
     </table>
     <table name="facilities_id_seq" schema="public" catalog="FacilityMgmt" type="SEQUENCE">

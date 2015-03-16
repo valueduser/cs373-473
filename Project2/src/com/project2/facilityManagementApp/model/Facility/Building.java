@@ -15,6 +15,8 @@ public class Building implements FacilityInterface{
     private int startDate; //days from 1000/01/01
     private int endDate; //days from 1000/01/01
 
+    private String address = null;
+
     /*in minutes*/
     private int downTime;
     private int scheduledDownTime;
@@ -160,5 +162,15 @@ public class Building implements FacilityInterface{
     @Override
     public boolean getIsUsed() {
         return this.isUsed;
+    }
+
+    @Override
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    @Override
+    public String getAddress(){
+        return this.address;
     }
 }
