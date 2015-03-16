@@ -4,16 +4,18 @@
 //
 //import java.util.ArrayList;
 //
-//import com.project2.facilityManagmentApp.model.Facility.*;
-//import com.project2.facilityManagmentApp.DAO.BuildingDAO;
-//import com.project2.facilityManagmentApp.DAO.HibernatePGSQLHelper;
-//import com.project2.facilityManagmentApp.model.Maintenance.MaintenanceInterface;
+//import com.project2.facilityManagementApp.Service.ManagementService;
+//import com.project2.facilityManagementApp.model.Facility.*;
+//import com.project2.facilityManagementApp.DAO.BuildingDAO;
+//import com.project2.facilityManagementApp.DAO.HibernatePGSQLHelper;
+//import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 //
 //import org.hibernate.Session;
 //import org.junit.*;
+//import org.springframework.context.ApplicationContext;
+//import org.springframework.context.support.ClassPathXmlApplicationContext;
 //
 //public class BuildingTest {
-//    private int numberOfFacilities;
 //    private ArrayList<FacilityInterface> facilities = new ArrayList<FacilityInterface>();
 //    private ArrayList<MaintenanceInterface> maintReports = new ArrayList<MaintenanceInterface>();
 //    FacilityInterface tempFac = new Building();
@@ -23,9 +25,16 @@
 //    public static void oneTimeSetUp() {
 //        // one-time initialization code
 //        System.out.println("@BeforeClass - oneTimeSetUp");
-//        BuildingDAO facDAO = new BuildingDAO();
 //
-//        FacilityInterface building1 = new Building();
+//        ApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/app-context.xml");
+//        ManagementService mgmtServ = (ManagementService) context.getBean("managementService");
+//
+//        FacilityInterface building1 = (FacilityInterface) context.getBean("facilityInterface");
+//        FacilityInterface building2 = (FacilityInterface) context.getBean("facilityInterface");
+//
+//        System.out.println("Adding buildings...");
+//        //Add the buildings
+//
 //        building1.setFacilitySerialNumber(1);
 //        building1.setCapacity(2);
 //        building1.setDownTime(2000);
@@ -34,11 +43,12 @@
 //        building1.setScheduledDownTime(1500);
 //        building1.setStartDate(408);
 //        building1.setUnscheduledDownTime(500);
+//        building1.setAddress("7114 W. 231st St. North Talmadge, OH 44145");
 //        building1.setUsage("Rental");
 //        building1.setIsVacant(true);
-//        facDAO.addBuilding(building1);
+//        mgmtServ.addBuilding(building1);
+//        System.out.println("Building serial" + building1.getFacilitySerialNumber() + " added.");
 //
-//        FacilityInterface building2 = new Building();
 //        building2.setFacilitySerialNumber(0);
 //        building2.setCapacity(2);
 //        building2.setDownTime(100000);
@@ -49,7 +59,11 @@
 //        building2.setUnscheduledDownTime(50000);
 //        building2.setUsage("Commercial");
 //        building2.setIsVacant(true);
-//        facDAO.addBuilding(building2);
+//        mgmtServ.addBuilding(building2);
+//        System.out.println("Building serial" + building2.getFacilitySerialNumber() + " added.");
+//
+//
+//
 //    }
 //
 //    @AfterClass
@@ -58,37 +72,8 @@
 //        System.out.println("@AfterClass - oneTimeTearDown");
 //
 //        System.out.println("Deleting all entries from facilities:");
-//
-//
-////        Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
-////        session.beginTransaction();
-////        session.createQuery("delete from facilities");
-////        session.getTransaction().commit();
-//
-//        /**
-//        try{
-//            Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
-//            session.beginTransaction();
-//            session.createSQLQuery("DELETE FROM facilities").executeUpdate();
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//        }*/
-//
-//        /**
-//        try {
-//            Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
-//            session.beginTransaction();
-//            session.createSQLQuery("TRUNCATE TABLE facilities").executeUpdate();
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        finally {
-//            System.out.println("Should have torn down.");
-//        }*/
-//
-//
+//        mgmtServ.removeBuilding(building1);
+//        mgmtServ.removeBuilding(building2);
 //    }
 //
 //    @Before
@@ -104,7 +89,8 @@
 //        tempFac = facDAO.retrieveBuilding(1);
 //         */
 //
-//        tempFac = new Building();
+////        tempFac = new Building();
+//
 ////        facDAO.removeBuilding(building1);
 ////        facDAO.removeBuilding(2);
 //    }

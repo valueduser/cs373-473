@@ -3,12 +3,12 @@
 //import static org.junit.Assert.*;
 //
 //import java.util.ArrayList;
-//import com.project2.facilityManagmentApp.model.Maintenance.*;
+//import com.project2.facilityManagementApp.model.Maintenance.*;
 //
 //import org.junit.Before;
 //import org.junit.Test;
 //
-//import com.project2.facilityManagmentApp.model.Facility.*;
+//import com.project2.facilityManagementApp.model.Facility.*;
 //
 //public class MaintDetailsTest {
 //    private MaintDetails details = new MaintDetails();

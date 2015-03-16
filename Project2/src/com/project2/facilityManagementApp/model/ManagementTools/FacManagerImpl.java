@@ -12,6 +12,7 @@ public class FacManagerImpl implements FacManager {
 	public void setFacilityInterface(FacilityInterface facInter){
 		this.facilityInterface = facInter;
 	}
+
 	@Override
 	public FacilityInterface getFacilityInterface(){
 		return facilityInterface;

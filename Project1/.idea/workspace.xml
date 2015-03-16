@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c9d568-4485-4922-8940-19db7aeebf3c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/BuildingTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/BuildingTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/model/ManagementTools/FacManagerImpl.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/model/ManagementTools/FacManagerImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementClient.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/Project2.iml" afterPath="$PROJECT_DIR$/../Project2/Project2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintDetailsTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintDetailsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintRequestTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintRequestTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/RoomTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/RoomTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/resources/META-INF/app-context.xml" afterPath="$PROJECT_DIR$/../Project2/resources/META-INF/app-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" />
     </list>
     <ignored path="Project1.iws" />
     <ignored path=".idea/workspace.xml" />

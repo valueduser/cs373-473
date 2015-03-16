@@ -10,7 +10,7 @@
 	<context:component-scan base-package="com.project2.facilityManagementApp" />
 	<bean id="maintRequest" class="com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl" scope="prototype"/>
 	<bean id="building" class="com.project2.facilityManagementApp.model.Facility.Building" scope="prototype"/>
-	<bean id="room" class="com.project2.facilityManagementApp.model.Facility.Room" scope="prototype"/>
+	<bean id="room" class="com.project2.facilityManagementApp.model.Facility.Room" scope="prototype" />
 	<bean id="facilityInterface" class="com.project2.facilityManagementApp.model.Facility.FacilityInterface" scope="prototype" />
 	
 	<bean id="facManager" class="com.project2.facilityManagementApp.model.ManagementTools.FacManagerImpl" scope="prototype">

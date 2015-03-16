@@ -8,10 +8,9 @@
 //import org.junit.Before;
 //import org.junit.Test;
 //
-//import com.project2.facilityManagmentApp.model.Facility.*;
-//import com.project2.facilityManagmentApp.model.Maintenance.MaintDetails;
-//import com.project2.facilityManagmentApp.model.Maintenance.MaintRequest;
-//import com.project2.facilityManagmentApp.model.Maintenance.MaintenanceInterface;
+//import com.project2.facilityManagementApp.model.Facility.*;
+//import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
+//import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 //
 //public class RoomTest {
 //    private Room room;
