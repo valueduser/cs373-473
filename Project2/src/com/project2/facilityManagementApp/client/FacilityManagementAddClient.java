@@ -79,33 +79,6 @@ public class FacilityManagementAddClient {
         request2.setTimeToComplete(20);
         maintServ.addMaintenanceReq(request2);
         System.out.println("Request 2, serial# " + request2.getFacilitySerialNumber() + " added.");
-
-//
-//        System.out.println("Searching for Buildings...");
-//
-//        System.out.println("Retrieving building 1 (serial 99) ...");
-//        System.out.println("Building #1 with serial #" + mgmtServ.retrieveFacility(99).getFacilitySerialNumber()  + " found!");
-//
-//        System.out.println("Retrieving building 2 (serial 42) ...");
-//        System.out.println(mgmtServ.retrieveFacility(42).getFacilitySerialNumber());
-//        System.out.println("Building #2 with serial #" + mgmtServ.retrieveFacility(42).getFacilitySerialNumber()  + " found!");
-//
-//
-//        System.out.println("Searching for Requests...");
-//
-//        System.out.println("Retrieving request 1 (serial 1) ...");
-//        System.out.println("Request #1 with serial #" + maintServ.getMaintenanceReq(1).getFacilitySerialNumber() + " found!");
-//
-//        System.out.println("Retrieving request 2 (serial 1) ...");
-//        System.out.println("Request #2 with serial #" + maintServ.getMaintenanceReq(2).getFacilitySerialNumber() + " found!");
-//
-//        System.out.println("Deleting requests...");
-//        maintServ.removeMaintenanceReq(1);
-//        maintServ.removeMaintenanceReq(2);
-//
-//        System.out.println("Deleting buildings...");
-//        mgmtServ.removeFacility(building1);
-//        mgmtServ.removeFacility(building2);
     }
 
 }

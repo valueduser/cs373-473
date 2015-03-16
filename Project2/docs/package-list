@@ -1,0 +1,8 @@
+com.project2.facilityManagementApp.DAO
+com.project2.facilityManagementApp.Service
+com.project2.facilityManagementApp.client
+com.project2.facilityManagementApp.model.Facility
+com.project2.facilityManagementApp.model.Maintenance
+com.project2.facilityManagementApp.model.ManagementTools
+com.project2.model.Facility
+com.project2.model.Maintenance
