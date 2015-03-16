@@ -66,32 +66,12 @@ public class MaintRequestTest {
 
     @Test
     public void testScheduleMaintenance() {
-        boolean isNull = false;
-
-//        if (mMgr.ScheduleMaintenance(0, 0, "", 0) == null){
-//            isNull = true;
-//        }
-
-        if (mMgr.ScheduleMaintenance(request1.getFacilitySerialNumber(),request1.getRequestId(),request1.getMaintType(),request1.getStartDate()) == null){
-            isNull = true;
-        }
-
-        assertEquals(isNull, true);
+        assertNotNull(mMgr.ScheduleMaintenance(1,1,"Fix Roof", 1100));
     }
 
     @Test
     public void testMakeFacilityMaintRequest() {
-        boolean isNull = false;
-
-//        if (mMgr.makeFacilityMaintRequest(0, 0, "", 0, false) == null){
-//            isNull = true;
-//        }
-
-        if (mMgr.makeFacilityMaintRequest(request1.getFacilitySerialNumber(),request1.getRequestId(), request1.getMaintType(),request1.getStartDate(),request1.getIsScheduled()) == null){
-            isNull = true;
-        }
-
-        assertEquals(isNull, true);
+        assertNotNull(mMgr.makeFacilityMaintRequest(12,26, "Replace Bathroom Sink", 1220, false));
     }
 
     @Test
