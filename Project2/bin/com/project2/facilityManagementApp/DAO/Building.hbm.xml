@@ -16,5 +16,6 @@
         <property name="scheduledDownTime" type="int" column="scheduleddowntime"/>
         <property name="unscheduledDownTime" type="int" column="unscheduleddowntime"/>
         <property name="parentId" type="int" column="parentid"/>
+        <property name="address" type="string" column="address"/>
     </class>
 </hibernate-mapping>
