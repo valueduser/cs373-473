@@ -22,5 +22,8 @@
 		<property name="facilityIntertace" ref="facilityInterface" />
 		<property name="maintRequest" ref="maintRequest" />
 	</bean>
+	
+	<bean id="maintenanceService" class="com.project2.facilityManagementApp.Service.MaintenanceService" scope="prototype"/>
+	<bean id="managementService" class="com.project2.facilityManagementApp.Service.ManagmentService" scope="prototype"/>
 						
 </beans>
