@@ -20,7 +20,6 @@
 		class="com.project2.facilityManagementApp.model.ManagementTools.FacManagerImpl"
 		scope="prototype">
 		<property name="facility" ref="facility" />
-		<property name="maintRequest" ref="maintRequest" />
 	</bean>
 
 	<bean id="maintManager"
