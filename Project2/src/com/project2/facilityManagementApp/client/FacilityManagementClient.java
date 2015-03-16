@@ -47,6 +47,7 @@ public class FacilityManagementClient {
         building2.setUsage("Bank");
         building2.setAddress("1555 N. Oakmont Rd. West Village, TN 5345345");
         building2.setIsVacant(false);
+        
         mgmtServ.addFacility(building2);
         System.out.println("Building #2,  serial #" + building2.getFacilitySerialNumber() + " added.");
 

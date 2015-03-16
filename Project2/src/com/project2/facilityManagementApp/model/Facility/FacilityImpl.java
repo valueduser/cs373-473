@@ -20,8 +20,6 @@ public class FacilityImpl implements Facility{
     private int scheduledDownTime;
     private int unscheduledDownTime;
 
-    private String facilityTableName = "facilities";
-
     public FacilityImpl(){}
     
     @Override

@@ -26,6 +26,7 @@
 	<bean id="maintManager"
 		class="com.project2.facilityManagementApp.model.ManagementTools.MaintManagerImpl"
 		scope="prototype">
+		<property name="facility" ref="facility" />
 		<property name="maintRequest" ref="maintRequest" />
 	</bean>
 
