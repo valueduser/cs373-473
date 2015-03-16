@@ -21,6 +21,7 @@ public class FacilityManagementClient {
         building1.setCapacity(2);
         building1.setDownTime(2000);
         building1.setEndDate(9999);
+        building1.setIsUsed(true);
         building1.setParentId(0);
         building1.setScheduledDownTime(1500);
         building1.setStartDate(408);
@@ -30,7 +31,7 @@ public class FacilityManagementClient {
         building1.setIsVacant(false);
 
         mgmtServ.addFacility(building1);
-        System.out.println("Building serial" + building1.getFacilitySerialNumber() + " added.");
+        System.out.println("Building #1,  serial #" + building1.getFacilitySerialNumber() + " added.");
 
         FacilityImpl building2 = (FacilityImpl) context.getBean("facility");
 
@@ -38,6 +39,7 @@ public class FacilityManagementClient {
         building2.setCapacity(15);
         building2.setDownTime(0);
         building2.setEndDate(5013);
+        building2.setIsUsed(true);
         building2.setParentId(0);
         building2.setScheduledDownTime(0);
         building2.setStartDate(0);
@@ -46,10 +48,20 @@ public class FacilityManagementClient {
         building2.setAddress("1555 N. Oakmont Rd. West Village, TN 5345345");
         building2.setIsVacant(false);
         mgmtServ.addFacility(building2);
-        System.out.println("Building serial" + building2.getFacilitySerialNumber() + " added.");
+        System.out.println("Building #2,  serial #" + building2.getFacilitySerialNumber() + " added.");
 
+        System.out.println("Searching for Buildings...");
+
+        System.out.println("Retrieving building 1 (serial 99) ...");
+        System.out.println("Building #1 with serial #" + mgmtServ.retrieveFacility(99).getFacilitySerialNumber()  + " found!");
+
+        System.out.println("Retrieving building 2 (serial 42) ...");
+        System.out.println(mgmtServ.retrieveFacility(42).getFacilitySerialNumber());
+        System.out.println("Building #2 with serial #" + mgmtServ.retrieveFacility(42).getFacilitySerialNumber()  + " found!");
 
         System.out.println("Deleting buildings...");
+        mgmtServ.removeFacility(building1);
+        mgmtServ.removeFacility(building2);
     }
 
 }

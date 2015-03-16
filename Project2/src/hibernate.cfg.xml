@@ -22,7 +22,7 @@
 		<!-- Enable Hibernate's automatic session context management -->
 		<property name="current_session_context_class">thread</property>
 		<!-- Mapping resource configuration files -->
-		<mapping resource="com/project2/facilityManagementApp/DAO/Building.hbm.xml" />
+		<mapping resource="com/project2/facilityManagementApp/DAO/Facility.hbm.xml" />
 		<mapping resource="com/project2/facilityManagementApp/DAO/Maintenance.hbm.xml" />
 
 	</session-factory>

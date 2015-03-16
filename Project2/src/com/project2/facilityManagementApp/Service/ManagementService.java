@@ -1,7 +1,6 @@
 package com.project2.facilityManagementApp.Service;
 
 import com.project2.facilityManagementApp.DAO.FacilityDAO;
-import com.project2.facilityManagementApp.DAO.MaintenanceDAO;
 import com.project2.facilityManagementApp.model.Facility.FacilityImpl;
 
 public class ManagementService {

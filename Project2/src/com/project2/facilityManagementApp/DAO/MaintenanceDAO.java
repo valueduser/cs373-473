@@ -22,7 +22,7 @@ public class MaintenanceDAO {
             session.beginTransaction();
             System.out.println("Getting Maint Req from DB: " + requestID);
 
-            Query getMaintReqQuery = session.createQuery("From MaintRequest mr where mr.requestID = :id");
+            Query getMaintReqQuery = session.createQuery("From MaintRequestImpl mr where mr.requestId = :id");
             getMaintReqQuery.setParameter("id", requestID);
 
             List maintList = getMaintReqQuery.list();

@@ -12,7 +12,7 @@
 //
 //public class MaintDetailsTest {
 //    private MaintDetails details = new MaintDetails();
-//    private FacilityInterface fac = new Building();
+//    private Facility fac = new FacilityImpl();
 //
 //    @Before
 //    public void setUp() throws Exception {
@@ -28,12 +28,12 @@
 //        fac.setUsage("Rental");
 //        fac.setIsVacant(true);
 //
-//        MaintRequest maint1 = new MaintRequest();
+//        MaintRequest maint1 = new MaintRequestImpl();
 //        maint1.setFacilitySerialNumber(1);
 //        maint1.setIsOpen(true);
 //        maint1.setIsScheduled(true);
 //        maint1.setMaintType("SEV 1");
-//        maint1.setRequestID(1);
+//        maint1.setRequestId(1);
 //        maint1.setStartDate(208);
 //        maint1.setTimeToComplete(20);
 //    }
@@ -41,7 +41,7 @@
 //    @Test
 //    public void testScheduleMaintenance() {
 //        boolean itWorked = false;
-//        MaintenanceInterface scheduled = details.ScheduleMaintenance(fac.getFacilitySerialNumber(), 1, "SEV 1", 500);
+//        MaintRequest scheduled = details.ScheduleMaintenance(fac.getFacilitySerialNumber(), 1, "SEV 1", 500);
 //        if (scheduled != null){
 //            itWorked = true;
 //        }
@@ -51,7 +51,7 @@
 //    @Test
 //    public void testMakeFacilityMaintRequest() {
 //        boolean itWorked = false;
-//        MaintenanceInterface scheduled = details.makeFacilityMaintRequest(fac.getFacilitySerialNumber(), 1, "SEV 1", 500, true);
+//        MaintRequest scheduled = details.makeFacilityMaintRequest(fac.getFacilitySerialNumber(), 1, "SEV 1", 500, true);
 //        if (scheduled != null){
 //            itWorked = true;
 //        }
