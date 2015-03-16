@@ -7,8 +7,9 @@ import com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl;
 import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
 
 public class MaintManagerImpl implements MaintManager {
+	private MaintRequest maintRequest;
+	
 	private ArrayList<MaintRequest> maintenanceList;
-
 
 	public MaintManagerImpl(){}
 	
@@ -184,4 +185,15 @@ public class MaintManagerImpl implements MaintManager {
         }
         return null;
     }
+
+	@Override
+	public void setMaintRequest(MaintRequest maintRequest) {
+		this.maintRequest = maintRequest;
+		
+	}
+
+	@Override
+	public MaintRequest getMaintRequest() {
+		return maintRequest;
+	}
 }
