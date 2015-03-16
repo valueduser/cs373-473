@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9c9d568-4485-4922-8940-19db7aeebf3c" name="Default" comment="" />
+    <list default="true" id="b9c9d568-4485-4922-8940-19db7aeebf3c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementClient.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/Project2.iml" afterPath="$PROJECT_DIR$/../Project2/Project2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/resources/META-INF/app-context.xml" afterPath="$PROJECT_DIR$/../Project2/resources/META-INF/app-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Project2/.idea/workspace.xml" />
+    </list>
     <ignored path="Project1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/bin/" />

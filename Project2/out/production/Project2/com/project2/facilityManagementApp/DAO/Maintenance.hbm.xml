@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.project2.model.Maintenance">
-    <class name="MaintRequest" table="maintenance">
-        <id name="requestID" column="requestid"/>
+<hibernate-mapping package="com.project2.facilityManagementApp.model.Maintenance">
+    <class name="MaintRequestImpl" table="maintenance">
+        <id name="requestId" column="requestid"/>
         <property name="maintType" type="string" column="mainttype"/>
         <property name="timeToComplete" type="int" column="timetocomplete"/>
         <property name="isOpen" type="boolean" column="isopen"/>
