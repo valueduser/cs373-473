@@ -15,11 +15,11 @@ public class MaintenanceService {
         }
     }
 
-    public void removeMaintenanceReq (int requestID){
+    public void removeMaintenanceReq (MaintRequest maintReq){
         try {
-            maintDAO.removeMaintenanceReq(requestID);
+            maintDAO.removeMaintenanceReq(maintReq);
         } catch (Exception se) {
-            System.err.println("Maint Service: Threw a Exception removing Maint Req" + requestID);
+            System.err.println("Maint Service: Threw a Exception removing Maint Req" + maintReq.getRequestId());
             System.err.println(se.getMessage());
         }
     }

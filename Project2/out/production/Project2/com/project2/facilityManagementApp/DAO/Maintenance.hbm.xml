@@ -12,5 +12,6 @@
 		<property name="isOpen" type="boolean" column="isopen" />
 		<property name="isScheduled" type="boolean" column="isscheduled" />
 		<property name="startDate" type="int" column="startdate" />
+        <property name="facilitySerialNumber" type="int" column="facilityserialnumber" />
 	</class>
 </hibernate-mapping>

@@ -35,12 +35,11 @@ public class MaintenanceDAO {
         return null;
     }
 
-    public void removeMaintenanceReq(int requestID){
-        System.out.println("Removing Maint Req from DB: " + requestID);
+    public void removeMaintenanceReq(MaintRequest maintReq){
+        System.out.println("Removing Maint Req from DB: " + maintReq.getRequestId());
         Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.delete(requestID);
+        session.delete(maintReq);
         session.getTransaction().commit();
     }
-
 }

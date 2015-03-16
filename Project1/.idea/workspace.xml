@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c9d568-4485-4922-8940-19db7aeebf3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/Facility.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/Facility.hbm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/FacilityDAO.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/FacilityDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/FacilityTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Facility/FacilityTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementAddClient.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementAddClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementAddClient.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/client/FacilityManagementAddClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintDetailsTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintDetailsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/model/Maintenance/MaintRequest.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/model/Maintenance/MaintRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/model/Maintenance/MaintRequestImpl.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/model/Maintenance/MaintRequestImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintRequestTest.java" afterPath="$PROJECT_DIR$/../Project2/test/com/project2/model/Maintenance/MaintRequestTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/Maintenance.hbm.xml" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/Maintenance.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/MaintenanceDAO.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/DAO/MaintenanceDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/Service/MaintenanceService.java" afterPath="$PROJECT_DIR$/../Project2/src/com/project2/facilityManagementApp/Service/MaintenanceService.java" />
     </list>
     <ignored path="Project1.iws" />
     <ignored path=".idea/workspace.xml" />
