@@ -5,6 +5,9 @@ import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
 
 public interface MaintManager {
+	
+	public void setMaintRequest(MaintRequest maintRequest);
+	public MaintRequest getMaintRequest();
 
 	public MaintRequest ScheduleMaintenance(int facilitySerialNumber, int requestID, String maintType, int startDate);
 	public MaintRequest makeFacilityMaintRequest(int facilitySerialNumber, int requestID, String maintType,int startDate, boolean isScheduled);

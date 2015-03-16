@@ -8,11 +8,13 @@ import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 public class FacManagerImpl implements FacManager {
 	private FacilityInterface facilityInterface;
 	
+	@Override
 	public void setFacilityInterface(FacilityInterface facInter){
 		this.facilityInterface = facInter;
 	}
+	@Override
 	public FacilityInterface getFacilityInterface(){
-		return this.facilityInterface;
+		return facilityInterface;
 	}
 
     @Override

@@ -41,30 +41,30 @@ public class MaintRequestImpl implements MaintRequest{
     }
     @Override
     public int getRequestId(){
-        return this.requestId;
+        return requestId;
     }
     @Override
     public String getMaintType (){
-        return this.maintType;
+        return maintType;
     }
     @Override
     public int getTimeToComplete(){
-        return this.timeToComplete;
+        return timeToComplete;
     }
     @Override
     public boolean getIsOpen(){
-        return this.isOpen;
+        return isOpen;
     }
     @Override
     public boolean getIsScheduled(){
-        return this.isScheduled;
+        return isScheduled;
     }
     @Override
     public int getFacilitySerialNumber() {
-        return this.facilitySerialNumber;
+        return facilitySerialNumber;
     }
     @Override
     public int getStartDate(){
-        return this.startDate;
+        return startDate;
     }
 }
