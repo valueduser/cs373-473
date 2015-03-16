@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 import com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl;
-import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
+import com.project2.facilityManagementApp.model.Facility.Facility;
 
 public class MaintManagerImpl implements MaintManager {
 	private MaintRequest maintRequest;
@@ -77,7 +77,7 @@ public class MaintManagerImpl implements MaintManager {
     }
 
     @Override
-    public double calcProblemRateForFacility(FacilityInterface facility) {
+    public double calcProblemRateForFacility(Facility facility) {
         double facilityStartDate = (double) facility.getStartDate();
         double facilityEndDate = (double) facility.getEndDate();
         double problemRate = 0;

@@ -2,25 +2,25 @@ package com.project2.facilityManagementApp.model.ManagementTools;
 
 import java.util.ArrayList;
 
-import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
+import com.project2.facilityManagementApp.model.Facility.Facility;
 import com.project2.facilityManagementApp.model.Maintenance.MaintRequest;
 
 public class FacManagerImpl implements FacManager {
-	private FacilityInterface facilityInterface;
+	private Facility Facility;
 	
 	@Override
-	public void setFacilityInterface(FacilityInterface facInter){
-		this.facilityInterface = facInter;
+	public void setFacility(Facility facInter){
+		this.Facility = facInter;
 	}
 
 	@Override
-	public FacilityInterface getFacilityInterface(){
-		return facilityInterface;
+	public Facility getFacility(){
+		return Facility;
 	}
 
     @Override
     public boolean isInUseDuringInterval(int time1, int time2) {
-        if(getFacilityInterface().getEndDate() < time2 && getFacilityInterface().getStartDate() > time1){
+        if(getFacility().getEndDate() < time2 && getFacility().getStartDate() > time1){
             return true;
         }
         return false;
@@ -28,14 +28,14 @@ public class FacManagerImpl implements FacManager {
 
     @Override
     public int listActualUsage(int facilitySerialNumber) {
-        int upTime = (getFacilityInterface().getEndDate() - getFacilityInterface().getStartDate()) - getFacilityInterface().getDownTime();
+        int upTime = (getFacility().getEndDate() - getFacility().getStartDate()) - getFacility().getDownTime();
         return upTime;
     }
 
     @Override
     public int calcUsageRate(int facilitySerialNumber) {
         int upTime = this.listActualUsage(facilitySerialNumber);
-        int usageRate = upTime / (getFacilityInterface().getEndDate() - getFacilityInterface().getStartDate());
+        int usageRate = upTime / (getFacility().getEndDate() - getFacility().getStartDate());
         return usageRate;
     }
     @Override

@@ -3,13 +3,14 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.project2.facilityManagementApp.model.Maintenance">
-    <class name="MaintRequestImpl" table="maintenance">
-        <id name="requestId" column="requestid"/>
-        <property name="maintType" type="string" column="mainttype"/>
-        <property name="timeToComplete" type="int" column="timetocomplete"/>
-        <property name="isOpen" type="boolean" column="isopen"/>
-        <property name="isScheduled" type="boolean" column="isscheduled"/>
-        <property name="startDate" type="int" column="startdate"/>
-    </class>
+<hibernate-mapping
+	package="com.project2.facilityManagementApp.model.Maintenance">
+	<class name="MaintRequestImpl" table="maintenance">
+		<id name="requestId" column="requestid" />
+		<property name="maintType" type="string" column="mainttype" />
+		<property name="timeToComplete" type="int" column="timetocomplete" />
+		<property name="isOpen" type="boolean" column="isopen" />
+		<property name="isScheduled" type="boolean" column="isscheduled" />
+		<property name="startDate" type="int" column="startdate" />
+	</class>
 </hibernate-mapping>

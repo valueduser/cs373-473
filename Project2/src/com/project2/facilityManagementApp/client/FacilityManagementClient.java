@@ -4,8 +4,8 @@ import com.project2.facilityManagementApp.Service.ManagementService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.project2.facilityManagementApp.DAO.HibernatePGSQLHelper;
-import com.project2.facilityManagementApp.DAO.BuildingDAO;
-import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
+import com.project2.facilityManagementApp.DAO.FacilityDAO;
+import com.project2.facilityManagementApp.model.Facility.FacilityImpl;
 
 
 public class FacilityManagementClient {
@@ -13,7 +13,7 @@ public class FacilityManagementClient {
         ApplicationContext context = new ClassPathXmlApplicationContext("/META-INF/app-context.xml");
 
         ManagementService mgmtServ = (ManagementService) context.getBean("managementService");
-        FacilityInterface building1 = (FacilityInterface) context.getBean("facilityInterface");
+        FacilityImpl building1 = (FacilityImpl) context.getBean("facility");
 
         System.out.println("Adding buildings...");
         //Add the buildings
@@ -29,10 +29,10 @@ public class FacilityManagementClient {
         building1.setAddress("7114 W. 231st St. North Talmadge, OH 44145");
         building1.setIsVacant(false);
 
-        mgmtServ.addBuilding(building1);
+        mgmtServ.addFacility(building1);
         System.out.println("Building serial" + building1.getFacilitySerialNumber() + " added.");
 
-        FacilityInterface building2 = (FacilityInterface) context.getBean("facilityInterface");
+        FacilityImpl building2 = (FacilityImpl) context.getBean("facility");
 
         building2.setFacilitySerialNumber(42);
         building2.setCapacity(15);
@@ -45,7 +45,7 @@ public class FacilityManagementClient {
         building2.setUsage("Bank");
         building2.setAddress("1555 N. Oakmont Rd. West Village, TN 5345345");
         building2.setIsVacant(false);
-        mgmtServ.addBuilding(building2);
+        mgmtServ.addFacility(building2);
         System.out.println("Building serial" + building2.getFacilitySerialNumber() + " added.");
 
 

@@ -2,13 +2,13 @@ package com.project2.facilityManagementApp.model.Facility;
 
 import java.util.ArrayList;
 
-public interface FacilityInterface {
+public interface Facility {
     public String getUsage();
     public int getDownTime();
     public boolean getIsVacant();
     public int getParentId();
     public int getCapacity();
-    public ArrayList<FacilityInterface> getChildren(ArrayList<FacilityInterface> facilities);
+    public ArrayList<Facility> getChildren(ArrayList<Facility> facilities);
     public int getFacilitySerialNumber();
     public int getEndDate();
     public int getStartDate();

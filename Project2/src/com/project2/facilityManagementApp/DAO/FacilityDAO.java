@@ -2,40 +2,40 @@ package com.project2.facilityManagementApp.DAO;
 
 import java.util.List;
 
-import com.project2.facilityManagementApp.model.Facility.FacilityInterface;
+import com.project2.facilityManagementApp.model.Facility.FacilityImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-public class BuildingDAO {
+public class FacilityDAO {
 
-    public void addBuilding(FacilityInterface bldg) {
-        System.out.println("Adding building to DB: " + bldg.getFacilitySerialNumber());
+    public void addFacility(FacilityImpl bldg) {
+        System.out.println("Adding Facility to DB: " + bldg.getFacilitySerialNumber());
         Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         session.save(bldg);
         session.getTransaction().commit();
     }
 
-    public void removeBuilding(FacilityInterface bldg) {
-        System.out.println("Removing building from DB: " + bldg.getFacilitySerialNumber());
+    public void removeFacility(FacilityImpl bldg) {
+        System.out.println("Removing Facility from DB: " + bldg.getFacilitySerialNumber());
         Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         session.delete(bldg);
         session.getTransaction().commit();
     }
 
-    public FacilityInterface retrieveBuilding(int id) {
+    public FacilityImpl retrieveFacility(int id) {
         try {
             Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            System.out.println("Getting building from DB: " + id);
-            Query getBuildingQuery = session.createQuery("From Building bl where bl.FacilitySerialNumber = :id");
-            getBuildingQuery.setParameter("id", id);
+            System.out.println("Getting Facility from DB: " + id);
+            Query getFacilityQuery = session.createQuery("From Facility bl where bl.FacilitySerialNumber = :id");
+            getFacilityQuery.setParameter("id", id);
 
-            List bldgList = getBuildingQuery.list();
+            List bldgList = getFacilityQuery.list();
 
             session.getTransaction().commit();
-            return (FacilityInterface)bldgList.get(0);
+            return (FacilityImpl)bldgList.get(0);
         } catch (Exception e) {
             e.printStackTrace();
         }

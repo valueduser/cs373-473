@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - FacilityMgmt@localhost" uuid="332ac57c-092d-4b67-b165-ab0a76f26c87">
-      <secret-storage>master_key</secret-storage>
-      <user-name>postgres</user-name>
-      <schema-pattern>FacilityMgmt.pg_catalog FacilityMgmt.public</schema-pattern>
-      <default-schemas>FacilityMgmt.pg_catalog FacilityMgmt.public</default-schemas>
-    </data-source>
-    <data-source name="HSQLDB - FacilityMgmt" uuid="8a663ae1-385a-443c-867d-d102dd18aad9">
-      <secret-storage>master_key</secret-storage>
-      <schema-pattern>PUBLIC.PUBLIC</schema-pattern>
-      <default-schemas>PUBLIC.PUBLIC</default-schemas>
-    </data-source>
-  </component>
+	<component name="dataSourceStorageLocal">
+		<data-source name="PostgreSQL - FacilityMgmt@localhost"
+			uuid="332ac57c-092d-4b67-b165-ab0a76f26c87">
+			<secret-storage>master_key</secret-storage>
+			<user-name>postgres</user-name>
+			<schema-pattern>FacilityMgmt.pg_catalog FacilityMgmt.public</schema-pattern>
+			<default-schemas>FacilityMgmt.pg_catalog FacilityMgmt.public</default-schemas>
+		</data-source>
+		<data-source name="HSQLDB - FacilityMgmt" uuid="8a663ae1-385a-443c-867d-d102dd18aad9">
+			<secret-storage>master_key</secret-storage>
+			<schema-pattern>PUBLIC.PUBLIC</schema-pattern>
+			<default-schemas>PUBLIC.PUBLIC</default-schemas>
+		</data-source>
+	</component>
 </project>

@@ -4,18 +4,19 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.project2.facilityManagementApp.model.Facility">
-    <class name="Building" table="facilities">
-        <id name="FacilitySerialNumber" column="id"/>
-        <property name="capacity" type="int" column="capacity"/>
-        <property name="isUsed" type="boolean" column="isused"/>
-        <property name="isVacant" type="boolean" column="hasvacancy"/>
-        <property name="usage" type="string" column="usage"/>
-        <property name="startDate" type="int" column="startdate"/>
-        <property name="endDate" type="int" column="enddate"/>
-        <property name="downTime" type="int" column="downtime"/>
-        <property name="scheduledDownTime" type="int" column="scheduleddowntime"/>
-        <property name="unscheduledDownTime" type="int" column="unscheduleddowntime"/>
-        <property name="parentId" type="int" column="parentid"/>
-        <property name="address" type="string" column="address"/>
-    </class>
+	<class name="Building" table="facilities">
+		<id name="FacilitySerialNumber" column="id" />
+		<property name="capacity" type="int" column="capacity" />
+		<property name="isUsed" type="boolean" column="isused" />
+		<property name="isVacant" type="boolean" column="hasvacancy" />
+		<property name="usage" type="string" column="usage" />
+		<property name="startDate" type="int" column="startdate" />
+		<property name="endDate" type="int" column="enddate" />
+		<property name="downTime" type="int" column="downtime" />
+		<property name="scheduledDownTime" type="int" column="scheduleddowntime" />
+		<property name="unscheduledDownTime" type="int"
+			column="unscheduleddowntime" />
+		<property name="parentId" type="int" column="parentid" />
+		<property name="address" type="string" column="address" />
+	</class>
 </hibernate-mapping>

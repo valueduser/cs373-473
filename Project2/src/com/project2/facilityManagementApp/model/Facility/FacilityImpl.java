@@ -3,9 +3,7 @@ package com.project2.facilityManagementApp.model.Facility;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Building implements FacilityInterface{
-    public static final int MAX_BUILDING_CAPACITY = 15;
-
+public class FacilityImpl implements Facility{
     private int serialNumber;
     private int parentId;
     private int capacity; //number of rooms being used multiplied by the capacity of each room
@@ -24,7 +22,7 @@ public class Building implements FacilityInterface{
 
     private String facilityTableName = "facilities";
 
-    public Building(){}
+    public FacilityImpl(){}
     
     @Override
     public String getUsage() {
@@ -53,16 +51,15 @@ public class Building implements FacilityInterface{
 
 
     @Override
-    public ArrayList<FacilityInterface> getChildren(ArrayList<FacilityInterface> facilities) {
-        ArrayList<FacilityInterface> childeren = new ArrayList<FacilityInterface>();
+    public ArrayList<Facility> getChildren(ArrayList<Facility> facilities) {
+        ArrayList<Facility> childeren = new ArrayList<Facility>();
 
-        Iterator<FacilityInterface> it = facilities.iterator();
+        Iterator<Facility> it = facilities.iterator();
         while(it.hasNext())
         {
-            FacilityInterface obj = it.next();
-            Room fac = (Room) obj;
-            if (fac.getParentId() == getFacilitySerialNumber()){
-                childeren.add(fac);
+            Facility obj = it.next();
+            if (obj.getParentId() == getFacilitySerialNumber()){
+                childeren.add(obj);
             }
         }
         return childeren;
@@ -122,12 +119,7 @@ public class Building implements FacilityInterface{
 
     @Override
     public void setCapacity(int capacity) {
-        if(capacity <= MAX_BUILDING_CAPACITY){
-            this.capacity = capacity;
-        }
-        else {
-            System.out.println("Capacity not valid");
-        }
+    	this.capacity = capacity;
     }
     @Override
     public void setScheduledDownTime(int scheduledDownTime) {
