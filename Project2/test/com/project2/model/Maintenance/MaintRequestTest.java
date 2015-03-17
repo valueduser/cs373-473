@@ -2,6 +2,8 @@ package com.project2.model.Maintenance;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import com.project2.facilityManagementApp.Service.MaintenanceService;
 import com.project2.facilityManagementApp.model.Maintenance.*;
 import com.project2.facilityManagementApp.model.ManagementTools.MaintManagerImpl;
@@ -73,7 +75,7 @@ public class MaintRequestTest {
 
     @Test
     public void testScheduleMaintenance() {
-        assertNotNull(mMgr.ScheduleMaintenance(1,1,"Fix Roof", 1100));
+        assertNotNull(mMgr.ScheduleMaintenance(1, 1, "Fix Roof", 1100));
     }
 
     @Test
@@ -83,12 +85,8 @@ public class MaintRequestTest {
 
     @Test
     public void testCalcMaintCostForFacility() {
-        boolean isNull = false;
-        if (mMgr.calcMaintCostForFacility(0) == 0){
-            isNull = true;
-        }
-
-        assertEquals(isNull, true);
+        double cost = 25.0;
+        assertEquals(cost, mMgr.calcMaintCostForFacility(request99.getFacilitySerialNumber()), 1);
     }
 
 //    @Test //This test is not 100% relevant to the scope of this test suite
@@ -101,63 +99,64 @@ public class MaintRequestTest {
 ////        assertEquals(isNull, true);
 //    }
 
-//    @Test //This test has a bug
-//    public void testCalcDownTimeForFaciliity() {
-//        boolean isNull = false;
-//        if (mMgr.calcDownTimeForFaciliity(0) == 0){
-//            isNull = true;
-//        }
-//
-//        assertEquals(isNull, true);
-//    }
+    @Test //This test has a bug
+    public void testCalcDownTimeForFaciliity() {
+        double downtime = 0.0;
+        assertEquals(downtime, mMgr.calcDownTimeForFaciliity(request99.getFacilitySerialNumber()), 1);
+    }
 
     @Test
     public void testListMaintRequestsForFacility() {
         assertNotNull(mMgr.listMaintRequestsForFacility(request99.getFacilitySerialNumber()));
     }
     
-//    @Test //This test has a bug
-//    public void testListFacilityInspections() {
-//        System.out.println("testListFacilityInspections...");
-//        mMgr.setMaintenanceList(maintRequests);
-//
-//        boolean isNotNull = false;
-//        if(mMgr.listFacilityInspections(request1.getFacilitySerialNumber()) != null){
-//            isNotNull = true;
-//        }
-//
-////        mMgr.setMaintRequest(request1);
-////        System.out.println("inspections: " + mMgr.listFacilityInspections(1).get(0));
-////        mMgr.makeFacilityMaintRequest(8, 9, "INSPECTION", 101, true);
-//
-////        System.out.println("inspections: " + mMgr.listFacilityInspections(54));
-////        System.out.println("inspections: " + mMgr.listFacilityInspections(request99.getFacilitySerialNumber()));
-////        System.out.println("maint req: " + mMgr.listMaintRequestsForFacility(request99.getFacilitySerialNumber()));
-////        System.out.println("inspections: " + mMgr.listFacilityInspections(request1.getFacilitySerialNumber()).get(0));
-////        assertNotNull(mMgr.listFacilityInspections(request99.getFacilitySerialNumber()));
-////        assertFalse(true);
-//        assertEquals(isNotNull, false);
-//    }
+    @Test
+    public void testListFacilityInspections() {
+        System.out.println("testListFacilityInspections...");
 
-//    @Test //This test has a bug
-//    public void testListMaint() {
-//        boolean isNull = false;
-//        if (mMgr.listMaint(0, "") == null){
-//            isNull = true;
-//        }
-//
-//        assertEquals(isNull, true);
-//    }
+        ArrayList<String> list = new ArrayList<String>();
 
-//    @Test //This test has a bug
-//    public void testListFacilityProblems() {
-//        boolean isNull = false;
-//        if (mMgr.listFacilityProblems(0) == null){
-//            isNull = true;
-//        }
-//
-//        assertEquals(isNull, true);
-//    }
+        ArrayList<MaintRequest> maintenanceList = new ArrayList<MaintRequest>();
+        maintenanceList = mMgr.listFacilityInspections(request99.getFacilitySerialNumber());
+        if(maintenanceList != null) {
+            Iterator<MaintRequest> it = maintenanceList.iterator();
+            while (it.hasNext()) {
+                list.add(it.next().getMaintType());
+            }
+        }
+        assertNotNull(list.get(0));
+    }
+
+
+    @Test
+    public void testListMaint() {
+        ArrayList<String> list = new ArrayList<String>();
+
+        ArrayList<MaintRequest> maintenanceList = new ArrayList<MaintRequest>();
+        maintenanceList = mMgr.listMaint(request99.getFacilitySerialNumber(), request99.getMaintType());
+        if(maintenanceList != null) {
+            Iterator<MaintRequest> it = maintenanceList.iterator();
+            while (it.hasNext()) {
+                list.add(it.next().getMaintType());
+            }
+        }
+    assertNotNull(list.get(0));
+    }
+
+    @Test
+    public void testListFacilityProblems() {
+
+        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<MaintRequest> maintenanceList = new ArrayList<MaintRequest>();
+        maintenanceList = mMgr.listFacilityProblems(request99.getFacilitySerialNumber());
+        if(maintenanceList != null) {
+            Iterator<MaintRequest> it = maintenanceList.iterator();
+            while (it.hasNext()) {
+                list.add(it.next().getMaintType());
+            }
+        }
+        assertNotNull(list.get(0));
+    }
 
     @Test
     public void testSetRequestID() {
