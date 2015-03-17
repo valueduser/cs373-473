@@ -39,13 +39,15 @@ public class FacManagerImpl implements FacManager {
         return usageRate;
     }
     @Override
-    public String getFacilityInformation() { //TODO
+    public String getFacilityInformation() {
     	String facInfo = "";
+    	Facility fac = this.getFacility();
+    	String usage = fac.getUsage();
+    	String address = fac.getAddress();
+    	int serialNumber = fac.getFacilitySerialNumber();
+    	if (fac != null && usage.length() > 0 && address.length() > 0 && serialNumber != 0) {
+    		facInfo = "Facility " + serialNumber + " located at " + address + " is used for " + usage;
+    	}
     	return facInfo;
-    }
-    @Override
-    public ArrayList<MaintRequest> listFacilityInspections(ArrayList<MaintRequest> maintenance) { //TODO
-        ArrayList<MaintRequest> facInspections = null;
-        return facInspections;
     }
 }

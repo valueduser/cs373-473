@@ -185,6 +185,22 @@ public class MaintManagerImpl implements MaintManager {
         }
         return null;
     }
+    
+    @Override
+    public ArrayList<MaintRequest> listFacilityInspections(int facilitySerialNumber) {
+        ArrayList<MaintRequest> facMaint = this.listMaintRequestsForFacility(facilitySerialNumber);
+        ArrayList<MaintRequest> facInspections = new ArrayList<MaintRequest>();
+        Iterator<MaintRequest> it = facMaint.iterator();
+        while(it.hasNext())
+        {
+            MaintRequest obj = it.next();
+            MaintRequest maint = (MaintRequest) obj;
+            if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getMaintType()  == "INSPECTION"){
+                facInspections.add(maint);
+            }
+        }
+        return facInspections;
+    }
 
 	@Override
 	public void setMaintRequest(MaintRequest maintRequest) {

@@ -13,5 +13,4 @@ public interface FacManager {
     public int listActualUsage(int facilitySerialNumber);
     public int calcUsageRate(int facilitySerialNumber);
     public String getFacilityInformation();
-    public ArrayList<MaintRequest> listFacilityInspections(ArrayList<MaintRequest> maintenance);
 }

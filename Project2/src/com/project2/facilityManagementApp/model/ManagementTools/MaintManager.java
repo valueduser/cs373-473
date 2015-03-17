@@ -14,6 +14,7 @@ public interface MaintManager {
 	public double calcMaintCostForFacility(int facilitySerialNumber);
 	public double calcProblemRateForFacility(Facility facility);
 	public double calcDownTimeForFaciliity(int facilitySerialNumber);
+    public ArrayList<MaintRequest> listFacilityInspections(int facilitySerialNumber);
 	
 	//lifetime requests for a facilities
 	public ArrayList<MaintRequest> listMaintRequestsForFacility(int facilitySerialNumber);

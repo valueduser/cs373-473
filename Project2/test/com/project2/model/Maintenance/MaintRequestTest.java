@@ -114,6 +114,18 @@ public class MaintRequestTest {
 
         assertEquals(isNull, true);
     }
+    
+    @Test
+    public void testListFacilityInspections() {
+        System.out.println("testListFacilityInspections...");
+
+        boolean isNotNull = false;
+        if(mMgr.listFacilityInspections(request1.getFacilitySerialNumber()) != null){
+            isNotNull = true;
+        }
+
+        assertEquals(isNotNull, false);
+    }
 
     @Test
     public void testListMaint() {

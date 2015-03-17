@@ -137,18 +137,6 @@ public class FacilityTest {
     }
 
     @Test
-    public void testListFacilityInspections() {
-        System.out.println("testListFacilityInspections...");
-
-        boolean isNotNull = false;
-        if(facMgr.listFacilityInspections(maintReports) != null){
-            isNotNull = true;
-        }
-
-        assertEquals(isNotNull, false);
-    }
-
-    @Test
     public void testGetVacancy() {
         System.out.println("testGetVacancy...");
 
