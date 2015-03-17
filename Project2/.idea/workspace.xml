@@ -95,10 +95,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FacilityDAO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FacilityDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/project2/facilityManagementApp/DAO/FacilityDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76478875" vertical-offset="231" max-vertical-offset="1170">
+            <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="1170">
               <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
               <folding />
             </state>
@@ -117,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MaintRequestTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MaintRequestTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/project2/model/Maintenance/MaintRequestTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="732" max-vertical-offset="4302">
-              <caret line="126" column="9" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.8985916" vertical-offset="3574" max-vertical-offset="4320">
+              <caret line="265" column="1" selection-start-line="265" selection-start-column="1" selection-end-line="265" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#658#672#0" expanded="true" />
@@ -202,9 +202,9 @@
         <option value="$PROJECT_DIR$/test/com/project2/model/Maintenance/MaintDetailsTest.java" />
         <option value="$PROJECT_DIR$/src/com/project2/facilityManagementApp/client/FacilityManagementAddClient.java" />
         <option value="$PROJECT_DIR$/test/com/project2/model/Facility/FacilityTest.java" />
-        <option value="$PROJECT_DIR$/test/com/project2/model/Maintenance/MaintRequestTest.java" />
         <option value="$PROJECT_DIR$/src/com/project2/facilityManagementApp/DAO/FacilityDAO.java" />
         <option value="$PROJECT_DIR$/src/com/project2/facilityManagementApp/DAO/MaintenanceDAO.java" />
+        <option value="$PROJECT_DIR$/test/com/project2/model/Maintenance/MaintRequestTest.java" />
       </list>
     </option>
   </component>
@@ -929,7 +929,7 @@
       <workItem from="1425959789415" duration="69000" />
       <workItem from="1425959881749" duration="14625000" />
       <workItem from="1426438962405" duration="12424000" />
-      <workItem from="1426478749957" duration="19182000" />
+      <workItem from="1426478749957" duration="19340000" />
     </task>
     <task id="LOCAL-00001" summary="adds src">
       <created>1425440466827</created>
@@ -953,7 +953,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82307000" />
+    <option name="totallyTimeSpent" value="82465000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1418,21 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/project2/model/Maintenance/MaintRequestTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="732" max-vertical-offset="4302">
-          <caret line="126" column="9" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#658#672#0" expanded="true" />
-            <element signature="method#testCalcMaintCostForFacility#0;class#MaintRequestTest#0" expanded="false" />
-            <element signature="method#testCalcProblemRateForFacility#0;class#MaintRequestTest#0" expanded="false" />
-            <element signature="method#testCalcDownTimeForFaciliity#0;class#MaintRequestTest#0" expanded="false" />
-            <element signature="method#testListMaint#0;class#MaintRequestTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/fff09fdc/332ac57c-092d-4b67-b165-ab0a76f26c87/FacilityMgmt.public.maintenance">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1471,9 +1456,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/project2/facilityManagementApp/DAO/FacilityDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76478875" vertical-offset="231" max-vertical-offset="1170">
+        <state vertical-scroll-proportion="0.0" vertical-offset="231" max-vertical-offset="1170">
           <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/project2/model/Maintenance/MaintRequestTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8985916" vertical-offset="3574" max-vertical-offset="4320">
+          <caret line="265" column="1" selection-start-line="265" selection-start-column="1" selection-end-line="265" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#658#672#0" expanded="true" />
+            <element signature="method#testCalcMaintCostForFacility#0;class#MaintRequestTest#0" expanded="false" />
+            <element signature="method#testCalcProblemRateForFacility#0;class#MaintRequestTest#0" expanded="false" />
+            <element signature="method#testCalcDownTimeForFaciliity#0;class#MaintRequestTest#0" expanded="false" />
+            <element signature="method#testListMaint#0;class#MaintRequestTest#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

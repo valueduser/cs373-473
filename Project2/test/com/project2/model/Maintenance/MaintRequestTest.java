@@ -168,6 +168,7 @@ public class MaintRequestTest {
     public void testSetRequestID() {
         request1.setRequestId(3);
         int id = request1.getRequestId();
+
         assertEquals(id, 3);
     }
 
