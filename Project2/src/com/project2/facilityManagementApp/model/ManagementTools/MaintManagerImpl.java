@@ -199,7 +199,14 @@ public class MaintManagerImpl implements MaintManager {
                 facInspections.add(maint);
             }
         }
-        return facInspections;
+        if (facInspections.size() > 0){
+        	System.out.println("Inspections found.");
+        	return facInspections;
+        }
+        else {
+        	System.out.println("Inspections found.");
+        	return null;
+        }
     }
 
 	@Override
