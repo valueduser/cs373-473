@@ -28,7 +28,6 @@ public class FacilityTest {
 
     @Before
     public void setUp() throws Exception {
-        System.out.println(setupComplete.toString());
         if (setupComplete) {
             System.out.println("Setup Already Completed.");
             return;
@@ -65,7 +64,6 @@ public class FacilityTest {
         System.out.println("Building 2, serial# " + building2.getFacilitySerialNumber() + " added.");
 
         setupComplete = true;
-        System.out.println(setupComplete.toString());
     }
 
     @Test

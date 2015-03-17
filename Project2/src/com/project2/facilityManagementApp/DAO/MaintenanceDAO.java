@@ -9,7 +9,13 @@ public class MaintenanceDAO {
     public void addMaintenanceReq(MaintRequest maintReq){
         System.out.println("Adding Maint Req to DB: " + maintReq.getFacilitySerialNumber());
         Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
+        if (session.getTransaction() != null
+                && session.getTransaction().isActive()) {
+            session.getTransaction();
+        } else {
+            session.beginTransaction();
+        }
+//        session.beginTransaction();
         session.save(maintReq);
         session.getTransaction().commit();
     }
@@ -19,7 +25,13 @@ public class MaintenanceDAO {
     public MaintRequest getMaintenanceReq(int requestID){
         try {
             Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
-            session.beginTransaction();
+            if (session.getTransaction() != null
+                    && session.getTransaction().isActive()) {
+                session.getTransaction();
+            } else {
+                session.beginTransaction();
+            }
+//            session.beginTransaction();
             System.out.println("Getting Maint Req from DB: " + requestID);
 
             Query getMaintReqQuery = session.createQuery("From MaintRequestImpl mr where mr.requestId = :id");
@@ -38,7 +50,13 @@ public class MaintenanceDAO {
     public void removeMaintenanceReq(MaintRequest maintReq){
         System.out.println("Removing Maint Req from DB: " + maintReq.getRequestId());
         Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
+        if (session.getTransaction() != null
+                && session.getTransaction().isActive()) {
+            session.getTransaction();
+        } else {
+            session.beginTransaction();
+        }
+//        session.beginTransaction();
         session.delete(maintReq);
         session.getTransaction().commit();
     }
