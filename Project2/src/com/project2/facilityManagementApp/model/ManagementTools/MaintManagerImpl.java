@@ -190,14 +190,16 @@ public class MaintManagerImpl implements MaintManager {
     public ArrayList<MaintRequest> listFacilityInspections(int facilitySerialNumber) {
         ArrayList<MaintRequest> facMaint = this.listMaintRequestsForFacility(facilitySerialNumber);
         ArrayList<MaintRequest> facInspections = new ArrayList<MaintRequest>();
-        Iterator<MaintRequest> it = facMaint.iterator();
-        while(it.hasNext())
-        {
-            MaintRequest obj = it.next();
-            MaintRequest maint = (MaintRequest) obj;
-            if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getMaintType()  == "INSPECTION"){
-                facInspections.add(maint);
-            }
+        if(facMaint != null){
+	        Iterator<MaintRequest> it = facMaint.iterator();
+	        while(it.hasNext())
+	        {
+	            MaintRequest obj = it.next();
+	            MaintRequest maint = (MaintRequest) obj;
+	            if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getMaintType()  == "INSPECTION"){
+	                facInspections.add(maint);
+	            }
+	        }
         }
         if (facInspections.size() > 0){
         	System.out.println("Inspections found.");
