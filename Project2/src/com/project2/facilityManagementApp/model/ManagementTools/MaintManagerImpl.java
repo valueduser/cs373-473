@@ -7,12 +7,12 @@ import com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl;
 import com.project2.facilityManagementApp.model.Facility.Facility;
 
 public class MaintManagerImpl implements MaintManager {
-	private MaintRequest maintRequest;
-	
-	private ArrayList<MaintRequest> maintenanceList;
+    private MaintRequest maintRequest;
 
-	public MaintManagerImpl(){}
-	
+    private ArrayList<MaintRequest> maintenanceList;
+
+    public MaintManagerImpl(){}
+
     public ArrayList<MaintRequest> getMaintenanceList() {
         if (this.maintenanceList != null){
             return this.maintenanceList;
@@ -185,38 +185,40 @@ public class MaintManagerImpl implements MaintManager {
         }
         return null;
     }
-    
+
     @Override
     public ArrayList<MaintRequest> listFacilityInspections(int facilitySerialNumber) {
         ArrayList<MaintRequest> facMaint = this.listMaintRequestsForFacility(facilitySerialNumber);
         ArrayList<MaintRequest> facInspections = new ArrayList<MaintRequest>();
-        Iterator<MaintRequest> it = facMaint.iterator();
-        while(it.hasNext())
-        {
-            MaintRequest obj = it.next();
-            MaintRequest maint = (MaintRequest) obj;
-            if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getMaintType()  == "INSPECTION"){
-                facInspections.add(maint);
+        if(facMaint != null){
+            Iterator<MaintRequest> it = facMaint.iterator();
+            while(it.hasNext())
+            {
+                MaintRequest obj = it.next();
+                MaintRequest maint = (MaintRequest) obj;
+                if (maint.getFacilitySerialNumber() == facilitySerialNumber && maint.getMaintType()  == "INSPECTION"){
+                    facInspections.add(maint);
+                }
             }
         }
         if (facInspections.size() > 0){
-        	System.out.println("Inspections found.");
-        	return facInspections;
+            System.out.println("Inspections found.");
+            return facInspections;
         }
         else {
-        	System.out.println("Inspections found.");
-        	return null;
+            System.out.println("Inspections not found.");
+            return null;
         }
     }
 
-	@Override
-	public void setMaintRequest(MaintRequest maintRequest) {
-		this.maintRequest = maintRequest;
-		
-	}
+    @Override
+    public void setMaintRequest(MaintRequest maintRequest) {
+        this.maintRequest = maintRequest;
 
-	@Override
-	public MaintRequest getMaintRequest() {
-		return maintRequest;
-	}
+    }
+
+    @Override
+    public MaintRequest getMaintRequest() {
+        return maintRequest;
+    }
 }
