@@ -146,136 +146,137 @@ public class MaintRequestTest {
 
         assertEquals(isNull, true);
     }
-//
-//    @Test
-//    public void testSetRequestID() {
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        m.setRequestId(3);
-//        int id = m.getRequestId();
 
-//        assertEquals(id, 3);
-//    }
-//
-//    @Test
-//    public void testSetMaintType() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        m.setMaintType("SEV 3");
-//        String type = m.getMaintType();
+    @Test
+    public void testSetRequestID() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        m.setRequestId(3);
+        int id = m.getRequestId();
 
-//        assertEquals(type, "SEV 3");
-//    }
-//
-//    @Test
-//    public void testSetTimeToComplete() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        m.setTimeToComplete(10);
-//        int time = m.getTimeToComplete();
+        assertEquals(id, 3);
+    }
 
-//        assertEquals(time, 10);
-//    }
-//
-//    @Test
-//    public void testSetIsOpen() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        m.setIsOpen(true);
-//        boolean open = m.getIsOpen();
+    @Test
+    public void testSetMaintType() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        m.setMaintType("SEV 3");
+        String type = m.getMaintType();
 
-//        assertEquals(open, true);
-//    }
-//
-//    @Test
-//    public void testSetIsScheduled() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        m.setIsScheduled(true);
-//        boolean scheduled = m.getIsScheduled();
+        assertEquals(type, "SEV 3");
+    }
 
-//        assertEquals(scheduled, true);
-//    }
-//
-//    @Test
-//    public void testSetFacilitySerialNumbe() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        m.setFacilitySerialNumber(3);
-//        int num = m.getFacilitySerialNumber();
+    @Test
+    public void testSetTimeToComplete() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        m.setTimeToComplete(10);
+        int time = m.getTimeToComplete();
 
-//        assertEquals(num, 3);
-//    }
-//
-//    @Test
-//    public void testSetStartDate() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        m.setStartDate(30);
-//        int num = m.getStartDate();
+        assertEquals(time, 10);
+    }
 
-//        assertEquals(num, 30);
-//    }
-//
-//    @Test
-//    public void testGetRequestID() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        int num = m.getRequestId();
+    @Test
+    public void testSetIsOpen() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        m.setIsOpen(true);
+        boolean open = m.getIsOpen();
 
-//        assertEquals(num, 2);
-//    }
-//
-//    @Test
-//    public void testGetMaintType() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        String type = m.getMaintType();
+        assertEquals(open, true);
+    }
 
-//        assertEquals(type, "SEV 2");
-//    }
-//
-//    @Test
-//    public void testGetTimeToComplete() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        int time = m.getTimeToComplete();
+    @Test
+    public void testSetIsScheduled() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        m.setIsScheduled(true);
+        boolean scheduled = m.getIsScheduled();
 
-//        assertEquals(time, 20);
-//    }
-//
-//    @Test
-//    public void testGetIsOpen() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        boolean open = m.getIsOpen();
+        assertEquals(scheduled, true);
+    }
 
-//        assertEquals(open, false);
-//    }
-//
-//    @Test
-//    public void testGetIsScheduled() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        boolean scheduled = m.getIsScheduled();
+    @Test
+    public void testSetFacilitySerialNumbe() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        m.setFacilitySerialNumber(3);
+        int num = m.getFacilitySerialNumber();
 
-//        assertEquals(scheduled, true);
-//    }
-//
-//    @Test
-//    public void testGetFacilitySerialNumbe() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        int num = m.getFacilitySerialNumber();
+        assertEquals(num, 3);
+    }
 
-//        assertEquals(num, 1);
-//    }
-//
-//    @Test
-//    public void testGetStartDate() {
-////        MaintRequest tempMaint = maintRequests.get(1);
-//        MaintRequest m = (MaintRequest) tempMaint;
-//        int num = m.getStartDate();
+    @Test
+    public void testSetStartDate() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        m.setStartDate(30);
+        int num = m.getStartDate();
 
-//        assertEquals(num, 290);
-//    }
+        assertEquals(num, 30);
+    }
+
+    @Test
+    public void testGetRequestID() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        int num = m.getRequestId();
+
+        assertEquals(num, 2);
+    }
+
+    @Test
+    public void testGetMaintType() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        String type = m.getMaintType();
+
+        assertEquals(type, "SEV 2");
+    }
+
+    @Test
+    public void testGetTimeToComplete() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        int time = m.getTimeToComplete();
+
+        assertEquals(time, 20);
+    }
+
+    @Test
+    public void testGetIsOpen() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        boolean open = m.getIsOpen();
+
+        assertEquals(open, false);
+    }
+
+    @Test
+    public void testGetIsScheduled() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        boolean scheduled = m.getIsScheduled();
+
+        assertEquals(scheduled, true);
+    }
+
+    @Test
+    public void testGetFacilitySerialNumbe() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        int num = m.getFacilitySerialNumber();
+
+        assertEquals(num, 1);
+    }
+
+    @Test
+    public void testGetStartDate() {
+        MaintRequest tempMaint = maintRequests.get(1);
+        MaintRequest m = (MaintRequest) tempMaint;
+        int num = m.getStartDate();
+
+        assertEquals(num, 290);
+    }
 }
