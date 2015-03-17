@@ -99,15 +99,25 @@ public class MaintRequestTest {
 ////        assertEquals(isNull, true);
 //    }
 
-    @Test //This test has a bug
+    @Test
     public void testCalcDownTimeForFaciliity() {
-        double downtime = 0.0;
-        assertEquals(downtime, mMgr.calcDownTimeForFaciliity(request99.getFacilitySerialNumber()), 1);
+        double downtime = 20.0/60.0;
+        assertEquals(downtime, mMgr.calcDownTimeForFaciliity(request1.getFacilitySerialNumber()), 1);
     }
 
     @Test
     public void testListMaintRequestsForFacility() {
-        assertNotNull(mMgr.listMaintRequestsForFacility(request99.getFacilitySerialNumber()));
+        ArrayList<String> list = new ArrayList<String>();
+
+        ArrayList<MaintRequest> maintenanceList = new ArrayList<MaintRequest>();
+        maintenanceList = mMgr.listMaintRequestsForFacility(request99.getFacilitySerialNumber());
+        if(maintenanceList != null) {
+            Iterator<MaintRequest> it = maintenanceList.iterator();
+            while (it.hasNext()) {
+                list.add(it.next().getMaintType());
+            }
+        }
+        assertNotNull(list.get(0));
     }
     
     @Test

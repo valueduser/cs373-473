@@ -113,7 +113,7 @@ public class MaintManagerImpl implements MaintManager {
                 MaintRequest obj = it.next();
                 MaintRequest maint = (MaintRequest) obj;
                 if (maint.getFacilitySerialNumber() == facilitySerialNumber && !maint.getIsOpen()){
-                    downTime += maint.getTimeToComplete()/60;
+                    downTime += maint.getTimeToComplete()/60.0;
                 }
             }
             return downTime;
