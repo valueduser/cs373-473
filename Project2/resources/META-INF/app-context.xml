@@ -16,7 +16,7 @@
 		class="com.project2.facilityManagementApp.model.Facility.FacilityImpl"
 		scope="prototype">
 		<property name="maintHistory">
-			<list/>
+			<array> <ref bean="maintRequest"></ref> </array>
 		</property>
 	</bean>
 

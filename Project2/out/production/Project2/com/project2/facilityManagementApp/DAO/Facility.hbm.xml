@@ -17,5 +17,9 @@
 		<property name="unscheduledDownTime" type="int" column="unscheduleddowntime" />
 		<property name="parentId" type="int" column="parentid" />
 		<property name="address" type="string" column="address" />
+		<set name="maintHistory">
+			<key column="facilityserialnumber"/>
+			<one-to-many class="com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl"/>
+		</set>
 	</class>
 </hibernate-mapping>

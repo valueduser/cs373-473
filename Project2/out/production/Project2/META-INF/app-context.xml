@@ -14,7 +14,11 @@
 		scope="prototype" />
 	<bean id="facility"
 		class="com.project2.facilityManagementApp.model.Facility.FacilityImpl"
-		scope="prototype" />
+		scope="prototype">
+		<property name="maintHistory">
+			<array> <ref bean="maintRequest"></ref> </array>
+		</property>
+	</bean>
 
 	<bean id="facManager"
 		class="com.project2.facilityManagementApp.model.ManagementTools.FacManagerImpl"

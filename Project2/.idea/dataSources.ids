@@ -19159,11 +19159,4 @@
       </prototype>
     </procedure>
   </data-source>
-  <data-source name="HSQLDB - FacilityMgmt" uuid="8a663ae1-385a-443c-867d-d102dd18aad9">
-    <database-info product="HSQL Database Engine" version="2.3.2" jdbc-version="4.0" driver-name="HSQL Database Engine Driver" driver-version="2.3.2">
-      <identifier-quote-string>&quot;</identifier-quote-string>
-    </database-info>
-    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
-    <schema name="PUBLIC" catalog="PUBLIC"/>
-  </data-source>
 </component>

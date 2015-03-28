@@ -53,17 +53,17 @@ public class FacilityImpl implements Facility{
 
     @Override
     public ArrayList<Facility> getChildren(ArrayList<Facility> facilities) {
-        ArrayList<Facility> childeren = new ArrayList<Facility>();
+        ArrayList<Facility> children = new ArrayList<Facility>();
 
         Iterator<Facility> it = facilities.iterator();
         while(it.hasNext())
         {
             Facility obj = it.next();
             if (obj.getParentId() == getFacilitySerialNumber()){
-                childeren.add(obj);
+                children.add(obj);
             }
         }
-        return childeren;
+        return children;
     }
 
     @Override
