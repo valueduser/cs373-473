@@ -14,19 +14,21 @@
 		scope="prototype" />
 	<bean id="facility"
 		class="com.project2.facilityManagementApp.model.Facility.FacilityImpl"
-		scope="prototype" />
+		scope="prototype">
+		<property name="maintHistory">
+			<list/>
+		</property>
+	</bean>
 
 	<bean id="facManager"
 		class="com.project2.facilityManagementApp.model.ManagementTools.FacManagerImpl"
 		scope="prototype">
 		<property name="facility" ref="facility" />
-		<property name="maintRequest" ref="maintRequest" />
 	</bean>
 
 	<bean id="maintManager"
 		class="com.project2.facilityManagementApp.model.ManagementTools.MaintManagerImpl"
 		scope="prototype">
-		<property name="facility" ref="facility" />
 		<property name="maintRequest" ref="maintRequest" />
 	</bean>
 
