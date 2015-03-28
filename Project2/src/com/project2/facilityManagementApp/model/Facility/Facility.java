@@ -2,6 +2,8 @@ package com.project2.facilityManagementApp.model.Facility;
 
 import java.util.ArrayList;
 
+import com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl;
+
 public interface Facility {
     public String getUsage();
     public int getDownTime();
@@ -16,6 +18,8 @@ public interface Facility {
     public int getUnscheduledDownTime();
     public boolean getIsUsed();
     public String getAddress();
+    public ArrayList<MaintRequestImpl> getMaintHistory();
+    public void setMaintHistory(ArrayList<MaintRequestImpl> maintHistory);
     public void setAddress(String address);
     public void setUsage(String useType);
     public void setIsVacant(boolean isVacant);

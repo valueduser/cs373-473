@@ -3,6 +3,8 @@ package com.project2.facilityManagementApp.model.Facility;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl;
+
 public class FacilityImpl implements Facility{
     private int serialNumber;
     private int parentId;
@@ -12,6 +14,7 @@ public class FacilityImpl implements Facility{
     private String usage;
     private int startDate; //days from 1000/01/01
     private int endDate; //days from 1000/01/01
+    ArrayList<MaintRequestImpl> maintHistory;
 
     private String address = null;
 
@@ -158,4 +161,17 @@ public class FacilityImpl implements Facility{
     public String getAddress(){
         return address;
     }
+
+	@Override
+	public ArrayList<MaintRequestImpl> getMaintHistory() {
+		return maintHistory;
+	}
+
+	@Override
+	public void setMaintHistory(ArrayList<MaintRequestImpl> maintHistory) {
+		if(maintHistory != null){
+			this.maintHistory = maintHistory;
+		}
+		
+	}
 }
