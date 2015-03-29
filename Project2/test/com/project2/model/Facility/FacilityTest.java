@@ -162,22 +162,6 @@ public class FacilityTest {
     }
 
     @Test
-    public void testGetChildren() {
-        System.out.println("testGetChildren...");
-
-        boolean isNotNull;
-        ArrayList<Facility> children = building1.getChildren(facilities);
-        if(children != null){
-            isNotNull = true;
-        }
-        else{
-            isNotNull = false;
-        }
-
-        assertEquals(isNotNull, true);
-    }
-
-    @Test
     public void testGetFacilitySerialNumber() {
         System.out.println("testGetFacilitySerialNumber...");
 

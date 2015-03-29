@@ -1,6 +1,6 @@
 package com.project2.facilityManagementApp.model.Facility;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Iterator;
 
 import com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl;
@@ -14,7 +14,7 @@ public class FacilityImpl implements Facility{
     private String usage;
     private int startDate; //days from 1000/01/01
     private int endDate; //days from 1000/01/01
-    ArrayList<MaintRequestImpl> maintHistory;
+    List<MaintRequestImpl> maintHistory;
 
     private String address = null;
 
@@ -49,23 +49,7 @@ public class FacilityImpl implements Facility{
     public int getCapacity() {
         return capacity;
     }
-
-
-    @Override
-    public ArrayList<Facility> getChildren(ArrayList<Facility> facilities) {
-        ArrayList<Facility> children = new ArrayList<Facility>();
-
-        Iterator<Facility> it = facilities.iterator();
-        while(it.hasNext())
-        {
-            Facility obj = it.next();
-            if (obj.getParentId() == getFacilitySerialNumber()){
-                children.add(obj);
-            }
-        }
-        return children;
-    }
-
+    
     @Override
     public int getFacilitySerialNumber() {
         return serialNumber;
@@ -163,12 +147,12 @@ public class FacilityImpl implements Facility{
     }
 
 	@Override
-	public ArrayList<MaintRequestImpl> getMaintHistory() {
+	public List<MaintRequestImpl> getMaintHistory() {
 		return maintHistory;
 	}
 
 	@Override
-	public void setMaintHistory(ArrayList<MaintRequestImpl> maintHistory) {
+	public void setMaintHistory(List<MaintRequestImpl> maintHistory) {
 		if(maintHistory != null){
 			this.maintHistory = maintHistory;
 		}
