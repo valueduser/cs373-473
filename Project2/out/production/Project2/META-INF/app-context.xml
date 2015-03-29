@@ -18,10 +18,7 @@
 		class="com.project2.facilityManagementApp.model.Facility.FacilityImpl"
 		scope="prototype">
 		<property name="maintHistory">
-			<util:list  list-class="java.util.ArrayList" value-type="com.project2.facilityManagementApp.model.Maintenance.MaintRequest">
-					<value>com.project2.facilityManagementApp.model.Maintenance.MaintRequestImpl</value>
-				<ref bean="maintRequest"></ref>
-			</util:list>
+			<list/>
 		</property>
 	</bean>
 

@@ -18,6 +18,8 @@ public class FacilityDAO {
             session.beginTransaction();
         }
 //        session.beginTransaction();
+        System.out.println("POSSIBLE BUG:");
+
         session.save(bldg);
         session.getTransaction().commit();
     }
@@ -52,6 +54,7 @@ public class FacilityDAO {
             getFacilityQuery.setParameter("id", id);
 
             List bldgList = getFacilityQuery.list();
+
 
             session.getTransaction().commit();
             return (FacilityImpl)bldgList.get(0);
