@@ -1,6 +1,6 @@
-import SlimShady.RealSlimShady;
-import SlimShady.SlimShady;
-import SlimShady.ProxySlimShady;
+package Proxy;
+
+import Proxy.SlimShady.*;
 
 public class PleaseStandUp {
 	public static void main(String [] args){

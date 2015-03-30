@@ -1,4 +1,4 @@
-package SlimShady;
+package Proxy.SlimShady;
 
 public class ProxySlimShady implements SlimShady {
 	private SlimShady slim;
@@ -13,5 +13,4 @@ public class ProxySlimShady implements SlimShady {
 		realSlim.standUp();
 		return true;
 	}
-	
 }

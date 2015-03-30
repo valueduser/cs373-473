@@ -1,4 +1,4 @@
-package SlimShady;
+package Proxy.SlimShady;
 
 public class RealSlimShady implements SlimShady
 {
