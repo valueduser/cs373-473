@@ -13,7 +13,7 @@ public class RealSlimShady implements SlimShady
 	public boolean standUp() {
 		if (this.isStanding == false){
 			this.isStanding = true;
-			System.out.println("The real slim shady has stood up!");
+			System.out.println("Yes I'm the real Shady \nAll you other Slim Shadys are just imatating");
 			return this.isStanding;
 		}
 		else {
