@@ -3,21 +3,25 @@ package Visitor.visitabe;
 import Visitor.visitor.Visitor;
 
 public class Hotel implements Visitable {
-	private Visitor vistor;
-	private float price;
+	private int pricePerNight = 120;
+	private int nightsStayed;
+	
 
 	@Override
 	public void accept(Visitor vistor) {
-		this.vistor = vistor;
+		vistor.visit(this);
 
 	}
 
-	public float getPrice() {
-		return price;
+	public double getPricePerNight() {
+		return pricePerNight;
 	}
 
-	public void setPrice(float price) {
-		this.price = price;
+	public int getNightsStayed() {
+		return nightsStayed;
 	}
 
+	public void setNightsStayed(int nightsStayed) {
+		this.nightsStayed = nightsStayed;
+	}
 }
