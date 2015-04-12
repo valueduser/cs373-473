@@ -5,7 +5,7 @@ import Visitor.visitabe.Visitable;
 import Visitor.visitor.CostVisitor;
 
 public class ShoppingCart {
-	private ArrayList<Visitable> items;
+	private ArrayList<Visitable> items = new ArrayList<Visitable>();
 	
 	public double calculateCostOfTrip(){
 		CostVisitor vistor = new CostVisitor();
@@ -16,7 +16,7 @@ public class ShoppingCart {
 		return costOfTrip;
 	}
 	
-	public void addItemToCart(Visitable item){
+	public void add(Visitable item){
 		items.add(item);
 	}
 }
