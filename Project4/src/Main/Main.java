@@ -1,6 +1,11 @@
 package Main;
 
 import java.text.DecimalFormat;
+//
+//import Command.Broker;
+//import Command.BuySoyBeans;
+//import Command.ChicagoMercantileExchange;
+//import Command.Commodity;
 
 import Visitor.shoppingCart.ShoppingCart;
 import Visitor.visitabe.Flight;
@@ -10,8 +15,20 @@ public class Main {
 
 	public static void main(String[] args) {
 		visitorImp();
+//		commandImp();
 	}
-	
+
+//	private static void commandImp() {
+//		Commodity newCommodity = ChicagoMercantileExchange.getCommodity();
+//		BuySoyBeans buyCommand = new BuySoyBeans(newCommodity);
+//		Broker giveCall = new Broker(buyCommand);
+//		giveCall.callOnTelephone();
+//	}
+
+//	public static something commandSetUp(){
+//		//todo stub
+//	}
+
 	public static ShoppingCart visitorSetUp(){
 		ShoppingCart cart = new ShoppingCart();
 		Flight flight1 = new Flight();
