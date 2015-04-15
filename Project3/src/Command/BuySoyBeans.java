@@ -1,16 +1,16 @@
 package Command;
 
 //Command Object Implementation
-public class SellSoyBeans implements Command{
+public class BuySoyBeans implements Command {
     Commodity commodity;
 
-    SellSoyBeans(Commodity someCommodity){
+    public BuySoyBeans(Commodity someCommodity){
         commodity = someCommodity;
     }
 
 
     @Override
     public void execute() {
-        commodity.sell();
+        commodity.buy();
     }
 }

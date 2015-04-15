@@ -1,7 +1,7 @@
-package Visitor.visitor;
+package Visitor.ShoppingCart.visitor;
 
-import Visitor.visitable.Flight;
-import Visitor.visitable.Hotel;
+import Visitor.ShoppingCart.visitabe.Flight;
+import Visitor.ShoppingCart.visitabe.Hotel;
 
 public class CostVisitor implements Visitor {
     private double totalCostOfTrip;

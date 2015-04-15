@@ -3,7 +3,7 @@ package Command;
 //Invoker Object
 public class Broker {
 
-    Command command;
+    private Command command;
 
     public Broker(Command aCommand){
         command = aCommand;
