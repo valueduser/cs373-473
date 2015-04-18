@@ -3,21 +3,21 @@ package Command.Commands;
 import Command.Commodities.Commodity;
 
 //Command Object Implementation
-public class BuySoyBeans implements Command{
+public class SellCrudeOil  implements Command{
     Commodity commodity;
 
-    public BuySoyBeans(Commodity someCommodity){
+    public SellCrudeOil(Commodity someCommodity){
         commodity = someCommodity;
     }
 
 
     @Override
     public void execute() {
-        commodity.buy();
+        commodity.sell();
     }
 
     @Override
     public void undo() {
-        commodity.sell();
+        commodity.buy();
     }
 }

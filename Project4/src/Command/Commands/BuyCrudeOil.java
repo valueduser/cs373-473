@@ -3,10 +3,10 @@ package Command.Commands;
 import Command.Commodities.Commodity;
 
 //Command Object Implementation
-public class BuySoyBeans implements Command{
+public class BuyCrudeOil implements Command{
     Commodity commodity;
 
-    public BuySoyBeans(Commodity someCommodity){
+    public BuyCrudeOil(Commodity someCommodity){
         commodity = someCommodity;
     }
 
