@@ -1,4 +1,4 @@
-package Command;
+package Command.Commodities;
 
 //Receiver Object
 public interface Commodity {

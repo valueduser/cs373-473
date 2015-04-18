@@ -1,5 +1,9 @@
 package Command;
 
+import Command.Commands.BuySoyBeans;
+import Command.Commands.SellSoyBeans;
+import Command.Commodities.Commodity;
+
 public class Client {
 
     public static void main(String[] args){
@@ -19,5 +23,4 @@ public class Client {
         Broker giveCall6 = new Broker(buyCommand);
         giveCall6.callOnTelephone();
     }
-
 }

@@ -1,4 +1,8 @@
-package Command;
+package Command.Commands;
+
+//import Command.Commands.Command;
+
+import Command.Commodities.Commodity;
 
 //Command Object Implementation
 public class BuySoyBeans implements Command{
@@ -12,5 +16,10 @@ public class BuySoyBeans implements Command{
     @Override
     public void execute() {
         commodity.buy();
+    }
+
+    @Override
+    public void undo() {
+        commodity.sell();
     }
 }
